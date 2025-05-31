@@ -6,7 +6,7 @@ const TermsOfService = () => {
     <div className="container mx-auto px-4 py-8 max-w-4xl">
       <SEO 
         title="Terms of Service - Design Deliver Grow"
-        description="Read the official Terms of Service for using Design Deliver Grow's courses, services, and digital products."
+        description="Read the official Terms of Service for using Design Deliver Grow's workshops, services, and digital products."
       />
       <h1 className="text-4xl font-bold mb-8">Terms of Service</h1>
       
@@ -40,7 +40,7 @@ const TermsOfService = () => {
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">4. Payments and Refunds</h2>
           <ul className="list-disc pl-6 mb-4">
-            <li>All prices for services, courses, or digital products are displayed in INR (₹) and are subject to applicable taxes.</li>
+            <li>All prices for services, workshops, or digital products are displayed in INR (₹) and are subject to applicable taxes.</li>
             <li>We use secure third-party payment processors. We do not store your card information.</li>
             <li>Refunds, if applicable, are governed by our <strong>Refund Policy</strong> (available upon request or linked separately).</li>
             <li>Subscription services may auto-renew unless canceled before the billing cycle.</li>
@@ -74,7 +74,7 @@ const TermsOfService = () => {
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">9. Contact Us</h2>
           <p>If you have any questions about these Terms, please contact us at:</p>
-          <p><strong>Email:</strong> <a href="mailto:info@designdelivergrow.com">info@designdelivergrow.com</a></p>
+          <p><strong>Email:</strong> <a href="mailto:info@designdelivergrow.store">info@designdelivergrow.store</a></p>
         </section>
       </div>
     </div>

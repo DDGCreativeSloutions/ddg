@@ -16,98 +16,99 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "E-Commerce Platform",
+      title: "E-Library Website",
       category: "Web Development",
-      description: "Full-stack e-commerce solution with payment integration",
-      image: "🛒",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+      description: "Web application to browse, search, and read books online",
+      image: "📚",
+      technologies: ["HTML", "CSS", "JavaScript", "REST APIs"],
       features: [
-        "User authentication & authorization",
-        "Product catalog with search & filters",
-        "Shopping cart & checkout system",
-        "Payment gateway integration",
-        "Order tracking & management",
-        "Admin dashboard for inventory"
-      ],
-      deliverables: ["Complete source code", "Database design", "API documentation", "Deployment guide"],
-      client: "Student Project - Final Year",
-      duration: "4 weeks"
+        "Responsive UI design",
+        "Search and filter functionality",
+        "Book previews and detailed descriptions",
+        "Category-wise book organization",
+    "Bookmarking and reading history",
+    "REST API integration for dynamic content"
+  ],
+  deliverables: ["Frontend source code", "UI wireframes", "API usage documentation"],
+  client: "Personal Project",
+  duration: "4 weeks"
+
     },
     {
       id: 2,
-      title: "AI-Powered Chatbot",
-      category: "AI/ML",
-      description: "Intelligent customer service chatbot using natural language processing",
-      image: "🤖",
-      technologies: ["Python", "TensorFlow", "Flask", "NLP"],
-      features: [
-        "Natural language understanding",
-        "Intent recognition & classification",
-        "Context-aware conversations",
-        "Multi-language support",
-        "Learning from interactions",
-        "Integration with websites"
-      ],
-      deliverables: ["Trained AI model", "Web interface", "API endpoints", "Training documentation"],
-      client: "Tech Startup",
-      duration: "6 weeks"
+  title: "Fake Media Detection System",
+  category: "AI/ML",
+description: "AI-driven platform for detecting fake news, manipulated images, and deepfakes using NLP, computer vision, and blockchain.",
+  image: "🛡️",
+  technologies: ["React", "XGBoost", "Blockchain", "OpenCV"],
+  features: [
+    "Media upload support for text, images, and videos",
+    "Fake news detection using NLP and XGBoost",
+    "Image/deepfake detection via CNN and GAN-based models",
+    "Blockchain-based media hash verification",
+    "User authentication with role-based access",
+    "Dashboard with detailed analysis results and trends"
+  ],
+  deliverables: ["Full source code", "Trained ML models", "Blockchain smart contracts", "API documentation", "User manual"],
+  client: "Research & Innovation Project",
+  duration: "8 weeks"
     },
     {
-      id: 3,
-      title: "Student Management System",
-      category: "CSE",
-      description: "Comprehensive system for managing student records and academic data",
-      image: "🎓",
-      technologies: ["Java", "Spring Boot", "MySQL", "Angular"],
-      features: [
-        "Student registration & profiles",
-        "Course enrollment system",
-        "Grade management",
-        "Attendance tracking",
-        "Fee management",
-        "Report generation"
-      ],
-      deliverables: ["Complete application", "Database schema", "User manual", "Testing report"],
-      client: "Educational Institution",
-      duration: "5 weeks"
+       id: 3,
+  title: "NEO Explorer",
+  category: "Web Development",
+  description: "Web app to visualize NASA's Near Earth Objects (NEO) using public API data",
+  image: "🌌",
+  technologies: ["JavaScript", "HTML", "CSS", "NASA API"],
+  features: [
+    "Real-time NEO data visualization",
+    "3D orbital simulation (basic)",
+    "Interactive charts and stats",
+    "Filter by date and distance",
+    "Educational content on space objects",
+    "User-friendly responsive layout"
+  ],
+  deliverables: ["Web app source code", "API integration guide", "Data parsing documentation"],
+  client: "NASA Space Apps Challenge",
+  duration: "5 weeks"
     },
     {
-      id: 4,
-      title: "Disease Prediction System",
-      category: "AIDS",
-      description: "ML-based system to predict diseases from symptoms using advanced analytics",
-      image: "🏥",
-      technologies: ["Python", "scikit-learn", "pandas", "Flask"],
-      features: [
-        "Symptom analysis & prediction",
-        "Disease probability calculation",
-        "Historical data analysis",
-        "Healthcare provider integration",
-        "Patient data management",
-        "Reporting & visualization"
-      ],
-      deliverables: ["Prediction algorithm", "Web interface", "Research paper", "Dataset analysis"],
-      client: "Healthcare Research Group",
-      duration: "8 weeks"
+       id: 4,
+  title: "MedBridge",
+  category: ["AI/ML"," & ", "Web Development"],
+  description: "AI-powered health assistant that provides smart diagnostics, doctor referrals, and personalized dietary recommendations.",
+  image: "🩺",
+  technologies: ["Python", "React.js", "TensorFlow", "SQL"],
+  features: [
+    "Symptom-based disease prediction using ML",
+    "Automated doctor referral system",
+    "Personalized dietary recommendations based on condition",
+    "Secure data handling with encryption",
+    "Interactive and responsive user interface",
+    "User feedback loop for model improvement"
+  ],
+  deliverables: ["Full-stack web application", "AI/ML models", "API integration guide", "Health data privacy compliance report"],
+  client: "Prototype for Healthcare Innovation",
+  duration: "6 weeks"
     },
     {
       id: 5,
-      title: "Smart Home Automation",
-      category: "CSE",
-      description: "IoT system for controlling home appliances remotely and automating routines",
-      image: "🏠",
-      technologies: ["Arduino", "Raspberry Pi", "MQTT", "React Native"],
-      features: [
-        "Device control via app",
-        "Scheduled automation",
-        "Voice control integration",
-        "Energy usage monitoring",
-        "Security alerts & monitoring",
-        "Scene creation & management"
-      ],
-      deliverables: ["Mobile application", "Hardware configuration", "System architecture", "User guide"],
-      client: "Student Project - Final Year",
-      duration: "6 weeks"
+  title: "LearnByDoing",
+  category: "CSE",
+  description: "Interactive coding platform enabling users to learn by building real-world projects",
+  image: "💻",
+  technologies: ["React", "Node.js", "MongoDB", "Express", "JWT"],
+  features: [
+    "User authentication & role-based access",
+    "Project-based learning modules",
+    "Live code editor with syntax highlighting",
+    "Progress tracking dashboard",
+    "Discussion forums & peer collaboration",
+    "Admin panel for content management"
+  ],
+  deliverables: ["Full source code", "Database schema", "API documentation", "User manual"],
+  client: "Capstone Project",
+  duration: "6 weeks"
     },
     {
       id: 6,
