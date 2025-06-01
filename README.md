@@ -83,7 +83,7 @@ npm run dev
 
 📧 Email: [info@designdelivergrow.store](mailto:info@designdelivergrow.store)
 🌍 Website: [www.designdelivergrow.store](https://www.designdelivergrow.store)
-📅 Book an Appointment: [Schedule Here](https://www.designdelivergrow.com/contact)
+📅 Book an Appointment: [Schedule Here](https://www.designdelivergrow.store/contact)
 
 ---
 
