@@ -134,7 +134,7 @@ description: "AI-driven platform for detecting fake news, manipulated images, an
     category: "CSE",
     description: "A comprehensive system to manage library books, members, and transactions efficiently.",
     image: "/lms.png",
-    technologies: ["Java", "MySQL", "Swing", "JDBC"],
+    technologies: ["HTML", "CSS", "Javascript", "datatables"],
     features: [
       "Book inventory management",
       "Member registration and management",
