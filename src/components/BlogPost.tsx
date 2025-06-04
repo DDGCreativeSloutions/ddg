@@ -10,7 +10,7 @@ const BlogPost = () => {
   useEffect(() => {
     const fetchContent = async () => {
       try {
-        const response = await fetch(`/src/pages/blog/${slug}.md`);
+        const response = await fetch(`/blog/${slug}.md`);
         const text = await response.text();
         setContent(text);
       } catch (error) {
