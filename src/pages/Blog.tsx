@@ -36,7 +36,7 @@ const Blog = () => {
       "name": "DesignDeliverGrow",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.designdelivergrow.store/logo.png"
+        "url": "https://www.designdelivergrow.com/logo.png"
       }
     },
     "blogPost": [
@@ -49,7 +49,7 @@ const Blog = () => {
           "name": "DDG Team"
         },
         "datePublished": "2024-01-15",
-        "url": "https://www.designdelivergrow.store/blog/web-development-guide-2024"
+        "url": "https://www.designdelivergrow.com/blog/web-development-guide-2024"
       }
     ]
   };
