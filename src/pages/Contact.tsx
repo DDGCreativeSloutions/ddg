@@ -81,7 +81,7 @@ const Contact = () => {
   const handleSubmit = async () => {
     setErrorMsg('');
     if (!formData.service || !formData.name || !formData.email || !formData.whatsapp) {
-      setErrorMsg('Please fill in all required fields.');
+      setErrorMsg('Please fill in all required fields');
       return;
     }
 
