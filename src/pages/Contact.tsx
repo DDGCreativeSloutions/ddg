@@ -22,6 +22,7 @@ const Contact = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [isFloating, setIsFloating] = useState(false);
   const [sparkles, setSparkles] = useState([]);
+  const [errorMsg, setErrorMsg] = useState('');
 
   const services = [
     { value: 'web-design', label: '🚀 Web Design & Development', emoji: '🚀' },
@@ -78,18 +79,27 @@ const Contact = () => {
   };
 
   const handleSubmit = async () => {
+    setErrorMsg('');
     if (!formData.service || !formData.name || !formData.email || !formData.whatsapp) {
+      setErrorMsg('Please fill in all required fields.');
       return;
     }
 
     try {
-      await fetch(SHEETDB_API_URL, {
+      const response = await fetch(SHEETDB_API_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ data: formData }), // SheetDB expects { data: { ... } }
       });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        setErrorMsg(`Submission failed: ${errorText}`);
+        return;
+      }
+
       setFormSubmitted(true);
       setFormData({
         service: '',
@@ -99,7 +109,7 @@ const Contact = () => {
         notes: '',
       });
     } catch (error) {
-      alert("Failed to submit. Please try again.");
+      setErrorMsg("Failed to submit. Please try again.");
       console.error(error);
     }
   };
@@ -219,7 +229,7 @@ const Contact = () => {
               </CardContent>
             </Card>
           ) : (
-<Card className="border-0 shadow-2xl bg-white/90 backdrop-blur-sm overflow-hidden w-full max-w-6xl mx-auto">
+            <Card className="border-0 shadow-2xl bg-white/90 backdrop-blur-sm overflow-hidden w-full max-w-6xl mx-auto">
               <div className="h-2 bg-gray-200">
                 <div 
                   className="h-full bg-gradient-to-r from-purple-500 to-blue-500 transition-all duration-700 ease-out"
@@ -236,7 +246,9 @@ const Contact = () => {
                     Choose a service and tell us about yourself to get started!
                   </p>
                 </div>
-
+                {errorMsg && (
+                  <div className="mb-4 text-red-600 font-semibold text-center">{errorMsg}</div>
+                )}
                 <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 md:gap-10 lg:gap-12">
                   {/* Step 1: Service Selection */}
                   <div className={`transition-all duration-500 ${currentStep === 1 ? 'opacity-100' : 'opacity-80'}`}>
