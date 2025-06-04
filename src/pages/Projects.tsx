@@ -301,14 +301,32 @@ description: "AI-driven platform for detecting fake news, manipulated images, an
                         
                         {/* External Links */}
                         <div className="flex gap-2">
-                          <Button size="sm" variant="outline" className="flex-1">
-                            <Github className="h-4 w-4 mr-2" />
-                            Code
-                          </Button>
-                          <Button size="sm" className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600">
-                            <ExternalLink className="h-4 w-4 mr-2" />
-                            Live Demo
-                          </Button>
+                          {project.code && (
+    <a
+      href={project.code}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex-1"
+    >
+      <Button size="sm" variant="outline" className="w-full">
+        <Github className="h-4 w-4 mr-2" />
+        Code
+      </Button>
+    </a>
+  )}
+  {project.demo && (
+    <a
+      href={project.demo}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex-1"
+    >
+      <Button size="sm" className="w-full bg-gradient-to-r from-blue-600 to-purple-600">
+        <ExternalLink className="h-4 w-4 mr-2" />
+        Live Demo
+      </Button>
+    </a>
+  )}
                         </div>
                       </div>
                     ) : (
