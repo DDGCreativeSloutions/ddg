@@ -6,7 +6,7 @@ const PrivacyPolicy = () => {
     <div className="container mx-auto px-4 py-8 max-w-4xl">
       <SEO 
         title="Privacy Policy - Design Deliver Grow"
-        description="Learn how DesignDeliverGrow collects, uses, and protects your personal information when you use our services, projects, and courses."
+        description="Learn how DesignDeliverGrow collects, uses, and protects your personal information when you use our services, projects, and workshops."
       />
       <h1 className="text-4xl font-bold mb-8">Privacy Policy</h1>
       
@@ -35,7 +35,7 @@ const PrivacyPolicy = () => {
           <h2 className="text-2xl font-semibold mb-4">3. How We Use Your Information</h2>
           <p>Your data helps us provide a better experience. We use it to:</p>
           <ul className="list-disc pl-6 mb-4">
-            <li>Deliver and improve our services, including courses, web development, and project assistance</li>
+            <li>Deliver and improve our services, including workshops, web development, and project assistance</li>
             <li>Process transactions and send relevant invoices</li>
             <li>Provide customer support</li>
             <li>Send updates, promotions, or service-related messages (you may opt out)</li>
@@ -92,8 +92,8 @@ const PrivacyPolicy = () => {
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">11. Contact Us</h2>
           <p>If you have any questions about this Privacy Policy or want to exercise your data rights, you can contact us at:</p>
-          <p><strong>Email:</strong> <a href="mailto:info@designdelivergrow.com">info@designdelivergrow.com</a></p>
-          <p><strong>Website:</strong> <a href="https://www.designdelivergrow.com">www.designdelivergrow.com</a></p>
+          <p><strong>Email:</strong> <a href="mailto:info@designdelivergrow.store">info@designdelivergrow.store</a></p>
+          <p><strong>Website:</strong> <a href="https://www.designdelivergrow.store">www.designdelivergrow.store</a></p>
         </section>
       </div>
     </div>

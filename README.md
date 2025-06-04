@@ -5,7 +5,7 @@
 
 > **Empowering students, startups, and professionals to design, deliver, and grow in the digital world.**
 
-DesignDeliverGrow is a full-stack platform offering **professional web design**, **student project assistance**, **social media marketing**, and **educational courses**. Whether you're a computer science student looking for project guidance, a startup needing a stunning website, or a learner eager to upskill with AI or Web Dev, we are your one-stop solution.
+DesignDeliverGrow is a full-stack platform offering **professional web design**, **student project assistance**, **social media marketing**, and **educational workshops**. Whether you're a computer science student looking for project guidance, a startup needing a stunning website, or a learner eager to upskill with AI or Web Dev, we are your one-stop solution.
 
 ---
 
@@ -48,9 +48,9 @@ DesignDeliverGrow is a full-stack platform offering **professional web design**,
 * 📅 Interactive **appointment booking** system
 * 💼 Expandable **service cards** with transparent pricing
 * 🎓 Engaging, interactive **student projects portfolio**
-* 🧠 Curated **courses** to skill up with real-world examples
+* 🧠 Curated **workshops** to skill up with real-world examples
 * 🔍 **SEO-optimized structure** & **schema markup** for better ranking
-* 📧 Professional email: `info@designdelivergrow.com`
+* 📧 Professional email: `info@designdelivergrow.store`
 
 ---
 
@@ -58,8 +58,8 @@ DesignDeliverGrow is a full-stack platform offering **professional web design**,
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/designdelivergrow.git
-cd designdelivergrow
+git clone https://github.com/DDGCreativeSloutions/DesignDeliverGrow.git
+cd DesignDeliverGrow
 
 # Install dependencies
 npm install
@@ -83,7 +83,7 @@ npm run dev
 
 📧 Email: [info@designdelivergrow.store](mailto:info@designdelivergrow.store)
 🌍 Website: [www.designdelivergrow.store](https://www.designdelivergrow.store)
-📅 Book an Appointment: [Schedule Here](https://www.designdelivergrow.com/contact)
+📅 Book an Appointment: [Schedule Here](https://www.designdelivergrow.store/contact)
 
 ---
 

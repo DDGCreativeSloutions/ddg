@@ -41,7 +41,7 @@ const Home = () => {
       ]
     },
     {
-      title: "Educational Courses",
+      title: "Educational Workshops",
       description: "Learn cutting-edge technologies with expert guidance",
       icon: "💻",
       features: ["Expert Instructors", "Hands-on Projects", "Certificates", "Job Support"],
@@ -79,7 +79,7 @@ const Home = () => {
   const stats = [
     { icon: Award, label: "Projects Delivered", value: "200+" },
     { icon: Users, label: "Happy Clients", value: "100+" },
-    { icon: TrendingUp, label: "Courses Delivered", value: "50+" },
+    { icon: TrendingUp, label: "Workshops Delivered", value: "50+" },
     { icon: Star, label: "Average Rating", value: "4.9/5" }
   ];
 
@@ -132,16 +132,16 @@ const Home = () => {
       "@type": "Country",
       "name": "India"
     },
-    "serviceType": ["Web Design", "Student Project Assistance", "Social Media Marketing", "Educational Courses"]
+    "serviceType": ["Web Design", "Student Project Assistance", "Social Media Marketing", "Educational Workshops"]
   };
 
   return (
     <div className="min-h-screen">
       <SEO
-        title="DesignDeliverGrow – Web Design, Student Projects, Marketing & Courses"
-        description="One-stop solution for stunning websites, project help, digital marketing, and expert-led courses for students and startups."
+        title="DesignDeliverGrow – Web Design, Student Projects, Marketing & Workshops"
+        description="One-stop solution for stunning websites, project help, digital marketing, and expert-led workshops for students and startups."
         schema={organizationSchema}
-        keywords="web design, student projects, digital marketing, online courses, CSE projects, AI ML projects"
+        keywords="web design, student projects, digital marketing, online workshops, CSE projects, AI ML projects"
       />
 
       {/* Enhanced Hero Section */}

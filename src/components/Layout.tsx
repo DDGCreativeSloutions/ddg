@@ -14,7 +14,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     { name: 'About', href: '/about' },
     { name: 'Services', href: '/services' },
     { name: 'Projects', href: '/projects' },
-    { name: 'Courses', href: '/courses' },
+    { name: 'Workshops', href: '/workshops' },
     { name: 'Blog', href: '/blog' },
   ];
 
@@ -165,9 +165,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             <div>
               <h3 className="font-semibold text-lg mb-4">Get in Touch</h3>
               <div className="space-y-2 text-gray-400">
-                <p>info@designdelivergrow.store</p>
-                <p>+91 98765 43210</p>
-                <p>PAN India</p>
+                <p><strong>Email:</strong> <a href="mailto:info@designdelivergrow.store" className="text-gray-400 hover:text-white transition-colors duration-200">info@designdelivergrow.store</a></p>
+                <p><strong>Phone:</strong> +91 98765 43210</p>
+                <p><strong>Location:</strong> Hyderabad, TS, INDIA</p>
               </div>
             </div>
           </div>

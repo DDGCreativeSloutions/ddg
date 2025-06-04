@@ -17,13 +17,13 @@ const Services = () => {
     "provider": {
       "@type": "Organization",
       "name": "DesignDeliverGrow",
-      "url": "https://www.designdelivergrow.com"
+      "url": "https://www.designdelivergrow.store"
     },
     "areaServed": {
       "@type": "Country",
       "name": "India"
     },
-    "description": "Comprehensive digital solutions including web design, student project assistance, social media marketing, and educational courses.",
+    "description": "Comprehensive digital solutions including web design, student project assistance, social media marketing, and educational workshops.",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "DesignDeliverGrow Services",
@@ -255,7 +255,7 @@ const Services = () => {
         title="Our Services | Web Design, Project Assistance & Digital Growth"
         description="Explore our wide range of services including website development, student project support, and marketing solutions with transparent pricing."
         schema={servicesSchema}
-        keywords="web design services, student project help, social media marketing, educational courses, transparent pricing"
+        keywords="web design services, student project help, social media marketing, educational workshops, transparent pricing"
       />
 
       {/* Hero Section */}
@@ -424,7 +424,7 @@ const Services = () => {
             <Button 
               size="lg" 
               onClick={() => navigate('/contact')}
-              className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-3"
+              className="bg-white text-purple-600 hover:bg-white hover:text-blue-600 text-lg px-8 py-3"
             >
               Book Free Consultation
             </Button>
@@ -432,7 +432,7 @@ const Services = () => {
               size="lg" 
               variant="outline" 
               onClick={() => navigate('/projects')}
-              className="border-white text-white hover:bg-white hover:text-blue-600 text-lg px-8 py-3"
+              className="border-white text-blue-600 hover:bg-white hover:text-purple-600 text-lg px-8 py-3"
             >
               View Our Work
             </Button>

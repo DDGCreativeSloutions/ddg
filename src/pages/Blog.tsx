@@ -30,7 +30,7 @@ const Blog = () => {
     "@type": "Blog",
     "name": "DesignDeliverGrow Blog",
     "description": "Expert insights on web development, student projects, digital marketing, and technology trends",
-    "url": "https://www.designdelivergrow.store/blog",
+    "url": "https://www.designdelivergrow.com/blog",
     "publisher": {
       "@type": "Organization",
       "name": "DesignDeliverGrow",
