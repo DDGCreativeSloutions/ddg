@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -83,37 +82,56 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation Overlay & Slide-in Menu */}
         {isMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-200 shadow-lg">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
-                    location.pathname === item.href
-                      ? 'text-purple-600 bg-purple-50'
-                      : 'text-gray-700 hover:text-purple-600 hover:bg-gray-50'
-                  }`}
+          <>
+            {/* Overlay */}
+            <div
+              className="fixed inset-0 bg-black bg-opacity-40 z-40 transition-opacity duration-300"
+              onClick={() => setIsMenuOpen(false)}
+            />
+            {/* Slide-in Menu */}
+            <div
+              className="fixed top-0 left-0 h-full w-64 bg-white z-50 shadow-lg transform transition-transform duration-300"
+              style={{ transform: isMenuOpen ? "translateX(0)" : "translateX(-100%)" }}
+            >
+              <div className="flex items-center justify-between px-4 py-3 border-b">
+                <span className="font-bold text-xl text-purple-700">DesignDeliverGrow</span>
+                <button
                   onClick={() => setIsMenuOpen(false)}
+                  className="text-purple-700 focus:outline-none"
+                  aria-label="Close menu"
                 >
-                  {item.name}
-                </Link>
-              ))}
-              <div className="px-3 py-2">
-                <Button 
+                  <X className="h-7 w-7" />
+                </button>
+              </div>
+              <div className="flex flex-col space-y-2 px-6 py-6">
+                {navigation.map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
+                      location.pathname === item.href
+                        ? 'text-purple-600 bg-purple-50'
+                        : 'text-gray-700 hover:text-purple-600 hover:bg-gray-50'
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+                <Button
                   onClick={() => {
                     handleBookConsultation();
                     setIsMenuOpen(false);
                   }}
-                  className="w-full bg-gradient-to-r from-purple-600 to-cyan-400 hover:from-purple-700 hover:to-cyan-500"
+                  className="w-full mt-4 bg-gradient-to-r from-purple-600 to-cyan-400 hover:from-purple-700 hover:to-cyan-500"
                 >
                   Book Consultation
                 </Button>
               </div>
             </div>
-          </div>
+          </>
         )}
       </nav>
 
