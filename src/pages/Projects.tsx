@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Search, ExternalLink, Github, Filter } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -128,7 +127,34 @@ description: "AI-driven platform for detecting fake news, manipulated images, an
       deliverables: ["Prediction models", "Analysis dashboard", "Technical report", "Algorithm documentation"],
       client: "Finance Major - Thesis Project",
       duration: "10 weeks"
-    }
+    },
+    {
+    id: 7,
+    title: "Library Management System",
+    category: "CSE",
+    description: "A comprehensive system to manage library books, members, and transactions efficiently.",
+    image: "/lms.png",
+    technologies: ["Java", "MySQL", "Swing", "JDBC"],
+    features: [
+      "Book inventory management",
+      "Member registration and management",
+      "Book issue and return tracking",
+      "Fine calculation for late returns",
+      "Search and filter books",
+      "Admin dashboard for reports"
+    ],
+    deliverables: [
+      "Source code",
+      "Database schema",
+      "User manual",
+      "Project report"
+    ],
+    client: "Academic Project",
+    duration: "5 weeks",
+    code:"https://github.com/syedalthaf786/library-management-system.git",
+    demo:"https://syedalthaf786.github.io/library-management-system/"
+  },
+
   ];
 
   // Filter projects based on selected category and search term
@@ -206,8 +232,16 @@ description: "AI-driven platform for detecting fake news, manipulated images, an
             {filteredProjects.map((project, index) => (
               <Card key={project.id} className="h-full hover:shadow-lg transition-shadow duration-300 overflow-hidden">
                 <CardContent className="p-0">
-                  <div className="h-48 bg-gradient-to-br from-blue-600 to-purple-600 text-white flex items-center justify-center">
-                    <span className="text-7xl">{project.image}</span>
+                  <div className="h-48 bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
+                    {project.image && project.image.endsWith('.png') ? (
+    <img
+      src={project.image}
+      alt={project.title}
+      className="h-full object-contain rounded shadow"
+    />
+  ) : (
+    <span className="text-7xl text-white">{project.image}</span>
+  )}
                   </div>
                   <div className="p-6">
                     <div className="flex justify-between items-start mb-2">
