@@ -8,6 +8,8 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 
+const SHEETDB_API_URL = "https://sheetdb.io/api/v1/dcatblz3r9uht"; // Replace with your SheetDB API URL
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     service: '',
@@ -75,20 +77,31 @@ const Contact = () => {
     }
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!formData.service || !formData.name || !formData.email || !formData.whatsapp) {
       return;
     }
 
-    console.log('Booking data:', formData);
-    setFormSubmitted(true);
-    setFormData({
-      service: '',
-      name: '',
-      email: '',
-      whatsapp: '',
-      notes: '',
-    });
+    try {
+      await fetch(SHEETDB_API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ data: formData }), // SheetDB expects { data: { ... } }
+      });
+      setFormSubmitted(true);
+      setFormData({
+        service: '',
+        name: '',
+        email: '',
+        whatsapp: '',
+        notes: '',
+      });
+    } catch (error) {
+      alert("Failed to submit. Please try again.");
+      console.error(error);
+    }
   };
 
   const getProgressWidth = () => {
