@@ -108,7 +108,7 @@ description: "AI-driven platform for detecting fake news, manipulated images, an
   deliverables: ["Full source code", "Database schema", "API documentation", "User manual"],
   client: "Capstone Project",
   duration: "6 weeks",
-  code:"https://github.com/syedalthaf786/learnbydoing.git",
+  code:"https://github.com/DDGCreativeSloutions/learnbydoing1.git",
   demo:"https://learnbydoing-1.onrender.com"
     },
     {
