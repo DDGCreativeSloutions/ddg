@@ -95,7 +95,7 @@ description: "AI-driven platform for detecting fake news, manipulated images, an
   title: "LearnByDoing",
   category: "CSE",
   description: "Interactive coding platform enabling users to learn by building real-world projects",
-  image: "💻",
+  image: "/lbd.png",
   technologies: ["React", "Node.js", "MongoDB", "Express", "JWT"],
   features: [
     "User authentication & role-based access",
@@ -107,7 +107,9 @@ description: "AI-driven platform for detecting fake news, manipulated images, an
   ],
   deliverables: ["Full source code", "Database schema", "API documentation", "User manual"],
   client: "Capstone Project",
-  duration: "6 weeks"
+  duration: "6 weeks",
+  code:"https://github.com/syedalthaf786/learnbydoing.git",
+  demo:"https://learnbydoing-1.onrender.com"
     },
     {
       id: 6,
@@ -151,8 +153,8 @@ description: "AI-driven platform for detecting fake news, manipulated images, an
     ],
     client: "Academic Project",
     duration: "5 weeks",
-    code:"https://github.com/syedalthaf786/library-management-system.git",
-    demo:"https://syedalthaf786.github.io/library-management-system/"
+    code:"https://github.com/DDGCreativeSloutions/lms.git",
+    demo:"https://ddgcreativesloutions.github.io/lms/"
   },
 
   ];
