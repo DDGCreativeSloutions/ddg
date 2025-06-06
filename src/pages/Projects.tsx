@@ -156,6 +156,32 @@ description: "AI-driven platform for detecting fake news, manipulated images, an
     code:"https://github.com/DDGCreativeSloutions/lms.git",
     demo:"https://ddgcreativesloutions.github.io/lms/"
   },
+  // ...existing code...
+{
+  id: 8,
+  title: "Academic Performance Predictor",
+  category: "AI/ML",
+  description: "A machine learning system that predicts student academic performance based on historical data and key indicators.",
+  image: "/ap.png",
+  technologies: ["Python", "Pandas", "Scikit-learn", "Matplotlib"],
+  features: [
+    "Data preprocessing and feature engineering",
+    "Model training and evaluation",
+    "Predictive analytics dashboard",
+    "Visualization of student performance trends",
+    "Exportable reports"
+  ],
+  deliverables: [
+    "Source code",
+    "Trained ML models",
+    "User manual",
+    "Project report"
+  ],
+  client: "Academic Project",
+  duration: "4 weeks",
+  code: "https://github.com/DDGCreativeSloutions/academic-predict.git",
+   demo: "https://academia-forecast-master-33.lovable.app/" // Add if you have a live demo
+},
 
   ];
 
