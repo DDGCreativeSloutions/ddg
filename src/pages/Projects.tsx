@@ -181,6 +181,33 @@ description: "AI-driven platform for detecting fake news, manipulated images, an
   code: "https://github.com/DDGCreativeSloutions/academic-predict.git",
    demo: "https://academia-forecast-master-33.lovable.app/" // Add if you have a live demo
 },
+{
+  id: 9,
+  title: "Fake Media Detection System",
+  category: "AI/ML",
+  description: "AI-driven platform for detecting fake news, manipulated images, and deepfakes using NLP, computer vision, and blockchain.",
+  image: "/fake.png",
+  technologies: ["React", "XGBoost", "Blockchain", "OpenCV"],
+  features: [
+    "Media upload support for text, images, and videos",
+    "Fake news detection using NLP and XGBoost",
+    "Image/deepfake detection via CNN and GAN-based models",
+    "Blockchain-based media hash verification",
+    "User authentication with role-based access",
+    "Dashboard with detailed analysis results and trends"
+  ],
+  deliverables: [
+    "Full source code",
+    "Trained ML models",
+    "Blockchain smart contracts",
+    "API documentation",
+    "User manual"
+  ],
+  client: "Research & Innovation Project",
+  duration: "8 weeks",
+  code: "https://github.com/DDGCreativeSloutions/Fake_Media_Detection.git",
+  demo: "https://fake-media-detection-mocha.vercel.app/" // Add if you have a live demo
+},
 
   ];
 
