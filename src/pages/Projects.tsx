@@ -38,7 +38,7 @@ const Projects = () => {
   title: "NEO Explorer",
   category: "Web Development",
   description: "Web app to visualize NASA's Near Earth Objects (NEO) using public API data",
-  image: "🌌",
+  image: "/neo.png",
   technologies: ["JavaScript", "HTML", "CSS", "NASA API"],
   features: [
     "Real-time NEO data visualization",
