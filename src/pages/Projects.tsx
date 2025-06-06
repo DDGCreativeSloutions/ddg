@@ -34,26 +34,7 @@ const Projects = () => {
 
     },
     {
-      id: 2,
-  title: "Fake Media Detection System",
-  category: "AI/ML",
-description: "AI-driven platform for detecting fake news, manipulated images, and deepfakes using NLP, computer vision, and blockchain.",
-  image: "🛡️",
-  technologies: ["React", "XGBoost", "Blockchain", "OpenCV"],
-  features: [
-    "Media upload support for text, images, and videos",
-    "Fake news detection using NLP and XGBoost",
-    "Image/deepfake detection via CNN and GAN-based models",
-    "Blockchain-based media hash verification",
-    "User authentication with role-based access",
-    "Dashboard with detailed analysis results and trends"
-  ],
-  deliverables: ["Full source code", "Trained ML models", "Blockchain smart contracts", "API documentation", "User manual"],
-  client: "Research & Innovation Project",
-  duration: "8 weeks"
-    },
-    {
-       id: 3,
+       id: 2,
   title: "NEO Explorer",
   category: "Web Development",
   description: "Web app to visualize NASA's Near Earth Objects (NEO) using public API data",
@@ -72,7 +53,7 @@ description: "AI-driven platform for detecting fake news, manipulated images, an
   duration: "5 weeks"
     },
     {
-       id: 4,
+       id: 3,
   title: "MedBridge",
   category: ["AI/ML"," & ", "Web Development"],
   description: "AI-powered health assistant that provides smart diagnostics, doctor referrals, and personalized dietary recommendations.",
@@ -91,7 +72,7 @@ description: "AI-driven platform for detecting fake news, manipulated images, an
   duration: "6 weeks"
     },
     {
-      id: 5,
+      id: 4,
   title: "LearnByDoing",
   category: "CSE",
   description: "Interactive coding platform enabling users to learn by building real-world projects",
@@ -112,7 +93,7 @@ description: "AI-driven platform for detecting fake news, manipulated images, an
   demo:"https://learnbydoing-1.onrender.com"
     },
     {
-      id: 6,
+      id: 5,
       title: "Stock Market Prediction",
       category: "AI/ML",
       description: "AI system that analyzes market trends and predicts stock movements",
@@ -131,7 +112,7 @@ description: "AI-driven platform for detecting fake news, manipulated images, an
       duration: "10 weeks"
     },
     {
-    id: 7,
+    id: 6,
     title: "Library Management System",
     category: "CSE",
     description: "A comprehensive system to manage library books, members, and transactions efficiently.",
@@ -157,7 +138,7 @@ description: "AI-driven platform for detecting fake news, manipulated images, an
     demo:"https://ddgcreativesloutions.github.io/lms/"
   },
 {
-  id: 8,
+  id: 7,
   title: "Academic Performance Predictor",
   category: "AI/ML",
   description: "A machine learning system that predicts student academic performance based on historical data and key indicators.",
@@ -182,7 +163,7 @@ description: "AI-driven platform for detecting fake news, manipulated images, an
    demo: "https://academia-forecast-master-33.lovable.app/" // Add if you have a live demo
 },
 {
-  id: 9,
+  id: 8,
   title: "Fake Media Detection System",
   category: "AI/ML",
   description: "AI-driven platform for detecting fake news, manipulated images, and deepfakes using NLP, computer vision, and blockchain.",
