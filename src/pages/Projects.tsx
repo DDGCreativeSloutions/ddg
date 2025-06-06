@@ -38,7 +38,7 @@ const Projects = () => {
   title: "NEO Explorer",
   category: "Web Development",
   description: "Web app to visualize NASA's Near Earth Objects (NEO) using public API data",
-  image: "🌌",
+  image: "/neo.png",
   technologies: ["JavaScript", "HTML", "CSS", "NASA API"],
   features: [
     "Real-time NEO data visualization",
@@ -50,7 +50,9 @@ const Projects = () => {
   ],
   deliverables: ["Web app source code", "API integration guide", "Data parsing documentation"],
   client: "NASA Space Apps Challenge",
-  duration: "5 weeks"
+  duration: "5 weeks",
+    code:"https://github.com/DDGCreativeSloutions/neo-explorer.git",
+    demo:"https://neoexplorer.earth"
     },
     {
        id: 3,
