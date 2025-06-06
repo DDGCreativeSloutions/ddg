@@ -185,7 +185,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               <a href="https://www.instagram.com/designdelivergrow/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <Instagram className="h-6 w-6 text-gray-500 hover:text-pink-500 transition" />
               </a>
-              <a href="https://facebook.com/designdelivergrow/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <a href="https://www.facebook.com/profile.php?id=61577027030683" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                 <Facebook className="h-6 w-6 text-gray-500 hover:text-blue-600 transition" />
               </a>
             </div>
