@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Github, Linkedin, Instagram, Facebook } from "lucide-react";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -31,9 +32,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             {/* Creative Logo */}
             <Link to="/" className="flex items-center space-x-3 group">
               <div className="relative overflow-hidden rounded-xl p-1 bg-gradient-to-r from-purple-100 via-blue-100 to-green-100 transition-all duration-300 group-hover:shadow-lg group-hover:scale-105">
-                <img 
-                  src="/logo.png" 
-                  alt="DesignDeliverGrow Logo" 
+                <img
+                  src="/logo.png"
+                  alt="DesignDeliverGrow Logo"
                   className="h-10 w-auto transition-transform duration-300 group-hover:rotate-1"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 via-blue-600/10 to-green-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
@@ -51,18 +52,17 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-                    location.pathname === item.href
-                      ? 'text-purple-600 bg-purple-50'
-                      : 'text-gray-700 hover:text-purple-600 hover:bg-gray-50'
-                  }`}
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${location.pathname === item.href
+                    ? 'text-purple-600 bg-purple-50'
+                    : 'text-gray-700 hover:text-purple-600 hover:bg-gray-50'
+                    }`}
                 >
                   {item.name}
                 </Link>
               ))}
 
               {/* CTA Button */}
-              <Button 
+              <Button
                 onClick={handleBookConsultation}
                 className="bg-gradient-to-r from-purple-600 to-cyan-400 hover:from-purple-700 hover:to-cyan-500"
               >
@@ -91,18 +91,17 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
-                    location.pathname === item.href
-                      ? 'text-purple-600 bg-purple-50'
-                      : 'text-gray-700 hover:text-purple-600 hover:bg-gray-50'
-                  }`}
+                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${location.pathname === item.href
+                    ? 'text-purple-600 bg-purple-50'
+                    : 'text-gray-700 hover:text-purple-600 hover:bg-gray-50'
+                    }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
               ))}
               <div className="px-3 py-2">
-                <Button 
+                <Button
                   onClick={() => {
                     handleBookConsultation();
                     setIsMenuOpen(false);
@@ -130,16 +129,16 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center space-x-3 mb-4">
                 <div className="relative overflow-hidden rounded-xl p-1 bg-gradient-to-r from-purple-800/50 via-blue-800/50 to-green-800/50">
-                  <img 
-                    src="/logo.png" 
-                    alt="DesignDeliverGrow Logo" 
+                  <img
+                    src="/logo.png"
+                    alt="DesignDeliverGrow Logo"
                     className="h-8 w-auto"
                   />
                 </div>
                 <span className="font-bold text-xl">DesignDeliverGrow</span>
               </div>
               <p className="text-gray-400 mb-4">
-                Empowering students, entrepreneurs, and professionals to design impactful digital solutions, 
+                Empowering students, entrepreneurs, and professionals to design impactful digital solutions,
                 deliver exceptional outcomes, and grow through technology, creativity, and learning.
               </p>
             </div>
@@ -176,6 +175,20 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             <p className="text-gray-400 text-sm">
               &copy; {new Date().getFullYear()} DesignDeliverGrow. All rights reserved.
             </p>
+            <div className="flex space-x-4">
+              <a href="https://github.com/DDGCreativeSloutions" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <Github className="h-6 w-6 text-gray-500 hover:text-purple-600 transition" />
+              </a>
+              <a href="https://www.linkedin.com/company/designdelivergrow" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <Linkedin className="h-6 w-6 text-gray-500 hover:text-blue-700 transition" />
+              </a>
+              <a href="https://www.instagram.com/designdelivergrow/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <Instagram className="h-6 w-6 text-gray-500 hover:text-pink-500 transition" />
+              </a>
+              <a href="https://facebook.com/designdelivergrow/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <Facebook className="h-6 w-6 text-gray-500 hover:text-blue-600 transition" />
+              </a>
+            </div>
             <div className="flex space-x-4 mt-4 md:mt-0">
               <Link to="/privacy-policy" className="text-gray-400 hover:text-white transition-colors duration-200">
                 Privacy Policy
