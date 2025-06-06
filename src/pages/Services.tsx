@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Services = () => {
   const [expandedService, setExpandedService] = useState<number | null>(null);
+  const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
 
   const servicesSchema = {
@@ -340,7 +341,7 @@ const Services = () => {
                             ))}
                           </div>
                           
-                          <Button className="w-full mt-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+                          <Button className="w-full mt-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700" onClick={()=>setShowModal(true)}>
                             Get Started
                             <ArrowRight className="ml-2 h-4 w-4" />
                           </Button>
@@ -439,6 +440,34 @@ const Services = () => {
           </div>
         </div>
       </section>
+
+      {/* Modal for Call Request */}
+      {showModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
+          <div className="bg-white rounded-lg shadow-lg p-8 max-w-sm w-full text-center relative">
+            <button
+              className="absolute top-2 right-2 text-gray-400 hover:text-gray-700 text-2xl"
+              onClick={() => setShowModal(false)}
+              aria-label="Close"
+            >
+              &times;
+            </button>
+            <h3 className="text-2xl font-bold mb-4 text-purple-700">Request a Call</h3>
+            <p className="mb-6 text-gray-700">
+              Thank you for your interest! Please <b>book a free consultation</b> and our team will call you back soon.
+            </p>
+            <Button
+              className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+              onClick={() => {
+                setShowModal(false);
+                navigate('/contact');
+              }}
+            >
+              Book Free Consultation
+            </Button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
