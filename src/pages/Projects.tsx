@@ -156,7 +156,6 @@ description: "AI-driven platform for detecting fake news, manipulated images, an
     code:"https://github.com/DDGCreativeSloutions/lms.git",
     demo:"https://ddgcreativesloutions.github.io/lms/"
   },
-  // ...existing code...
 {
   id: 8,
   title: "Academic Performance Predictor",
