@@ -152,6 +152,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                     <Link
                       to={item.href}
                       className="text-gray-400 hover:text-white transition-colors duration-200"
+                      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                     >
                       {item.name}
                     </Link>
