@@ -1,3 +1,13 @@
 User-agent: *
 Allow: /
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.svg$
+Allow: /*.ico$
+Allow: /logo.png
+Allow: /android-chrome-*.png
+Allow: /apple-touch-icon.png
+Allow: /favicon*
+
 Sitemap: https://www.designdelivergrow.store/sitemap.xml

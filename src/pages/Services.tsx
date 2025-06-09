@@ -188,66 +188,66 @@ const Services = () => {
       ]
     },
     {
-      title: "Educational Courses",
-      description: "Comprehensive learning programs designed to boost your technical skills and career prospects",
-      icon: "💻",
-      color: "from-orange-500 to-red-500",
+  title: "Educational Workshops",
+  description: "Interactive workshops to enhance your skills in web development, AI, and digital marketing",
+  icon: "💻",
+  color: "from-orange-500 to-red-500",
+  features: [
+    "Expert Instructors",
+    "Hands-on Projects",
+    "Industry Certificates",
+    "Job Placement Support",
+    "Live Sessions",
+    "Recorded Materials"
+  ],
+  packages: [
+    {
+      name: "Full Stack Hackathon Weekend",
+      duration: "2 Days",
       features: [
-        "Expert Instructors",
-        "Hands-on Projects",
-        "Industry Certificates",
-        "Job Placement Support",
-        "Live Sessions",
-        "Recorded Materials"
+        "Frontend + Backend in 48 hours",
+        "React, Node.js, MongoDB",
+        "Live Deployment & Collaboration",
+        "Hackathon Certificate"
       ],
-      packages: [
-        {
-          name: "Web Development Masterclass",
-          price: "₹4,999",
-          duration: "12 weeks",
-          features: [
-            "HTML, CSS, JavaScript",
-            "React.js & Node.js",
-            "Database management",
-            "3 real-world projects",
-            "Portfolio development",
-            "Job interview preparation",
-            "Industry certificate"
-          ],
-          popular: true
-        },
-        {
-          name: "AI/ML Fundamentals",
-          price: "₹5,999",
-          duration: "10 weeks",
-          features: [
-            "Python programming",
-            "Machine learning algorithms",
-            "Data analysis & visualization",
-            "Real dataset projects",
-            "Industry case studies",
-            "Career guidance",
-            "Certification included"
-          ],
-          popular: false
-        },
-        {
-          name: "Social Media Marketing Bootcamp",
-          price: "₹2,999",
-          duration: "8 weeks",
-          features: [
-            "Platform-specific strategies",
-            "Content creation techniques",
-            "Analytics & reporting",
-            "Ad campaign management",
-            "Personal branding",
-            "Live campaign creation",
-            "Certificate of completion"
-          ],
-          popular: false
-        }
-      ]
+      popular: true
+    },
+    {
+      name: "AI in a Day: Build Your First Model",
+      duration: "1 Day",
+      features: [
+        "Python & ML Basics",
+        "Data Analysis with Pandas",
+        "Model Training & Evaluation",
+        "Certificate of Completion"
+      ],
+      popular: false
+    },
+    {
+      name: "Design Thinking Bootcamp",
+      duration: "3 Days",
+      features: [
+        "Problem Solving & Ideation",
+        "Prototyping & User Testing",
+        "Pitching Ideas",
+        "Certified Design Thinker Credential"
+      ],
+      popular: false
+    },
+    {
+      name: "Inside the Software Industry: Senior Engineer Insights",
+      duration: "1 Day",
+      features: [
+        "Agile, DevOps & SDLC",
+        "Career Growth Sessions",
+        "Live Q&A with Senior Engineer",
+        "Industry Insights Certificate"
+      ],
+      popular: false
     }
+  ]
+}
+
   ];
 
   return (
@@ -341,7 +341,16 @@ const Services = () => {
                             ))}
                           </div>
                           
-                          <Button className="w-full mt-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700" onClick={()=>setShowModal(true)}>
+                          <Button 
+                            className="w-full mt-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700" 
+                            onClick={() => {
+                              if (service.title === "Educational Workshops") {
+                                navigate('/workshops');
+                              } else {
+                                setShowModal(true);
+                              }
+                            }}
+                          >
                             Get Started
                             <ArrowRight className="ml-2 h-4 w-4" />
                           </Button>

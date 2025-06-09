@@ -57,21 +57,30 @@ const Projects = () => {
     {
        id: 3,
   title: "MedBridge",
-  category: ["AI/ML"," & ", "Web Development"],
-  description: "AI-powered health assistant that provides smart diagnostics, doctor referrals, and personalized dietary recommendations.",
-  image: "🩺",
-  technologies: ["Python", "React.js", "TensorFlow", "SQL"],
+  category: "AI/ML",
+  description: "An AI-powered hospital management system for efficient patient care, appointment scheduling, and resource optimization.",
+  image: "/hospital.png",
+  technologies: ["React", "Node.js", "Express", "MongoDB", "Python", "Machine Learning"],
   features: [
-    "Symptom-based disease prediction using ML",
-    "Automated doctor referral system",
-    "Personalized dietary recommendations based on condition",
-    "Secure data handling with encryption",
-    "Interactive and responsive user interface",
-    "User feedback loop for model improvement"
+    "AI-based patient triage and risk prediction",
+    "Automated appointment scheduling",
+    "Doctor and staff management",
+    "Medical records and history tracking",
+    "Billing and invoice generation",
+    "Role-based access control",
+    "Analytics dashboard for hospital operations"
   ],
-  deliverables: ["Full-stack web application", "AI/ML models", "API integration guide", "Health data privacy compliance report"],
-  client: "Prototype for Healthcare Innovation",
-  duration: "6 weeks"
+  deliverables: [
+    "Source code",
+    "Trained ML models",
+    "Database schema",
+    "User manual",
+    "Deployment guide"
+  ],
+  client: "Academic Project",
+  duration: "8 weeks",
+  code: "https://github.com/DDGCreativeSloutions/hospital-management-system.git", 
+  demo: "https://ddgcreativesloutions.github.io/medbridge/" 
     },
     {
       id: 4,
@@ -95,26 +104,7 @@ const Projects = () => {
   demo:"https://learnbydoing-1.onrender.com"
     },
     {
-      id: 5,
-      title: "Stock Market Prediction",
-      category: "AI/ML",
-      description: "AI system that analyzes market trends and predicts stock movements",
-      image: "📈",
-      technologies: ["Python", "Deep Learning", "LSTM", "APIs"],
-      features: [
-        "Historical data analysis",
-        "Real-time market monitoring",
-        "Predictive trend analysis",
-        "Risk assessment",
-        "Portfolio optimization",
-        "Automated trading strategies"
-      ],
-      deliverables: ["Prediction models", "Analysis dashboard", "Technical report", "Algorithm documentation"],
-      client: "Finance Major - Thesis Project",
-      duration: "10 weeks"
-    },
-    {
-    id: 6,
+    id: 5,
     title: "Library Management System",
     category: "CSE",
     description: "A comprehensive system to manage library books, members, and transactions efficiently.",
@@ -140,7 +130,7 @@ const Projects = () => {
     demo:"https://ddgcreativesloutions.github.io/lms/"
   },
 {
-  id: 7,
+  id: 6,
   title: "Academic Performance Predictor",
   category: "AI/ML",
   description: "A machine learning system that predicts student academic performance based on historical data and key indicators.",
@@ -165,7 +155,7 @@ const Projects = () => {
    demo: "https://academia-forecast-master-33.lovable.app/" // Add if you have a live demo
 },
 {
-  id: 8,
+  id: 7,
   title: "Fake Media Detection System",
   category: "AI/ML",
   description: "AI-driven platform for detecting fake news, manipulated images, and deepfakes using NLP, computer vision, and blockchain.",
@@ -191,6 +181,31 @@ const Projects = () => {
   code: "https://github.com/DDGCreativeSloutions/Fake_Media_Detection.git",
   demo: "https://fake-media-detection-mocha.vercel.app/" // Add if you have a live demo
 },
+{
+    id: 8,
+    title: "Coding Quiz",
+    category: "Web Development",
+    description: "A web-based coding quiz platform to test and improve programming knowledge.",
+    image: "/quiz.png", // Add an image to your public folder or use an emoji like "📝"
+    technologies: ["React", "JavaScript", "HTML", "CSS"],
+    features: [
+      "Multiple choice coding questions",
+      "Real-time score tracking",
+      "Timer for each quiz session",
+      "Responsive design for all devices",
+      "Instant feedback on answers",
+      "Leaderboard for top scores"
+    ],
+    deliverables: [
+      "Source code",
+      "Quiz question set",
+      "User manual"
+    ],
+    client: "Open Source",
+    duration: "2 weeks",
+    code: "https://github.com/syedalthaf786/Coding-quiz.git",
+    demo: "https://syedalthaf786.github.io/Coding-quiz/" // Add a live demo link if available
+  }
 
   ];
 
