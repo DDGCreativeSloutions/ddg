@@ -55,24 +55,33 @@ const Projects = () => {
     demo:"https://neoexplorer.earth"
     },
     {
-       id: 3,
+  id: 3,
   title: "MedBridge",
-  category: ["AI/ML"," & ", "Web Development"],
-  description: "AI-powered health assistant that provides smart diagnostics, doctor referrals, and personalized dietary recommendations.",
-  image: "🩺",
-  technologies: ["Python", "React.js", "TensorFlow", "SQL"],
+  category: "AI/ML",
+  description: "An AI-powered hospital management system for efficient patient care, appointment scheduling, and resource optimization.",
+  image: "/hospital.png", // Use an emoji like "🏥" or add an image to your public folder
+  technologies: ["React", "Node.js", "Express", "MongoDB", "Python", "Machine Learning"],
   features: [
-    "Symptom-based disease prediction using ML",
-    "Automated doctor referral system",
-    "Personalized dietary recommendations based on condition",
-    "Secure data handling with encryption",
-    "Interactive and responsive user interface",
-    "User feedback loop for model improvement"
+    "AI-based patient triage and risk prediction",
+    "Automated appointment scheduling",
+    "Doctor and staff management",
+    "Medical records and history tracking",
+    "Billing and invoice generation",
+    "Role-based access control",
+    "Analytics dashboard for hospital operations"
   ],
-  deliverables: ["Full-stack web application", "AI/ML models", "API integration guide", "Health data privacy compliance report"],
-  client: "Prototype for Healthcare Innovation",
-  duration: "6 weeks"
-    },
+  deliverables: [
+    "Source code",
+    "Trained ML models",
+    "Database schema",
+    "User manual",
+    "Deployment guide"
+  ],
+  client: "Academic Project",
+  duration: "8 weeks",
+  code: "https://github.com/DDGCreativeSloutions/hospital-management-system.git", // Update if you have a real repo
+  demo: "https://ddgcreativesloutions.github.io/medbridge/" // Add a live demo link if available
+},
     {
       id: 4,
   title: "LearnByDoing",
@@ -191,7 +200,31 @@ const Projects = () => {
   code: "https://github.com/DDGCreativeSloutions/Fake_Media_Detection.git",
   demo: "https://fake-media-detection-mocha.vercel.app/" // Add if you have a live demo
 },
-
+{
+    id: 9,
+    title: "Coding Quiz",
+    category: "Web Development",
+    description: "A web-based coding quiz platform to test and improve programming knowledge.",
+    image: "/quiz.png", // Add an image to your public folder or use an emoji like "📝"
+    technologies: ["React", "JavaScript", "HTML", "CSS"],
+    features: [
+      "Multiple choice coding questions",
+      "Real-time score tracking",
+      "Timer for each quiz session",
+      "Responsive design for all devices",
+      "Instant feedback on answers",
+      "Leaderboard for top scores"
+    ],
+    deliverables: [
+      "Source code",
+      "Quiz question set",
+      "User manual"
+    ],
+    client: "Open Source",
+    duration: "2 weeks",
+    code: "https://github.com/syedalthaf786/Coding-quiz.git",
+    demo: "https://syedalthaf786.github.io/Coding-quiz/" // Add a live demo link if available
+  }
   ];
 
   // Filter projects based on selected category and search term
