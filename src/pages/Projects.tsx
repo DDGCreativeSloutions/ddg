@@ -55,13 +55,20 @@ const Projects = () => {
     demo:"https://neoexplorer.earth"
     },
     {
-       id: 3,
+  id: 3,
   title: "MedBridge",
   category: "AI/ML",
   description: "An AI-powered hospital management system for efficient patient care, appointment scheduling, and resource optimization.",
   image: "/hospital.png",
   technologies: ["React", "Node.js", "Express", "MongoDB", "Python", "Machine Learning"],
   features: [
+    "AI-based patient triage and risk prediction",
+    "Automated appointment scheduling",
+    "Doctor and staff management",
+    "Medical records and history tracking",
+    "Billing and invoice generation",
+    "Role-based access control",
+    "Analytics dashboard for hospital operations"
     "AI-based patient triage and risk prediction",
     "Automated appointment scheduling",
     "Doctor and staff management",

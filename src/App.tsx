@@ -16,6 +16,7 @@ import NotFound from "./pages/NotFound";
 import BlogPost from '@/components/BlogPost';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
+import Admin from './pages/Admin';
 
 const queryClient = new QueryClient();
 
@@ -38,6 +39,7 @@ const App = () => (
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="*" element={<NotFound />} />
+             <Route path="/admin" element={<Admin />} />
           </Routes>
         </Layout>
       </BrowserRouter>

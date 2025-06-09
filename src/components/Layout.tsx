@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -52,10 +51,12 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${location.pathname === item.href
-                    ? 'text-purple-600 bg-purple-50'
-                    : 'text-gray-700 hover:text-purple-600 hover:bg-gray-50'
-                    }`}
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                    location.pathname === item.href
+                      ? 'text-purple-600 bg-purple-50'
+                      : 'text-gray-700 hover:text-purple-600 hover:bg-gray-50'
+                  }`}
                 >
                   {item.name}
                 </Link>
@@ -152,6 +153,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                     <Link
                       to={item.href}
                       className="text-gray-400 hover:text-white transition-colors duration-200"
+                      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                     >
                       {item.name}
                     </Link>
