@@ -69,13 +69,6 @@ const Projects = () => {
     "Billing and invoice generation",
     "Role-based access control",
     "Analytics dashboard for hospital operations"
-    "AI-based patient triage and risk prediction",
-    "Automated appointment scheduling",
-    "Doctor and staff management",
-    "Medical records and history tracking",
-    "Billing and invoice generation",
-    "Role-based access control",
-    "Analytics dashboard for hospital operations"
   ],
   deliverables: [
     "Source code",

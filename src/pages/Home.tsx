@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ArrowRight, CheckCircle, Star, Users, Award, TrendingUp, Sparkles, Zap, Globe, ShieldCheck, ExternalLink, Code, Palette, Rocket, Brain, Target, MousePointer, Play } from 'lucide-react';
 
 const Home = () => {
-  const navigate = (path) => console.log(`Navigate to: ${path}`);
-  
+  const navigate = useNavigate();
+
   interface ServicePackage {
     name: string;
     price?: string;
@@ -88,8 +89,6 @@ const Home = () => {
       description: "Professional websites that convert visitors into customers",
       icon: <Palette className="w-8 h-8" />,
       color: "from-purple-500 to-pink-500",
-      icon: <Palette className="w-8 h-8" />,
-      color: "from-purple-500 to-pink-500",
       features: ["Responsive Design", "SEO Optimized", "Fast Loading", "Modern UI/UX"],
       packages: [
         { name: "Static Website", price: "₹4,999 - ₹7,999", features: ["3-5 pages", "Mobile responsive", "SEO basics"] },
@@ -99,8 +98,6 @@ const Home = () => {
     {
       title: "Student Project Assistance",
       description: "Complete support for your academic projects",
-      icon: <Brain className="w-8 h-8" />,
-      color: "from-blue-500 to-cyan-500",
       icon: <Brain className="w-8 h-8" />,
       color: "from-blue-500 to-cyan-500",
       features: ["Code Implementation", "Project Reports", "Presentation", "GitHub Setup"],
@@ -114,8 +111,6 @@ const Home = () => {
       description: "Grow your brand with strategic social media presence",
       icon: <Target className="w-8 h-8" />,
       color: "from-green-500 to-teal-500",
-      icon: <Target className="w-8 h-8" />,
-      color: "from-green-500 to-teal-500",
       features: ["Content Strategy", "Organic Growth", "Ad Campaigns", "Analytics"],
       packages: [
         { name: "Organic Growth", price: "₹3,000/month", features: ["3 platforms", "12 posts/month", "Hashtag strategy"] },
@@ -127,18 +122,8 @@ const Home = () => {
       description: "Learn cutting-edge technologies with expert guidance",
       icon: <Rocket className="w-8 h-8" />,
       color: "from-orange-500 to-red-500",
-      icon: <Rocket className="w-8 h-8" />,
-      color: "from-orange-500 to-red-500",
       features: ["Expert Instructors", "Hands-on Projects", "Certificates", "Job Support"],
       packages: [
-        {
-          name: "Full Stack Hackathon Weekend",
-          features: ["2 Days", "Frontend + Backend", "Live Deployment", "Team Collaboration"]
-        },
-        {
-          name: "AI in a Day: Build Your First Model",
-          features: ["1 Day", "Python & ML Basics", "Real Dataset", "Model Building"]
-        }
         {
           name: "Full Stack Hackathon Weekend",
           features: ["2 Days", "Frontend + Backend", "Live Deployment", "Team Collaboration"]
@@ -158,14 +143,12 @@ const Home = () => {
       content: "DDG helped me complete my final year project flawlessly. The guidance was exceptional!",
       rating: 5,
       avatar: "👩‍🎓"
-      avatar: "👩‍🎓"
     },
     {
       name: "Rahul Gupta",
       role: "Startup Founder",
       content: "Our e-commerce website built by DDG increased our sales by 300%. Highly recommended!",
       rating: 5,
-      avatar: "👨‍💼"
       avatar: "👨‍💼"
     },
     {
@@ -174,15 +157,10 @@ const Home = () => {
       content: "Their social media strategy transformed our brand presence. Amazing results in just 3 months!",
       rating: 5,
       avatar: "👩‍💻"
-      avatar: "👩‍💻"
     }
   ];
 
   const stats = [
-    { icon: Award, label: "Projects Delivered", value: "200+", color: "text-purple-600" },
-    { icon: Users, label: "Happy Clients", value: "100+", color: "text-blue-600" },
-    { icon: TrendingUp, label: "Workshops Delivered", value: "50+", color: "text-green-600" },
-    { icon: Star, label: "Average Rating", value: "4.9/5", color: "text-orange-600" }
     { icon: Award, label: "Projects Delivered", value: "200+", color: "text-purple-600" },
     { icon: Users, label: "Happy Clients", value: "100+", color: "text-blue-600" },
     { icon: TrendingUp, label: "Workshops Delivered", value: "50+", color: "text-green-600" },
@@ -194,23 +172,14 @@ const Home = () => {
     { icon: ShieldCheck, title: "Secure & Reliable", description: "Enterprise-grade security standards", color: "from-green-400 to-emerald-500" },
     { icon: Globe, title: "Global Reach", description: "Serving clients across India and beyond", color: "from-blue-400 to-cyan-500" },
     { icon: Sparkles, title: "Modern Design", description: "Latest UI/UX trends and technologies", color: "from-purple-400 to-pink-500" }
-    { icon: Zap, title: "Lightning Fast", description: "Optimized for speed and performance", color: "from-yellow-400 to-orange-500" },
-    { icon: ShieldCheck, title: "Secure & Reliable", description: "Enterprise-grade security standards", color: "from-green-400 to-emerald-500" },
-    { icon: Globe, title: "Global Reach", description: "Serving clients across India and beyond", color: "from-blue-400 to-cyan-500" },
-    { icon: Sparkles, title: "Modern Design", description: "Latest UI/UX trends and technologies", color: "from-purple-400 to-pink-500" }
-  ];
+   ];
 
   const featuredProjects = [
     {
       title: "E-Library",
       description: "Digital library for browsing and accessing a wide range of e-books",
       tech: ["HTML", "CSS", "JavaScript", "REST APIs"],
-      title: "E-Library",
-      description: "Digital library for browsing and accessing a wide range of e-books",
-      tech: ["HTML", "CSS", "JavaScript", "REST APIs"],
       category: "Web Development",
-      icon: "📚",
-      color: "from-purple-500 to-pink-500"
       icon: "📚",
       color: "from-purple-500 to-pink-500"
     },
@@ -221,20 +190,8 @@ const Home = () => {
       category: "Full Stack Development",
       icon: "💻",
       color: "from-indigo-500 to-blue-500"
-      title: "LearnByDoing",
-      description: "Interactive coding platform enabling users to learn by building real-world projects",
-      tech: ["React", "Node.js", "MongoDB", "Express", "JWT"],
-      category: "Full Stack Development",
-      icon: "💻",
-      color: "from-indigo-500 to-blue-500"
     },
     {
-      title: "NEO Explorer",
-      description: "Web app to visualize NASA's Near Earth Objects using public API data",
-      tech: ["JavaScript", "HTML", "CSS", "NASA API"],
-      category: "Web Development",
-      icon: "🌌",
-      color: "from-yellow-500 to-red-500"
       title: "NEO Explorer",
       description: "Web app to visualize NASA's Near Earth Objects using public API data",
       tech: ["JavaScript", "HTML", "CSS", "NASA API"],
@@ -637,11 +594,8 @@ const Home = () => {
                       <button className={`mt-8 px-8 py-4 bg-gradient-to-r ${service.color} text-white font-bold rounded-2xl hover:shadow-2xl transform hover:scale-105 transition-all duration-500 shadow-lg pulse-ring`}>
                         {activeService === index ? 'Show Less' : 'Learn More'}
                       </button>
-                      </button>
                     </div>
                   </div>
-                </div>
-              </div>
                 </div>
               </div>
             ))}
@@ -699,7 +653,6 @@ const Home = () => {
             <h2 className="text-5xl md:text-7xl font-black text-gray-900 mb-6 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
               What Our Clients Say
             </h2>
-            <p className="text-2xl text-gray-600 leading-relaxed">
             <p className="text-2xl text-gray-600 leading-relaxed">
               Real feedback from real people who've experienced our services
             </p>
