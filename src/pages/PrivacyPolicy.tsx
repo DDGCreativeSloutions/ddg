@@ -15,7 +15,7 @@ const PrivacyPolicy = () => {
 
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">1. Introduction</h2>
-          <p>DesignDeliverGrow ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website <strong>www.designdelivergrow.com</strong>, use our services, or interact with our educational content.</p>
+          <p>DesignDeliverGrow ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website <strong>www.designdelivergrow.store</strong>, use our services, or interact with our educational content.</p>
         </section>
 
         <section className="mb-8">
