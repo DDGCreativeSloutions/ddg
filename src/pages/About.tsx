@@ -4,8 +4,6 @@ import { Users, Target, Heart, Award, TrendingUp, Globe, Sparkles, Zap, Shield, 
 
 const About = () => {
   const navigate = useNavigate();
-  // Remove this line
-  // const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState<Record<string, boolean>>({});
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [particles, setParticles] = useState<Array<{
@@ -154,30 +152,73 @@ const About = () => {
     }
   ];
 
-  // Remove this timeline array
-  // const timeline = [
-  //   { year: "2024", title: "Foundation", description: "Started with a vision to bridge the gap between academics and industry" },
-  //   { year: "2024", title: "First Success", description: "Delivered 50+ successful projects for students and startups" },
-  //   { year: "2024", title: "Growing Impact", description: "Expanded reach across PAN India with innovative solutions" },
-  //   { year: "2025", title: "Future Vision", description: "Continuing to empower dreams with cutting-edge technology" }
-  // ];
+  const platformProcess = [
+    { 
+      id: "discover", 
+      title: "Discover", 
+      description: "We start by understanding your unique needs and requirements through in-depth consultations",
+      icon: "🔍",
+      color: "from-purple-600 to-blue-600"
+    },
+    { 
+      id: "design", 
+      title: "Design", 
+      description: "Our expert team creates custom solutions tailored specifically to your goals and vision",
+      icon: "✏️",
+      color: "from-blue-600 to-cyan-500"
+    },
+    { 
+      id: "develop", 
+      title: "Develop", 
+      description: "We bring your ideas to life with cutting-edge technology and industry best practices",
+      icon: "⚙️",
+      color: "from-cyan-500 to-purple-600"
+    },
+    { 
+      id: "deliver", 
+      title: "Deliver", 
+      description: "Receive a polished, high-quality solution that exceeds expectations and meets all requirements",
+      icon: "🚀",
+      color: "from-purple-600 to-cyan-500"
+    },
+    { 
+      id: "grow", 
+      title: "Grow", 
+      description: "We provide ongoing support and optimization to ensure your continued success and growth",
+      icon: "📈",
+      color: "from-blue-600 to-purple-600"
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-white overflow-hidden">
-      {/* Interactive Cursor */}
-      <div 
-        className="fixed w-6 h-6 pointer-events-none z-50 mix-blend-difference"
-        style={{
-          transition: 'all 0.1s ease'
-        }}
-      >
-        <div className="w-full h-full bg-white rounded-full opacity-80"></div>
-      </div>
+      <style>{`
+        /* Mobile responsiveness fixes */
+        .break-words {
+          word-wrap: break-word;
+          word-break: break-word;
+          hyphens: auto;
+        }
+        
+        @media (max-width: 640px) {
+          h1, h2, h3, h4, h5, h6 {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+          }
+          
+          p, span, div {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+          }
+        }
+      `}</style>
+
 
       {/* Enhanced Hero Section with Particles */}
       <section 
         ref={heroRef}
-        className="relative py-32 bg-gradient-to-br from-purple-50 via-blue-50 to-cyan-50 overflow-hidden"
+        className="relative py-16 sm:py-24 lg:py-32 bg-gradient-to-br from-purple-50 via-blue-50 to-cyan-50 overflow-hidden"
         id="hero"
         data-animate
       >
@@ -199,11 +240,11 @@ const About = () => {
         </div>
 
         {/* Floating Geometric Shapes */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-300/20 to-cyan-300/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-gradient-to-r from-blue-300/20 to-purple-300/20 rounded-full blur-3xl animate-pulse delay-700"></div>
-          <div className="absolute top-1/2 left-1/2 w-4 h-4 bg-purple-400 rotate-45 animate-spin" style={{ animationDuration: '8s' }}></div>
-          <div className="absolute top-1/3 right-1/3 w-6 h-6 bg-cyan-400 rounded-full animate-bounce delay-300"></div>
+        <div className="absolute inset-0 overflow-hidden hidden sm:block">
+          <div className="absolute top-1/4 right-1/4 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-gradient-to-r from-purple-300/20 to-cyan-300/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 left-1/4 w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 bg-gradient-to-r from-blue-300/20 to-purple-300/20 rounded-full blur-3xl animate-pulse delay-700"></div>
+          <div className="absolute top-1/2 left-1/2 w-3 h-3 sm:w-4 sm:h-4 bg-purple-400 rotate-45 animate-spin" style={{ animationDuration: '8s' }}></div>
+          <div className="absolute top-1/3 right-1/3 w-4 h-4 sm:w-6 sm:h-6 bg-cyan-400 rounded-full animate-bounce delay-300"></div>
         </div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -218,7 +259,7 @@ const About = () => {
             </div>
             
             <h1 
-              className={`text-4xl md:text-7xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent mb-6 leading-tight transform transition-all duration-1000 delay-200 ${
+              className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent mb-4 sm:mb-6 leading-tight transform transition-all duration-1000 delay-200 ${
                 isVisible.hero ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
               }`}
             >
@@ -226,19 +267,19 @@ const About = () => {
             </h1>
             
             <div 
-              className={`bg-gradient-to-r from-purple-600 to-cyan-500 p-1 rounded-2xl mb-8 max-w-4xl mx-auto transform transition-all duration-1000 delay-400 ${
+              className={`bg-gradient-to-r from-purple-600 to-cyan-500 p-1 rounded-xl sm:rounded-2xl mb-6 sm:mb-8 max-w-4xl mx-auto transform transition-all duration-1000 delay-400 ${
                 isVisible.hero ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-8 opacity-0 scale-95'
               }`}
             >
-              <div className="bg-white rounded-xl p-8 backdrop-blur-sm">
-                <p className="text-2xl text-purple-600 font-medium italic leading-relaxed">
+              <div className="bg-white rounded-lg sm:rounded-xl p-4 sm:p-6 lg:p-8 backdrop-blur-sm">
+                <p className="text-lg sm:text-xl lg:text-2xl text-purple-600 font-medium italic leading-relaxed">
                   "We don't just deliver services. We empower dreams."
                 </p>
               </div>
             </div>
             
             <p 
-              className={`text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed transform transition-all duration-1000 delay-600 ${
+              className={`text-base sm:text-lg lg:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed px-4 transform transition-all duration-1000 delay-600 ${
                 isVisible.hero ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
               }`}
             >
@@ -248,21 +289,21 @@ const About = () => {
 
             {/* Animated Stats Cards */}
             <div 
-              className={`grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 transform transition-all duration-1000 delay-800 ${
+              className={`grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-12 sm:mt-16 transform transition-all duration-1000 delay-800 ${
                 isVisible.hero ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
               }`}
             >
               {stats.map((stat, index) => (
                 <div 
                   key={index} 
-                  className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 hover:bg-white transition-all duration-300 hover:scale-105 hover:shadow-xl group"
+                  className="bg-white/80 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 hover:bg-white transition-all duration-300 hover:scale-105 hover:shadow-xl group"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r ${stat.color} rounded-xl text-white mb-3 transform group-hover:scale-110 transition-transform duration-300`}>
-                    <stat.icon className="h-6 w-6" />
+                  <div className={`inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${stat.color} rounded-lg sm:rounded-xl text-white mb-2 sm:mb-3 transform group-hover:scale-110 transition-transform duration-300`}>
+                    <stat.icon className="h-5 w-5 sm:h-6 sm:w-6" />
                   </div>
-                  <div className="text-lg font-bold bg-gradient-to-r from-purple-600 to-cyan-500 bg-clip-text text-transparent mb-1">{stat.value}</div>
-                  <div className="text-gray-600 text-sm font-medium">{stat.label}</div>
+                  <div className="text-base sm:text-lg font-bold bg-gradient-to-r from-purple-600 to-cyan-500 bg-clip-text text-transparent mb-1 leading-tight">{stat.value}</div>
+                  <div className="text-gray-600 text-xs sm:text-sm font-medium leading-tight">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -272,22 +313,22 @@ const About = () => {
 
       {/* Mission & Vision with Parallax Effect */}
       <section 
-        className="py-20 bg-white relative"
+        className="py-12 sm:py-16 lg:py-20 bg-white relative"
         id="mission"
         data-animate
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             <div 
               className={`transform transition-all duration-1000 ${
                 isVisible.mission ? 'translate-x-0 opacity-100' : '-translate-x-16 opacity-0'
               }`}
             >
-              <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 relative">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 relative">
                 Our Mission
-                <div className="absolute -bottom-2 left-0 w-16 h-1 bg-gradient-to-r from-purple-600 to-cyan-500"></div>
+                <div className="absolute -bottom-2 left-0 w-12 sm:w-16 h-1 bg-gradient-to-r from-purple-600 to-cyan-500"></div>
               </h2>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed">
                 To bridge the gap between academic learning and industry requirements by providing 
                 comprehensive digital solutions, project assistance, and skill development programs 
                 that empower individuals to succeed in the digital economy.
@@ -340,22 +381,22 @@ const About = () => {
 
       {/* Interactive Values Section */}
       <section 
-        className="py-20 bg-gradient-to-br from-gray-50 to-purple-50/30 relative"
+        className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-50 to-purple-50/30 relative"
         id="values"
         data-animate
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div 
-            className={`text-center mb-16 transform transition-all duration-1000 ${
+            className={`text-center mb-12 sm:mb-16 transform transition-all duration-1000 ${
               isVisible.values ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
             }`}
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">Our Values</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-cyan-500 mx-auto mb-4"></div>
-            <p className="text-xl text-gray-600">The principles that guide everything we do</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">Our Values</h2>
+            <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-purple-600 to-cyan-500 mx-auto mb-3 sm:mb-4"></div>
+            <p className="text-lg sm:text-xl text-gray-600 px-4">The principles that guide everything we do</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {values.map((value, index) => (
               <div
                 key={index}
@@ -364,16 +405,16 @@ const About = () => {
                 }`}
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
-                <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 text-center hover:shadow-2xl transition-all duration-500 border border-gray-100 h-full relative overflow-hidden">
+                <div className="bg-white/80 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-center hover:shadow-2xl transition-all duration-500 border border-gray-100 h-full relative overflow-hidden">
                   {/* Hover Effect Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-50 to-cyan-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-50 to-cyan-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl sm:rounded-3xl"></div>
                   
                   <div className="relative z-10">
-                    <div className={`inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r ${value.gradient} rounded-2xl text-white mb-6 transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500`}>
-                      <value.icon className="h-10 w-10" />
+                    <div className={`inline-flex items-center justify-center w-16 h-16 sm:w-18 sm:h-18 lg:w-20 lg:h-20 bg-gradient-to-r ${value.gradient} rounded-xl sm:rounded-2xl text-white mb-4 sm:mb-6 transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500`}>
+                      <value.icon className="h-8 w-8 sm:h-9 sm:w-9 lg:h-10 lg:w-10" />
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-purple-700 transition-colors duration-300">{value.title}</h3>
-                    <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">{value.description}</p>
+                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4 group-hover:text-purple-700 transition-colors duration-300 leading-tight">{value.title}</h3>
+                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">{value.description}</p>
                   </div>
                 </div>
               </div>
@@ -384,28 +425,28 @@ const About = () => {
 
       {/* Platform Process Section - Replacing Timeline */}
       <section 
-        className="py-20 bg-white relative"
+        className="py-12 sm:py-16 lg:py-20 bg-white relative"
         id="platform-process"
         data-animate
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div 
-            className={`text-center mb-16 transform transition-all duration-1000 ${
+            className={`text-center mb-12 sm:mb-16 transform transition-all duration-1000 ${
               isVisible["platform-process"] ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
             }`}
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">How Our Platform Works</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-cyan-500 mx-auto mb-4"></div>
-            <p className="text-xl text-gray-600">A seamless process designed for your success</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">How Our Platform Works</h2>
+            <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-purple-600 to-cyan-500 mx-auto mb-3 sm:mb-4"></div>
+            <p className="text-lg sm:text-xl text-gray-600 px-4">A seamless process designed for your success</p>
           </div>
 
           {/* Process Flow Visualization */}
-          <div className="relative mb-16">
+          <div className="relative mb-12 sm:mb-16">
             {/* Connecting Line */}
-            <div className="absolute left-0 right-0 top-1/2 h-1 bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 transform -translate-y-1/2 rounded-full hidden md:block"></div>
+            <div className="absolute left-0 right-0 top-1/2 h-1 bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 transform -translate-y-1/2 rounded-full hidden lg:block"></div>
             
             {/* Process Steps */}
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-8 relative z-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8 relative z-10">
               {platformProcess.map((step, index) => (
                 <div
                   key={step.id}
@@ -416,20 +457,20 @@ const About = () => {
                 >
                   <div className="flex flex-col items-center">
                     {/* Step Number with Glow Effect */}
-                    <div className={`w-16 h-16 rounded-full bg-gradient-to-r ${step.color} flex items-center justify-center text-white text-2xl font-bold mb-4 relative group`}>
+                    <div className={`w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full bg-gradient-to-r ${step.color} flex items-center justify-center text-white text-lg sm:text-xl lg:text-2xl font-bold mb-3 sm:mb-4 relative group`}>
                       <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-600 to-cyan-500 blur-lg opacity-50 group-hover:opacity-80 animate-pulse transition-all duration-500"></div>
-                      <div className="relative z-10 text-3xl">{step.icon}</div>
+                      <div className="relative z-10 text-xl sm:text-2xl lg:text-3xl">{step.icon}</div>
                     </div>
                     
                     {/* Step Title with Animated Underline */}
-                    <h3 className="text-xl font-bold text-gray-900 mb-2 relative group">
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 relative group text-center">
                       {step.title}
                       <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-cyan-500 group-hover:w-full transition-all duration-300"></span>
                     </h3>
                     
                     {/* Step Description with Card Effect */}
-                    <div className="bg-white rounded-xl p-4 text-center shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-purple-200 group">
-                      <p className="text-gray-600 group-hover:text-gray-800 transition-colors duration-300">{step.description}</p>
+                    <div className="bg-white rounded-lg sm:rounded-xl p-3 sm:p-4 text-center shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-purple-200 group">
+                      <p className="text-sm sm:text-base text-gray-600 group-hover:text-gray-800 transition-colors duration-300 leading-relaxed">{step.description}</p>
                     </div>
                   </div>
                 </div>
@@ -821,43 +862,3 @@ const About = () => {
 };
 
 export default About;
-
-
-// Define the platform process steps
-const platformProcess = [
-{ 
-id: "discover", 
-title: "Discover", 
-description: "We start by understanding your unique needs and requirements through in-depth consultations",
-icon: "🔍",
-color: "from-purple-600 to-blue-600"
-},
-{ 
-id: "design", 
-title: "Design", 
-description: "Our expert team creates custom solutions tailored specifically to your goals and vision",
-icon: "✏️",
-color: "from-blue-600 to-cyan-500"
-},
-{ 
-id: "develop", 
-title: "Develop", 
-description: "We bring your ideas to life with cutting-edge technology and industry best practices",
-icon: "⚙️",
-color: "from-cyan-500 to-purple-600"
-},
-{ 
-id: "deliver", 
-title: "Deliver", 
-description: "Receive a polished, high-quality solution that exceeds expectations and meets all requirements",
-icon: "🚀",
-color: "from-purple-600 to-cyan-500"
-},
-{ 
-id: "grow", 
-title: "Grow", 
-description: "We provide ongoing support and optimization to ensure your continued success and growth",
-icon: "📈",
-color: "from-blue-600 to-purple-600"
-}
-];

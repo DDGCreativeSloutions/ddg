@@ -242,7 +242,7 @@ const Home = () => {
   );
 
   return (
-    <div className="min-h-screen overflow-hidden relative">
+    <div className="min-h-screen overflow-hidden relative text-responsive">
       <style>{`
         @keyframes float {
           0%, 100% { transform: translateY(0px) rotate(0deg); }
@@ -441,13 +441,47 @@ const Home = () => {
           animation: pulseRing 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
           z-index: -1;
         }
+        
+        /* Mobile responsiveness fixes */
+        .break-words {
+          word-wrap: break-word;
+          word-break: break-word;
+          hyphens: auto;
+        }
+        
+        .text-responsive {
+          word-wrap: break-word;
+          overflow-wrap: break-word;
+          hyphens: auto;
+        }
+        
+        @media (max-width: 640px) {
+          .service-card {
+            margin-bottom: 1rem;
+          }
+          
+          .service-icon {
+            margin-bottom: 1rem;
+          }
+          
+          h1, h2, h3, h4, h5, h6 {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+          }
+          
+          p, span, div {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+          }
+        }
       `}</style>
 
       {/* Enhanced Floating Orbs Background */}
-      <div className="fixed inset-0 pointer-events-none">
-        <FloatingOrb className="w-96 h-96 bg-gradient-to-r from-purple-400 to-blue-400 top-1/4 left-1/4 animate-float-glow" delay={0} />
-        <FloatingOrb className="w-80 h-80 bg-gradient-to-r from-cyan-400 to-purple-400 bottom-1/4 right-1/4 animate-float-glow" delay={2} />
-        <FloatingOrb className="w-64 h-64 bg-gradient-to-r from-blue-400 to-cyan-400 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-float-glow" delay={4} />
+      <div className="fixed inset-0 pointer-events-none hidden sm:block">
+        <FloatingOrb className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-gradient-to-r from-purple-400 to-blue-400 top-1/4 left-1/4 animate-float-glow" delay={0} />
+        <FloatingOrb className="w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 bg-gradient-to-r from-cyan-400 to-purple-400 bottom-1/4 right-1/4 animate-float-glow" delay={2} />
+        <FloatingOrb className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 bg-gradient-to-r from-blue-400 to-cyan-400 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-float-glow" delay={4} />
         <ParticleField />
         
         {/* Add more dynamic particles */}
@@ -478,44 +512,45 @@ const Home = () => {
           }}></div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className={`space-y-8 ${isVisible.hero ? 'animate-blur-in' : 'opacity-0'}`} style={{animationDelay: '0.2s'}}>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+          <div className={`space-y-6 sm:space-y-8 ${isVisible.hero ? 'animate-blur-in' : 'opacity-0'}`} style={{animationDelay: '0.2s'}}>
             <span className="inline-flex items-center px-5 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-medium shadow-sm pulse-ring">
               <Sparkles className="w-4 h-4 mr-2 text-purple-500 animate-wave" />
               Trusted by 200+ Projects
             </span>
 
-            <h1 className="text-2xl md:text-5xl font-black text-gradient-shimmer leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-black text-gradient-shimmer leading-tight">
               Design.Deliver.Grow.
             </h1>
 
-           <p className="text-xl md:text-2xl text-gray-700 animate-typewriter">
-  We help you excel in <span className="font-semibold text-purple-600">web design</span>, <span className="font-semibold text-blue-600">project execution</span>,<br />
-  and <span className="font-semibold text-cyan-600">skill development</span>.
-</p>
+           <div className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 leading-relaxed">
+  <p className="max-w-xs sm:max-w-lg lg:max-w-2xl">
+    We help you excel in <span className="font-semibold text-purple-600">web design</span>, <span className="font-semibold text-blue-600">project execution</span>,<br className="hidden sm:inline" /> and <span className="font-semibold text-cyan-600">skill development</span>.
+  </p>
+</div>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
               <button
                 onClick={() => navigate('/services')}
-                className="bg-gradient-to-r from-purple-600 to-blue-500 text-white px-6 py-4 rounded-xl font-bold shadow-lg hover:scale-105 transition-all duration-300 glow-border"
+                className="bg-gradient-to-r from-purple-600 to-blue-500 text-white px-6 py-3 sm:py-4 rounded-xl font-bold shadow-lg hover:scale-105 transition-all duration-300 glow-border text-sm sm:text-base"
               >
                 Explore Services
               </button>
               <button
                 onClick={() => navigate('/contact')}  
-                className="border-2 border-purple-300 text-purple-700 px-6 py-4 rounded-xl font-bold hover:bg-purple-50 transition duration-300 animate-border-glow"
+                className="border-2 border-purple-300 text-purple-700 px-6 py-3 sm:py-4 rounded-xl font-bold hover:bg-purple-50 transition duration-300 animate-border-glow text-sm sm:text-base"
               >
                 Book Consultation
               </button>
             </div>
           </div>
 
-          <div className={`${isVisible.hero ? 'animate-blur-in' : 'opacity-0'}`} style={{animationDelay: '0.4s'}}>
-            <div className="w-full h-96 lg:h-[500px] bg-transparent flex items-center justify-center">
+          <div className={`mt-8 lg:mt-0 ${isVisible.hero ? 'animate-blur-in' : 'opacity-0'}`} style={{animationDelay: '0.4s'}}>
+            <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] bg-transparent flex items-center justify-center">
               <LottieAnimation
                 src="/DDG1.gif"
                 alt="Animation"
-                className="w-full h-full rounded-2xl animate-float-glow"
+                className="w-full h-full rounded-xl sm:rounded-2xl animate-float-glow"
               />
             </div>
           </div>
@@ -525,16 +560,16 @@ const Home = () => {
       {/* Enhanced Services Section */}
       <section id="services" className="py-24 bg-gradient-to-br from-white to-purple-50/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`text-center mb-20 ${isVisible.services ? 'animate-blur-in' : 'opacity-0'}`}>
-            <h2 className="text-5xl md:text-7xl font-black text-gray-900 mb-6 text-gradient-shimmer">
+          <div className={`text-center mb-16 sm:mb-20 ${isVisible.services ? 'animate-blur-in' : 'opacity-0'}`}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-gray-900 mb-4 sm:mb-6 text-gradient-shimmer">
               Our Services
             </h2>
-            <p className="text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed animate-typewriter">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed px-4">
               Comprehensive solutions to help you succeed in your digital journey
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
             {services.map((service, index) => (
               <div 
                 key={index} 
@@ -544,44 +579,44 @@ const Home = () => {
                 onClick={() => setActiveService(activeService === index ? null : index)}
                 style={{animationDelay: `${index * 0.2 + 0.2}s`}}
               >
-                <div className="bg-gradient-to-br from-white to-gray-50/50 rounded-3xl p-10 shadow-2xl hover:shadow-purple-500/10 border border-gray-100 h-full relative overflow-hidden">
+                <div className="bg-gradient-to-br from-white to-gray-50/50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 shadow-2xl hover:shadow-purple-500/10 border border-gray-100 h-full relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-transparent to-purple-50/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
-                  <div className="relative flex items-start space-x-8">
-                    <div className={`service-icon flex-shrink-0 w-20 h-20 bg-gradient-to-r ${service.color} rounded-3xl flex items-center justify-center text-white transform group-hover:rotate-12 transition-all duration-500 shadow-lg animate-float-glow`} style={{animationDelay: `${index * 0.5}s`}}>
-                      {service.icon}
+                  <div className="relative flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6 lg:space-x-8">
+                    <div className={`service-icon flex-shrink-0 w-16 h-16 sm:w-18 sm:h-18 lg:w-20 lg:h-20 bg-gradient-to-r ${service.color} rounded-2xl sm:rounded-3xl flex items-center justify-center text-white transform group-hover:rotate-12 transition-all duration-500 shadow-lg animate-float-glow`} style={{animationDelay: `${index * 0.5}s`}}>
+                      {React.cloneElement(service.icon as React.ReactElement, { className: "w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8" })}
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-3xl font-black text-gray-900 mb-4 group-hover:text-gradient-shimmer transition-all duration-500">{service.title}</h3>
-                      <p className="text-gray-600 mb-8 text-xl leading-relaxed">{service.description}</p>
+                    <div className="flex-1 w-full">
+                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-black text-gray-900 mb-3 sm:mb-4 group-hover:text-gradient-shimmer transition-all duration-500 leading-tight">{service.title}</h3>
+                      <p className="text-gray-600 mb-6 sm:mb-8 text-base sm:text-lg lg:text-xl leading-relaxed">{service.description}</p>
                       
                       {activeService === index && (
-                        <div className="space-y-8 animate-blur-in">
+                        <div className="space-y-6 sm:space-y-8 animate-blur-in">
                           <div>
-                            <h4 className="font-black text-gray-900 mb-6 text-xl">Features:</h4>
-                            <div className="grid grid-cols-2 gap-4">
+                            <h4 className="font-black text-gray-900 mb-4 sm:mb-6 text-lg sm:text-xl">Features:</h4>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                               {service.features.map((feature: string, idx: number) => (
-                                <div key={idx} className="flex items-center space-x-4 animate-blur-in" style={{animationDelay: `${idx * 0.1}s`}}>
-                                  <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0 animate-wave" style={{animationDelay: `${idx * 0.2}s`}} />
-                                  <span className="text-gray-700 font-medium">{feature}</span>
+                                <div key={idx} className="flex items-center space-x-3 sm:space-x-4 animate-blur-in" style={{animationDelay: `${idx * 0.1}s`}}>
+                                  <CheckCircle className="h-5 w-5 sm:h-6 sm:w-6 text-green-500 flex-shrink-0 animate-wave" style={{animationDelay: `${idx * 0.2}s`}} />
+                                  <span className="text-gray-700 font-medium text-sm sm:text-base">{feature}</span>
                                 </div>
                               ))}
                             </div>
                           </div>
 
                           <div>
-                            <h4 className="font-black text-gray-900 mb-6 text-xl">Packages:</h4>
+                            <h4 className="font-black text-gray-900 mb-4 sm:mb-6 text-lg sm:text-xl">Packages:</h4>
                             {service.packages.map((pkg: ServicePackage, idx: number) => (
-                              <div key={idx} className={`bg-gradient-to-r ${service.color} bg-opacity-10 rounded-3xl p-8 mb-6 hover:bg-opacity-20 transition-all duration-300 animate-blur-in glow-border`} style={{animationDelay: `${idx * 0.2}s`}}>
-                                <div className="flex justify-between items-start mb-4">
-                                  <h5 className="font-black text-gray-900 text-xl">{pkg.name}</h5>
-                                  {pkg.price && <span className="text-purple-600 font-black text-xl animate-floating-numbers">{pkg.price}</span>}
+                              <div key={idx} className={`bg-gradient-to-r ${service.color} bg-opacity-10 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 mb-4 sm:mb-6 hover:bg-opacity-20 transition-all duration-300 animate-blur-in glow-border`} style={{animationDelay: `${idx * 0.2}s`}}>
+                                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3 sm:mb-4 space-y-2 sm:space-y-0">
+                                  <h5 className="font-black text-gray-900 text-lg sm:text-xl break-words">{pkg.name}</h5>
+                                  {pkg.price && <span className="text-purple-600 font-black text-base sm:text-lg lg:text-xl animate-floating-numbers break-words">{pkg.price}</span>}
                                 </div>
-                                <ul className="text-gray-700 space-y-3">
+                                <ul className="text-gray-700 space-y-2 sm:space-y-3">
                                   {pkg.features.map((feature, fidx) => (
-                                    <li key={fidx} className="flex items-center space-x-3">
-                                      <div className="w-3 h-3 bg-purple-500 rounded-full animate-pulse"></div>
-                                      <span className="font-medium">{feature}</span>
+                                    <li key={fidx} className="flex items-start space-x-3">
+                                      <div className="w-2 h-2 sm:w-3 sm:h-3 bg-purple-500 rounded-full animate-pulse mt-2 flex-shrink-0"></div>
+                                      <span className="font-medium text-sm sm:text-base break-words">{feature}</span>
                                     </li>
                                   ))}
                                 </ul>
@@ -591,7 +626,7 @@ const Home = () => {
                         </div>
                       )}
                       
-                      <button className={`mt-8 px-8 py-4 bg-gradient-to-r ${service.color} text-white font-bold rounded-2xl hover:shadow-2xl transform hover:scale-105 transition-all duration-500 shadow-lg pulse-ring`}>
+                      <button className={`mt-6 sm:mt-8 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r ${service.color} text-white font-bold rounded-xl sm:rounded-2xl hover:shadow-2xl transform hover:scale-105 transition-all duration-500 shadow-lg pulse-ring text-sm sm:text-base`}>
                         {activeService === index ? 'Show Less' : 'Learn More'}
                       </button>
                     </div>
@@ -606,29 +641,29 @@ const Home = () => {
       {/* Enhanced Featured Projects Section */}
       <section id="projects" className="py-24 bg-gradient-to-br from-gray-50 to-purple-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`text-center mb-20 ${isVisible.projects ? 'animate-bounce-in' : 'opacity-0'}`}>
-            <h2 className="text-5xl md:text-7xl font-black text-gray-900 mb-6 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+          <div className={`text-center mb-16 sm:mb-20 ${isVisible.projects ? 'animate-bounce-in' : 'opacity-0'}`}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-gray-900 mb-4 sm:mb-6 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
               Featured Projects
             </h2>
-            <p className="text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed px-4">
               Showcasing our expertise through innovative solutions
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
             {featuredProjects.map((project, index) => (
               <div key={index} className={`group ${isVisible.projects ? 'animate-slide-in-bottom' : 'opacity-0'}`} style={{animationDelay: `${index * 0.2}s`}}>
-                <div className={`bg-gradient-to-br ${project.color} p-6 rounded-3xl shadow-2xl hover:shadow-purple-500/20 transition-all duration-700 transform hover:scale-105 hover:-translate-y-2 border border-gray-100 h-full relative overflow-hidden`}>
+                <div className={`bg-gradient-to-br ${project.color} p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl shadow-2xl hover:shadow-purple-500/20 transition-all duration-700 transform hover:scale-105 hover:-translate-y-2 border border-gray-100 h-full relative overflow-hidden`}>
                   <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
                   <div className="relative text-white">
-                    <div className="text-6xl mb-6 transform group-hover:scale-125 transition-transform duration-500">{project.icon}</div>
-                    <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium mb-4">{project.category}</span>
-                    <h3 className="text-3xl font-black mb-4">{project.title}</h3>
-                    <p className="text-white/90 text-lg leading-relaxed mb-6">{project.description}</p>
+                    <div className="text-4xl sm:text-5xl lg:text-6xl mb-4 sm:mb-6 transform group-hover:scale-125 transition-transform duration-500">{project.icon}</div>
+                    <span className="inline-block px-3 sm:px-4 py-1 sm:py-2 bg-white/20 backdrop-blur-sm rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">{project.category}</span>
+                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-black mb-3 sm:mb-4 leading-tight">{project.title}</h3>
+                    <p className="text-white/90 text-sm sm:text-base lg:text-lg leading-relaxed mb-4 sm:mb-6">{project.description}</p>
                     <div className="flex flex-wrap gap-2">
                       {project.tech.map((tech: string, idx: number) => (
-                        <span key={idx} className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium">
+                        <span key={idx} className="px-2 sm:px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs sm:text-sm font-medium">
                           {tech}
                         </span>
                       ))}
@@ -649,31 +684,31 @@ const Home = () => {
         </div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`text-center mb-20 ${isVisible.testimonials ? 'animate-bounce-in' : 'opacity-0'}`}>
-            <h2 className="text-5xl md:text-7xl font-black text-gray-900 mb-6 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+          <div className={`text-center mb-16 sm:mb-20 ${isVisible.testimonials ? 'animate-bounce-in' : 'opacity-0'}`}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-gray-900 mb-4 sm:mb-6 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
               What Our Clients Say
             </h2>
-            <p className="text-2xl text-gray-600 leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 leading-relaxed px-4">
               Real feedback from real people who've experienced our services
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
             {testimonials.map((testimonial, index) => (
               <div key={index} className={`group ${isVisible.testimonials ? 'animate-slide-in-bottom' : 'opacity-0'}`} style={{animationDelay: `${index * 0.2}s`}}>
-                <div className="bg-gradient-to-br from-white to-purple-50/50 rounded-3xl p-10 shadow-2xl hover:shadow-purple-500/20 transition-all duration-700 transform hover:scale-105 hover:-translate-y-2 border border-gray-100 h-full relative overflow-hidden">
+                <div className="bg-gradient-to-br from-white to-purple-50/50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 shadow-2xl hover:shadow-purple-500/20 transition-all duration-700 transform hover:scale-105 hover:-translate-y-2 border border-gray-100 h-full relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-transparent to-purple-100/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
                   <div className="relative">
-                    <div className="flex items-center mb-8">
-                      <div className="text-5xl mr-4">{testimonial.avatar}</div>
+                    <div className="flex items-center mb-6 sm:mb-8">
+                      <div className="text-3xl sm:text-4xl lg:text-5xl mr-3 sm:mr-4">{testimonial.avatar}</div>
                       <div>
-                        <h4 className="font-bold text-xl text-gray-900">{testimonial.name}</h4>
-                        <p className="text-gray-600">{testimonial.role}</p>
+                        <h4 className="font-bold text-lg sm:text-xl text-gray-900 leading-tight">{testimonial.name}</h4>
+                        <p className="text-gray-600 text-sm sm:text-base">{testimonial.role}</p>
                       </div>
                     </div>
                     
-                    <p className="text-gray-700 text-lg mb-6 italic">
+                    <p className="text-gray-700 text-base sm:text-lg mb-4 sm:mb-6 italic leading-relaxed">
                       "{testimonial.content}"
                     </p>
                     
@@ -681,7 +716,7 @@ const Home = () => {
                       {[...Array(5)].map((_, i) => (
                         <Star 
                           key={i} 
-                          className={`w-5 h-5 ${i < testimonial.rating ? 'text-yellow-500 fill-yellow-500' : 'text-gray-300'}`} 
+                          className={`w-4 h-4 sm:w-5 sm:h-5 ${i < testimonial.rating ? 'text-yellow-500 fill-yellow-500' : 'text-gray-300'}`} 
                         />
                       ))}
                     </div>
@@ -703,19 +738,19 @@ const Home = () => {
         </div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 text-center">
             {stats.map((stat, index) => (
               <div 
                 key={index} 
                 className={`${isVisible.stats ? 'animate-blur-in' : 'opacity-0'}`}
                 style={{animationDelay: `${index * 0.2}s`}}
               >
-                <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/20 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 glow-border">
-                  <div className="flex justify-center mb-4">
-                    <stat.icon className={`w-12 h-12 ${stat.color} animate-float-glow`} style={{animationDelay: `${index * 0.3}s`}} />
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 hover:bg-white/20 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 glow-border">
+                  <div className="flex justify-center mb-3 sm:mb-4">
+                    <stat.icon className={`w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 ${stat.color} animate-float-glow`} style={{animationDelay: `${index * 0.3}s`}} />
                   </div>
-                  <div className="text-4xl font-black mb-2 animate-floating-numbers">{stat.value}</div>
-                  <div className="text-lg font-medium text-white/80">{stat.label}</div>
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-black mb-1 sm:mb-2 animate-floating-numbers">{stat.value}</div>
+                  <div className="text-sm sm:text-base lg:text-lg font-medium text-white/80 leading-tight">{stat.label}</div>
                 </div>
               </div>
             ))}
@@ -731,31 +766,31 @@ const Home = () => {
         </div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`text-center mb-20 ${isVisible.features ? 'animate-bounce-in' : 'opacity-0'}`}>
-            <h2 className="text-5xl md:text-7xl font-black text-gray-900 mb-6 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+          <div className={`text-center mb-16 sm:mb-20 ${isVisible.features ? 'animate-bounce-in' : 'opacity-0'}`}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-gray-900 mb-4 sm:mb-6 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
               Why Choose Us
             </h2>
-            <p className="text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed px-4">
               We combine technical expertise with creative excellence
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
             {features.map((feature, index) => (
               <div 
                 key={index} 
                 className={`group ${isVisible.features ? 'animate-slide-in-bottom' : 'opacity-0'}`}
                 style={{animationDelay: `${index * 0.2}s`}}
               >
-                <div className="bg-gradient-to-br from-white to-gray-50/50 rounded-3xl p-8 shadow-xl hover:shadow-purple-500/10 transition-all duration-700 transform hover:scale-105 hover:-translate-y-2">
+                <div className="bg-gradient-to-br from-white to-gray-50/50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl hover:shadow-purple-500/10 transition-all duration-700 transform hover:scale-105 hover:-translate-y-2 relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-transparent to-purple-50/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
                   <div className="relative">
-                    <div className={`w-16 h-16 mb-6 bg-gradient-to-r ${feature.color} rounded-2xl flex items-center justify-center text-white transform group-hover:rotate-12 transition-all duration-500 shadow-lg`}>
-                      <feature.icon className="w-8 h-8" />
+                    <div className={`w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mb-4 sm:mb-6 bg-gradient-to-r ${feature.color} rounded-xl sm:rounded-2xl flex items-center justify-center text-white transform group-hover:rotate-12 transition-all duration-500 shadow-lg`}>
+                      <feature.icon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8" />
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">{feature.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                    <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight">{feature.title}</h3>
+                    <p className="text-gray-600 leading-relaxed text-sm sm:text-base">{feature.description}</p>
                   </div>
                 </div>
               </div>
@@ -785,23 +820,23 @@ const Home = () => {
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className={`${isVisible.cta ? 'animate-blur-in' : 'opacity-0'}`}>
-            <h2 className="text-5xl md:text-7xl font-black mb-8 leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 sm:mb-8 leading-tight">
               Ready to Transform Your <span className="text-gradient-shimmer">Digital Presence</span>?
             </h2>
-            <p className="text-2xl text-white/80 max-w-4xl mx-auto mb-12 leading-relaxed animate-typewriter">
+            <p className="text-lg sm:text-xl md:text-2xl text-white/80 max-w-4xl mx-auto mb-8 sm:mb-12 leading-relaxed animate-typewriter px-4">
               Let's collaborate to bring your vision to life with our expertise in design, development, and digital marketing.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
               <button
                 onClick={() => navigate('/contact')}
-                className="bg-white text-purple-600 px-8 py-5 rounded-xl font-bold text-xl shadow-2xl hover:scale-105 transition-all duration-300 animate-glow pulse-ring"
+                className="bg-white text-purple-600 px-6 sm:px-8 py-4 sm:py-5 rounded-xl font-bold text-lg sm:text-xl shadow-2xl hover:scale-105 transition-all duration-300 animate-glow pulse-ring"
               >
                 Get Started Today
               </button>
               <button
                 onClick={() => navigate('/services')}
-                className="bg-transparent border-2 border-white/50 text-white px-8 py-5 rounded-xl font-bold text-xl hover:bg-white/10 transition-all duration-300 animate-border-glow"
+                className="bg-transparent border-2 border-white/50 text-white px-6 sm:px-8 py-4 sm:py-5 rounded-xl font-bold text-lg sm:text-xl hover:bg-white/10 transition-all duration-300 animate-border-glow"
               >
                 Explore Services
               </button>
