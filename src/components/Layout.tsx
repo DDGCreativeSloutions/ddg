@@ -228,8 +228,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 >
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="32"
-    height="32"
+    width="12"
+    height="12"
     fill="white"
     viewBox="0 0 24 24"
   >
