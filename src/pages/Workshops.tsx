@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Calendar, Users, Clock, Award, Lightbulb, Hammer, ArrowRight, X, CheckCircle, Mail, User, Phone, MapPin, GraduationCap, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -43,6 +43,8 @@ interface FormErrors {
   motivation?: string;
 }
 
+const UPCOMING_DATE = new Date("July 30, 2025 00:00:00");
+
 const Workshops = () => {
   const [expandedWorkshop, setExpandedWorkshop] = useState<number | null>(null);
   const [showRegistrationForm, setShowRegistrationForm] = useState(false);
@@ -59,6 +61,41 @@ const Workshops = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [formErrors, setFormErrors] = useState<FormErrors>({});
+  const [countdown, setCountdown] = useState("");
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = UPCOMING_DATE.getTime() - now;
+
+      if (distance > 0) {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        setCountdown(
+          `Starts in: <span style="color:#6366f1;font-weight:bold">${days}d</span> <span style="color:#10b981;font-weight:bold">${hours}h</span> <span style="color:#f59e42;font-weight:bold">${minutes}m</span> <span style="color:#ef4444;font-weight:bold">${seconds}s</span>`
+        );
+      } else {
+        setCountdown("Event Started!");
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const [registeredCount, setRegisteredCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    // Fetch the registered count from SheetDB
+    fetch('https://sheetdb.io/api/v1/w7cl475isdyph/count')
+      .then(res => res.json())
+      .then(data => {
+        if (typeof data?.rows === "number") setRegisteredCount(data.rows);
+      })
+      .catch(() => setRegisteredCount(null));
+  }, []);
 
   const workshops: Workshop[] = [
     {
@@ -66,8 +103,8 @@ const Workshops = () => {
       icon: "🚀",
       color: "from-indigo-500 to-purple-500",
       tagline: "Code, build, and deploy a full-stack app in just two days!",
-      duration: "2 Days",
-      students: "150+ registered",
+      duration: countdown,
+      students: registeredCount !== null ? `${registeredCount} registered` : "Loading...",
       level: "Intermediate to Advanced",
       agenda: [
         {
@@ -168,6 +205,10 @@ const Workshops = () => {
     }
   ];
 
+  // Countdown timer display at the top of the page
+  // You can style this as needed
+  // Place this inside the return statement, e.g. above the main section
+
   const validateForm = (): boolean => {
     const errors: FormErrors = {};
     if (!formData.name.trim()) errors.name = 'Name is required';
@@ -202,15 +243,21 @@ const Workshops = () => {
 
     setIsSubmitting(true);
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setShowRegistrationForm(false);
-    setShowConfirmation(true);
-    
-    // Auto-hide confirmation after 5 seconds
-    setTimeout(() => setShowConfirmation(false), 5000);
+    // Replace with your SheetDB/Sheety endpoint
+    fetch('https://sheetdb.io/api/v1/w7cl475isdyph', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ data: { name: formData.name, email: formData.email, phone: formData.phone, college: formData.college, year: formData.year, experience: formData.experience, motivation: formData.motivation } })
+    })
+      .then(res => res.json())
+      .then(data => {
+        setIsSubmitting(false);
+        setShowRegistrationForm(false);
+        setShowConfirmation(true);
+        
+        // Auto-hide confirmation after 5 seconds
+        setTimeout(() => setShowConfirmation(false), 5000);
+      });
   };
 
   const handleInputChange = (field: keyof FormData, value: string) => {
@@ -445,8 +492,8 @@ const Workshops = () => {
 
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-          {workshops.map((workshop, index) => (
-            <Card key={index} className={`hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 ${expandedWorkshop === index ? 'ring-2 ring-indigo-500' : ''}`}>
+          {workshops.map((workshop, idx) => (
+            <Card key={idx} className={`hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 ${expandedWorkshop === idx ? 'ring-2 ring-indigo-500' : ''}`}>
               <CardContent className="p-6">
                 <div className="flex items-center space-x-4 mb-6">
                   <div className={`text-4xl w-16 h-16 flex items-center justify-center bg-gradient-to-br ${workshop.color} rounded-xl text-white shadow-lg`}>
@@ -461,7 +508,14 @@ const Workshops = () => {
                 <div className="grid grid-cols-2 gap-4 mb-6">
                   <div className="flex items-center space-x-2">
                     <Clock className="h-5 w-5 text-gray-400" />
-                    <span className="text-gray-600">{workshop.duration}</span>
+                    {idx === 0 ? (
+                      <span
+                        className="text-gray-600"
+                        dangerouslySetInnerHTML={{ __html: workshop.duration }}
+                      />
+                    ) : (
+                      <span className="text-gray-600">{workshop.duration}</span>
+                    )}
                   </div>
                   <div className="flex items-center space-x-2">
                     <Users className="h-5 w-5 text-gray-400" />
@@ -472,18 +526,22 @@ const Workshops = () => {
                   </div>
                   <div className="flex items-center space-x-2">
                     <Calendar className="h-5 w-5 text-gray-400" />
-                    <span className="text-gray-600">Upcoming</span>
+                    {idx === 0 ? (
+                      <span className="text-gray-600">{UPCOMING_DATE.toLocaleDateString()}</span>
+                    ) : (
+                      <span className="text-gray-400 italic">Upcoming</span>
+                    )}
                   </div>
                 </div>
 
-                {expandedWorkshop === index && (
+                {expandedWorkshop === idx && (
                   <div className="animate-in fade-in slide-in-from-top-4 duration-300 space-y-6 border-t pt-6">
                     <div>
                       <h4 className="text-lg font-semibold text-gray-900 mb-4">Workshop Agenda</h4>
                       <div className="space-y-4">
-                        {workshop.agenda.map((day, idx) => (
-                          <div key={idx} className="border rounded-lg p-4 hover:bg-gray-50 transition-colors">
-                            <h5 className="font-semibold text-gray-900 mb-2">{idx + 1}. {day.title}</h5>
+                        {workshop.agenda.map((day, id) => (
+                          <div key={id} className="border rounded-lg p-4 hover:bg-gray-50 transition-colors">
+                            <h5 className="font-semibold text-gray-900 mb-2">{id + 1}. {day.title}</h5>
                             <div className="grid grid-cols-2 gap-2">
                               {day.topics.map((topic, i) => (
                                 <div key={i} className="flex items-start space-x-2">
@@ -529,23 +587,24 @@ const Workshops = () => {
                         </div>
                         <p className="text-sm text-gray-600">{workshop.certificate}</p>
                       </div>
-                      <Button 
+                        <Button
                         onClick={() => handleRegisterClick(workshop)}
                         className={`bg-gradient-to-r ${workshop.color} hover:shadow-lg transform hover:scale-105 transition-all duration-200`}
-                      >
-                        Register Now
-                      </Button>
+                        disabled={workshop.title !== "Full Stack Hackathon Weekend"}
+                        >
+                        {workshop.title === "Full Stack Hackathon Weekend" ? "Register Now" : "Registration Not Open"}
+                        </Button>
                     </div>
                   </div>
                 )}
 
                 <Button 
-                  variant={expandedWorkshop === index ? "outline" : "default"}
+                  variant={expandedWorkshop === idx ? "outline" : "default"}
                   className="w-full mt-4 flex items-center justify-center hover:bg-blue-500 transition-all"
-                  onClick={() => setExpandedWorkshop(expandedWorkshop === index ? null : index)}
+                  onClick={() => setExpandedWorkshop(expandedWorkshop === idx ? null : idx)}
                 >
-                  {expandedWorkshop === index ? 'Show Less' : 'View Workshop Details'}
-                  {expandedWorkshop !== index && <ArrowRight className="ml-2 h-4 w-4" />}
+                  {expandedWorkshop === idx ? 'Show Less' : 'View Workshop Details'}
+                  {expandedWorkshop !== idx && <ArrowRight className="ml-2 h-4 w-4" />}
                 </Button>
               </CardContent>
             </Card>
