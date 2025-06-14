@@ -202,6 +202,40 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           </div>
         </div>
       </footer>
+      <a
+  href="https://wa.me/919642872160?text=Welcome%20to%20the%20DDG%20WhatsApp!%20How%20can%20I%20help%20you%20in%20our%20services%3F"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 rounded-full shadow-lg p-4 flex items-center justify-center transition-all duration-300"
+  style={{ boxShadow: '0 4px 24px rgba(37, 211, 102, 0.3)' }}
+  aria-label="Chat on WhatsApp"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="32"
+    height="32"
+    fill="white"
+    viewBox="0 0 24 24"
+  >
+    <path d="M20.52 3.48A12.07 12.07 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.16 1.6 5.97L0 24l6.18-1.62A12.07 12.07 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.23-3.48-8.52zM12 22c-1.85 0-3.68-.5-5.26-1.45l-.38-.23-3.67.96.98-3.58-.25-.37A9.93 9.93 0 0 1 2 12c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10zm5.2-7.6c-.28-.14-1.65-.81-1.9-.9-.25-.09-.43-.14-.61.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.18-.44-2.25-1.4-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.34.42-.51.14-.17.18-.29.28-.48.09-.19.05-.36-.02-.5-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47-.16-.01-.35-.01-.54-.01-.19 0-.5.07-.76.34-.26.27-1 1-.98 2.44.02 1.44 1.03 2.84 1.18 3.04.15.2 2.03 3.1 4.93 4.23.69.28 1.23.45 1.65.57.69.18 1.32.16 1.82.1.56-.07 1.65-.67 1.89-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/>
+  </svg>
+</a>
+<a
+  href="tel:+919642872160"
+  className="fixed bottom-6 left-6 z-50 bg-blue-500 hover:bg-blue-600 rounded-full shadow-lg p-4 flex items-center justify-center transition-all duration-300"
+  style={{ boxShadow: '0 4px 24px rgba(37, 99, 235, 0.3)' }}
+  aria-label="Call DDG"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="32"
+    height="32"
+    fill="white"
+    viewBox="0 0 24 24"
+  >
+    <path d="M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.07 21 3 13.93 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.58a1 1 0 0 1-.24 1.01l-2.2 2.2z"/>
+  </svg>
+</a>
     </div>
   );
 };

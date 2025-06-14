@@ -552,8 +552,10 @@ const Workshops = () => {
           ))}
         </div>
       </section>
+      
     </div>
   );
 };
 
 export default Workshops;
+
