@@ -203,7 +203,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         </div>
       </footer>
       <a
-  href="https://wa.me/919642872160?text=Welcome%20to%20the%20DDG%20WhatsApp!%20How%20can%20I%20help%20you%20in%20our%20services%3F"
+  href="https://wa.me/919642872160?text=Hi%20DDG%20Team%2C%20I%20need%20help%20with%20my%20project!"
   target="_blank"
   rel="noopener noreferrer"
   className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 rounded-full shadow-lg p-4 flex items-center justify-center transition-all duration-300"
