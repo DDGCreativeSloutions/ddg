@@ -410,7 +410,7 @@ const WorkshopDetail = () => {
           playsInline
           className="absolute inset-0 w-full h-full object-cover opacity-90 pointer-events-none z-0"
         >
-          <source src="/assets/bg.mp4" type="video/mp4" />
+          <source src="/public/bg.mp4" type="video/mp4" />
         </video>
         <div className="relative z-10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
