@@ -36,7 +36,7 @@ export interface Workshop {
 export const workshops: Workshop[] = [
   {
     id: "full-stack-hackathon",
-    title: "Full Stack Hackathon Weekend",
+    title: "Full Stack Weekend",
     icon: "🚀",
     color: "from-indigo-500 to-purple-500",
     tagline: "Code, build, and deploy a full-stack app in just two days!",
