@@ -125,7 +125,7 @@ const Home = () => {
       features: ["Expert Instructors", "Hands-on Projects", "Certificates", "Job Support"],
       packages: [
         {
-          name: "Full Stack Hackathon Weekend",
+          name: "Full Stack Weekend",
           features: ["2 Days", "Frontend + Backend", "Live Deployment", "Team Collaboration"]
         },
         {

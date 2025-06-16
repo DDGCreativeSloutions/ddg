@@ -401,7 +401,18 @@ const WorkshopDetail = () => {
       )}
 
       {/* Workshop Header */}
-      <section className={`py-20 bg-gradient-to-br ${workshop.color} text-white`}>
+      <section className={`py-20 ${workshop.color} text-white relative`}>
+        {/* Animated Background Video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-90 pointer-events-none z-0"
+        >
+          <source src="/assets/bg.mp4" type="video/mp4" />
+        </video>
+        <div className="relative z-10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="mb-8 md:mb-0 text-center md:text-left">
@@ -415,7 +426,9 @@ const WorkshopDetail = () => {
               </Button>
               <div className="flex items-center space-x-4 mb-4">
                 <div className="text-5xl bg-white/10 p-4 rounded-xl backdrop-blur-sm">{workshop.icon}</div>
-                <h1 className="text-4xl md:text-5xl font-bold">{workshop.title}</h1>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl shadow-lg px-6 py-2 inline-block">
+                  <h1 className="text-4xl md:text-5xl font-bold text-white">{workshop.title}</h1>
+                </div>
               </div>
               <p className="text-xl text-white/90 max-w-2xl">{workshop.tagline}</p>
               
@@ -429,8 +442,8 @@ const WorkshopDetail = () => {
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center md:text-right">
                 <div className="grid grid-cols-2 gap-4 mb-4">
                   <div className="flex items-center space-x-2">
-                    <Clock className="h-5 w-5 text-white/80" />
-                    <span>{workshop.duration}</span>
+                    {/* <Clock className="h-5 w-5 text-white/80" /> */}
+                    {/* <span>{workshop.duration}</span> */}
                   </div>
                   <div className="flex items-center space-x-2">
                     <Users className="h-5 w-5 text-white/80" />
