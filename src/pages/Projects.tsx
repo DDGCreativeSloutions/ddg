@@ -18,7 +18,7 @@ const Projects = () => {
       title: "E-Library Website",
       category: "Web Development",
       description: "Web application to browse, search, and read books online",
-      image: "📚",
+      image: "/image.png",
       technologies: ["HTML", "CSS", "JavaScript", "REST APIs"],
       features: [
         "Responsive UI design",
@@ -30,7 +30,9 @@ const Projects = () => {
   ],
   deliverables: ["Frontend source code", "UI wireframes", "API usage documentation"],
   client: "Personal Project",
-  duration: "4 weeks"
+  duration: "4 weeks",
+  code:"https://github.com/syedalthaf786/online-ebook-library.git",
+  demo:"e-libraryonline.42web.io"
 
     },
     {
@@ -429,6 +431,7 @@ const Projects = () => {
           </Button>
         </div>
       </section>
+      
     </div>
   );
 };

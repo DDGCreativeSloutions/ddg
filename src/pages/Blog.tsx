@@ -391,6 +391,7 @@ const Blog = () => {
           </div>
         </div>
       </section>
+     
     </div>
   );
 };

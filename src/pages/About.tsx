@@ -857,6 +857,7 @@ const About = () => {
           background: linear-gradient(to bottom, #7c3aed, #0891b2);
         }
       `}</style>
+     
     </div>
   );
 };
