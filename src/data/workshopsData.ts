@@ -90,7 +90,7 @@ export const workshops: Workshop[] = [
     icon: "🤖",
     color: "from-green-500 to-blue-500",
     tagline: "Dive into Machine Learning basics through hands-on coding",
-    duration: "1 Day",
+    // duration: "1 Day",
     students: "200+ joined",
     level: "Beginner",
     registrationOpen: false,
@@ -131,7 +131,8 @@ export const workshops: Workshop[] = [
         role: "Computer Science Freshman",
         text: "This workshop gave me a practical foundation in ML that my university courses hadn't covered yet. The hands-on approach made complex concepts click for me."
       }
-    ]
+    ],
+    duration: ""
   },
   {
     id: "design-thinking-bootcamp",
@@ -139,7 +140,7 @@ export const workshops: Workshop[] = [
     icon: "🎨",
     color: "from-yellow-400 to-red-400",
     tagline: "Master the art of innovation and problem solving",
-    duration: "3 Days",
+    // duration: "3 Days",
     students: "80+ creatives",
     level: "All Levels",
     registrationOpen: false,
@@ -184,7 +185,8 @@ export const workshops: Workshop[] = [
         role: "Nonprofit Director",
         text: "I came to learn about design but left with a whole new perspective on how to approach challenges in my organization. The bootcamp was engaging, practical, and immediately applicable."
       }
-    ]
+    ],
+    duration: ""
   },
   {
     id: "senior-engineer-insights",
@@ -192,7 +194,7 @@ export const workshops: Workshop[] = [
     icon: "💼",
     color: "from-blue-500 to-purple-600",
     tagline: "Learn from the journey of a senior engineer at top tech firms",
-    duration: "1 Day",
+    //duration: "1 Day",
     students: "100+ aspiring engineers",
     level: "Intermediate to Advanced",
     registrationOpen: false,
@@ -246,7 +248,8 @@ export const workshops: Workshop[] = [
         role: "Self-taught Developer",
         text: "As someone without a traditional CS background, I was worried about breaking into the industry. This workshop demystified the process and helped me understand what companies are really looking for."
       }
-    ]
+    ],
+    duration: ""
   }
 ];
 
