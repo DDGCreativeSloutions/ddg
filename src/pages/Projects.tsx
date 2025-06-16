@@ -32,7 +32,7 @@ const Projects = () => {
   client: "Personal Project",
   duration: "4 weeks",
   code:"https://github.com/syedalthaf786/online-ebook-library.git",
-  demo:"e-libraryonline.42web.io"
+  demo:"http://www.e-libraryonline.42web.io"
 
     },
     {
