@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 
-const SHEETDB_API_URL = "https://sheetdb.io/api/v1/dcatblz3r9uht"; // Replace with your SheetDB API URL
+const SHEETDB_API_URL = "https://sheetdb.io/api/v1/dcatblz3r9uht"; 
 
 const Contact = () => {
   const [formData, setFormData] = useState({

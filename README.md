@@ -33,7 +33,7 @@ DesignDeliverGrow is a full-stack platform offering **professional web design**,
 * Content creation, ad targeting, analytics, and growth
 * **Packages starting from ₹5,999**
 
-### 📚 Educational Courses
+### 📚 Educational Workshops
 
 * **Web Development Masterclass**
 * **AI/ML Fundamentals**
