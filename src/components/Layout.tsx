@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -6,6 +6,9 @@ import { Github, Linkedin, Instagram, Facebook } from "lucide-react";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+  const [isVisible, setIsVisible] = useState<Record<string, boolean>>({});
+  const observerRef = useRef<IntersectionObserver | null>(null);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -18,12 +21,101 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     { name: 'Blog', href: '/blog' },
   ];
 
+  useEffect(() => {
+    // Scroll progress handler
+    const handleScroll = () => {
+      const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (window.scrollY / totalScroll) * 100;
+      setScrollY(progress);
+    };
+
+    // Intersection Observer for scroll animations
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          setIsVisible(prev => ({
+            ...prev,
+            [entry.target.id]: entry.isIntersecting
+          }));
+        });
+      },
+      { threshold: 0.1, rootMargin: '50px' }
+    );
+
+    const elements = document.querySelectorAll('[data-animate]');
+    elements.forEach(el => observerRef.current?.observe(el));
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, []);
+
   const handleBookConsultation = () => {
     navigate('/contact');
   };
 
   return (
     <div className="min-h-screen">
+      <style>{`
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+          width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+          background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+          background: linear-gradient(to bottom, #8b5cf6, #06b6d4);
+          border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+          background: linear-gradient(to bottom, #7c3aed, #0891b2);
+        }
+
+        /* Smooth scrolling */
+        html {
+          scroll-behavior: smooth;
+        }
+
+        /* Progress indicator */
+        .scroll-progress {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 3px;
+          background: linear-gradient(to right, #8b5cf6, #06b6d4);
+          transform-origin: 0%;
+          z-index: 60;
+        }
+
+        /* Animation for elements */
+        [data-animate] {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: all 0.6s ease-out;
+        }
+
+        [data-animate].is-visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      `}</style>
+
+      {/* Scroll Progress Bar */}
+      <div 
+        className="scroll-progress" 
+        style={{ transform: `scaleX(${scrollY / 100})` }}
+      />
+
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -117,10 +209,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         )}
       </nav>
 
-      {/* Main Content */}
-      <main className="flex-1">
-        {children}
-      </main>
+      {/* Page Content */}
+      {children}
 
       {/* Footer */}
       <footer className="relative z-50 bg-gray-900 text-white">

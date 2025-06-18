@@ -4,7 +4,15 @@ import { Users, Target, Heart, Award, TrendingUp, Globe, Sparkles, Zap, Shield, 
 
 const About = () => {
   const navigate = useNavigate();
-  const [isVisible, setIsVisible] = useState<Record<string, boolean>>({});
+  const [isVisible, setIsVisible] = useState<Record<string, boolean>>({
+    hero: true,
+    mission: true,
+    values: true,
+    'platform-process': true,
+    differentiators: true,
+    testimonials: true,
+    'why-started': true
+  });
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [particles, setParticles] = useState<Array<{
     id: number;
@@ -22,17 +30,23 @@ const About = () => {
     observerRef.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          setIsVisible(prev => ({
-            ...prev,
-            [entry.target.id]: entry.isIntersecting
-          }));
+          if (entry.isIntersecting) {
+            setIsVisible(prev => ({
+              ...prev,
+              [entry.target.id]: true
+            }));
+          }
         });
       },
       { threshold: 0.1, rootMargin: '50px' }
     );
 
-    const elements = document.querySelectorAll('[data-animate]');
-    elements.forEach(el => observerRef.current.observe(el));
+    const elements = document.querySelectorAll('section[id]');
+    elements.forEach(el => {
+      if (observerRef.current) {
+        observerRef.current.observe(el);
+      }
+    });
 
     return () => {
       if (observerRef.current) {
@@ -218,9 +232,8 @@ const About = () => {
       {/* Enhanced Hero Section with Particles */}
       <section 
         ref={heroRef}
-        className="relative py-16 sm:py-24 lg:py-32 bg-gradient-to-br from-purple-50 via-blue-50 to-cyan-50 overflow-hidden"
+        className={`relative py-16 sm:py-24 lg:py-32 bg-gradient-to-br from-purple-50 via-blue-50 to-cyan-50 overflow-hidden section-fade-in ${isVisible.hero ? 'visible' : ''}`}
         id="hero"
-        data-animate
       >
         {/* Animated Particles */}
         <div className="absolute inset-0">
@@ -313,15 +326,14 @@ const About = () => {
 
       {/* Mission & Vision with Parallax Effect */}
       <section 
-        className="py-12 sm:py-16 lg:py-20 bg-white relative"
+        className={`py-12 sm:py-16 lg:py-20 bg-white relative section-fade-in ${isVisible.mission ? 'visible' : ''}`}
         id="mission"
-        data-animate
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             <div 
               className={`transform transition-all duration-1000 ${
-                isVisible.mission ? 'translate-x-0 opacity-100' : '-translate-x-16 opacity-0'
+                isVisible.mission ? 'opacity-100' : 'opacity-0'
               }`}
             >
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 relative">
@@ -353,7 +365,7 @@ const About = () => {
             
             <div 
               className={`transform transition-all duration-1000 delay-300 ${
-                isVisible.mission ? 'translate-x-0 opacity-100' : 'translate-x-16 opacity-0'
+                isVisible.mission ? 'opacity-100' : 'opacity-0'
               }`}
             >
               <div className="bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-500 rounded-3xl p-1 hover:scale-105 transition-transform duration-500">
@@ -381,14 +393,13 @@ const About = () => {
 
       {/* Interactive Values Section */}
       <section 
-        className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-50 to-purple-50/30 relative"
+        className={`py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-50 to-purple-50/30 relative section-fade-in ${isVisible.values ? 'visible' : ''}`}
         id="values"
-        data-animate
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div 
             className={`text-center mb-12 sm:mb-16 transform transition-all duration-1000 ${
-              isVisible.values ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+              isVisible.values ? 'opacity-100' : 'opacity-0'
             }`}
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">Our Values</h2>
@@ -401,7 +412,7 @@ const About = () => {
               <div
                 key={index}
                 className={`group transform transition-all duration-700 hover:-translate-y-6 ${
-                  isVisible.values ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                  isVisible.values ? 'opacity-100' : 'opacity-0'
                 }`}
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
@@ -427,7 +438,6 @@ const About = () => {
       <section 
         className="py-12 sm:py-16 lg:py-20 bg-white relative"
         id="platform-process"
-        data-animate
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div 
@@ -555,7 +565,6 @@ const About = () => {
       <section 
         className="py-20 bg-gradient-to-br from-gray-50 to-purple-50/30"
         id="differentiators"
-        data-animate
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div 
@@ -573,8 +582,8 @@ const About = () => {
               {differentiators.map((diff, index) => (
                 <div 
                   key={index} 
-                  className={`flex items-start space-x-6 group transform transition-all duration-700 hover:translate-x-4 ${
-                    isVisible.differentiators ? 'translate-x-0 opacity-100' : '-translate-x-8 opacity-0'
+                  className={`flex items-start space-x-6 group transform transition-all duration-700 ${
+                    isVisible.differentiators ? 'opacity-100' : 'opacity-0'
                   }`}
                   style={{ 
                     transitionDelay: diff.delay,
@@ -594,7 +603,7 @@ const About = () => {
             
             <div 
               className={`transform transition-all duration-1000 delay-500 ${
-                isVisible.differentiators ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
+                isVisible.differentiators ? 'opacity-100' : 'opacity-0'
               }`}
             >
               <div className="bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-500 rounded-3xl p-1 hover:scale-105 transition-transform duration-500">
@@ -622,7 +631,6 @@ const About = () => {
       <section 
         className="py-20 bg-white"
         id="testimonials"
-        data-animate
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div 
@@ -671,12 +679,11 @@ const About = () => {
       <section 
         className="py-20 bg-gradient-to-br from-gray-50 to-purple-50/30"
         id="why-started"
-        data-animate
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div 
             className={`text-center mb-16 transform transition-all duration-1000 ${
-              isVisible['why-started'] ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+              isVisible['why-started'] ? 'opacity-100' : 'opacity-0'
             }`}
           >
             <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">Why We Started</h2>
@@ -685,7 +692,7 @@ const About = () => {
 
           <div 
             className={`max-w-4xl mx-auto transform transition-all duration-1000 delay-300 ${
-              isVisible['why-started'] ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+              isVisible['why-started'] ? 'opacity-100' : 'opacity-0'
             }`}
           >
             <div className="border-0 bg-white/80 backdrop-blur-sm shadow-2xl rounded-3xl overflow-hidden hover:shadow-cyan-500/20 transition-all duration-500 group">
@@ -735,7 +742,7 @@ const About = () => {
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-pulse delay-700"></div>
           <div className="absolute top-1/2 left-1/2 w-4 h-4 bg-white/30 rotate-45 animate-spin" style={{ animationDuration: '10s' }}></div>
           <div className="absolute top-1/3 right-1/3 w-6 h-6 bg-white/20 rounded-full animate-bounce delay-500"></div>
-        </div>
+        </div> 
 
         {/* Floating Action Elements */}
         <div className="absolute inset-0 overflow-hidden">
@@ -806,16 +813,19 @@ const About = () => {
         </div>
       </section>
 
-      {/* Floating Back to Top Button */}
-      <button
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className="fixed bottom-6 right-6 w-12 h-12 bg-gradient-to-r from-purple-600 to-cyan-500 text-white rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 flex items-center justify-center z-50 "
-      >
-        <ArrowRight className="w-5 h-5 transform -rotate-90" />
-      </button>
-
       {/* Custom CSS Animations */}
       <style>{`
+        .section-fade-in {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .section-fade-in.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        
         @keyframes float {
           0%, 100% { transform: translateY(0px) rotate(0deg); }
           50% { transform: translateY(-20px) rotate(180deg); }

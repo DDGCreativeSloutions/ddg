@@ -35,8 +35,8 @@ export interface Workshop {
 
 export const workshops: Workshop[] = [
   {
-    id: "full-stack-hackathon",
-    title: "Full Stack Weekend",
+    id: "full-stack-web-weekend",
+    title: "Full Stack Web Weekend",
     icon: "🚀",
     color: "from-indigo-500 to-purple-500",
     tagline: "Code, build, and deploy a full-stack app in just two days!",
@@ -55,16 +55,16 @@ export const workshops: Workshop[] = [
         topics: ["Node.js & Express", "MongoDB Integration", "Auth System", "Vercel Deployment"]
       }
     ],
-    outcome: ["Deployed Full-Stack App", "Team Collaboration Experience", "Hackathon Certificate"],
+    outcome: ["Deployed Full-Stack App", "Team Collaboration Experience", "Workshop Certificate"],
     skills: ["Frontend Architecture", "Backend APIs", "Database Connectivity", "Deployment Pipeline"],
-    certificate: "Hackathon Participation Certificate with Project Showcase",
+    certificate: "Workshop Participation Certificate with Project Showcase",
     instructor: {
       name: "Alex Morgan",
       role: "Senior Full Stack Developer",
       bio: "Alex has over 10 years of experience building web applications at scale. Previously worked at Google and Airbnb, now leading engineering teams and mentoring new developers through hands-on workshops.",
       image: "/images/instructors/alex-morgan.jpg"
     },
-    description: "Join us for an intensive two-day hackathon where you'll build a complete full-stack application from scratch. This workshop is designed to simulate a real-world development sprint, where you'll work in teams to design, build, and deploy a functional web application. You'll learn modern development practices, collaborate with other developers, and walk away with a project you can showcase in your portfolio.",
+    description: "Join us for an intensive two-day Workshop where you'll build a complete full-stack application from scratch. This workshop is designed to simulate a real-world development sprint, where you'll work in teams to design, build, and deploy a functional web application. You'll learn modern development practices, collaborate with other developers, and walk away with a project you can showcase in your portfolio.",
     prerequisites: [
       "Basic knowledge of JavaScript",
       "Familiarity with React fundamentals",
@@ -75,7 +75,7 @@ export const workshops: Workshop[] = [
       {
         name: "Sarah J.",
         role: "Frontend Developer",
-        text: "The hackathon weekend was intense but incredibly rewarding. I learned more in two days than I did in months of self-study. Highly recommend!"
+        text: "The workshop weekend was intense but incredibly rewarding. I learned more in two days than I did in months of self-study. Highly recommend!"
       },
       {
         name: "Michael T.",

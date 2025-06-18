@@ -401,88 +401,165 @@ const WorkshopDetail = () => {
       )}
 
       {/* Workshop Header */}
-      <section className={`py-20 ${workshop.color} text-white relative`}>
-        {/* Animated Background Video */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-90 pointer-events-none z-0"
-        >
-          <source src="/bg.mp4" type="video/mp4" />
-        </video>
-        <div className="relative z-10"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="mb-8 md:mb-0 text-center md:text-left">
-              <Button 
-                variant="ghost" 
-                onClick={() => navigate('/workshops')}
-                className="mb-4 text-white/80 hover:text-white hover:bg-white/10"
-              >
-                <ChevronLeft className="mr-2 h-4 w-4" />
-                Back to Workshops
-              </Button>
-              <div className="flex items-center space-x-4 mb-4">
-                <div className="text-5xl bg-white/10 p-4 rounded-xl backdrop-blur-sm">{workshop.icon}</div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl shadow-lg px-6 py-2 inline-block">
-                  <h1 className="text-4xl md:text-5xl font-bold text-white">{workshop.title}</h1>
-                </div>
-              </div>
-              <p className="text-xl text-white/90 max-w-2xl">{workshop.tagline}</p>
-              
-              {workshop.date && (
-                <div className="mt-4 bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2 inline-block">
-                  <span className="font-semibold">{countdown}</span>
-                </div>
-              )}
-            </div>
-            <div className="flex flex-col items-center md:items-end space-y-4">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center md:text-right">
-                <div className="grid grid-cols-2 gap-4 mb-4">
-                  <div className="flex items-center space-x-2">
-                    {/* <Clock className="h-5 w-5 text-white/80" /> */}
-                    {/* <span>{workshop.duration}</span> */}
+      <section className="relative min-h-[80vh] flex items-center overflow-hidden">
+        {/* Animated Background Video with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover md:object-center object-[25%] scale-[1.02]"
+          >
+            <source src="/bg.mp4" type="video/mp4" />
+          </video>
+          {/* Custom gradient overlay with increased opacity for better text visibility on mobile */}
+          <div className={`absolute inset-0 bg-gradient-to-br ${workshop.color} md:opacity-50 opacity-60`}></div>
+          
+          {/* Additional decorative elements */}
+          <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10 mix-blend-overlay"></div>
+          <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black/40 to-transparent"></div>
+        </div>
+        
+        <div className="relative z-10 w-full py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="text-white">
+                <Button 
+                  variant="outline" 
+                  onClick={() => navigate('/workshops')}
+                  className="mb-8 text-white bg-white/10 border-white/30 hover:text-white hover:bg-white/10 hover:border-white transition-all duration-300"
+                >
+                  <ChevronLeft className="mr-2 h-4 w-4" />
+                  Back to Workshops
+                </Button>
+                
+                <div className="flex items-center space-x-6 mb-6">
+                  <div className="w-20 h-20 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center shadow-xl transform hover:rotate-6 transition-transform duration-300 border border-white/20">
+                    <span className="text-5xl">{workshop.icon}</span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <Users className="h-5 w-5 text-white/80" />
-                    <span>
+                  <div>
+                    <Badge className="mb-2 bg-white/20 hover:bg-white/30 text-white border-none backdrop-blur-md">
+                      {workshop.level}
+                    </Badge>
+                    <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight tracking-tight">
+                      {workshop.title}
+                    </h1>
+                  </div>
+                </div>
+                
+                <p className="text-xl md:text-2xl text-white/90 max-w-2xl mb-8 leading-relaxed backdrop-blur-sm bg-black/10 p-4 rounded-xl border border-white/10 shadow-lg">
+                  {workshop.tagline}
+                </p>
+                
+                <div className="flex flex-wrap gap-4 mb-8">
+                  <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-md rounded-full px-4 py-2 border border-white/20">
+                    <Calendar className="h-5 w-5 text-white" />
+                    <span className="font-medium">
+                      {workshop.date 
+                        ? workshop.date.toLocaleDateString('en-US', {
+                            weekday: 'long',
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                          })
+                        : "Coming Soon"}
+                    </span>
+                  </div>
+                  
+                  <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-md rounded-full px-4 py-2 border border-white/20">
+                    <Clock className="h-5 w-5 text-white" />
+                    <span className="font-medium">{workshop.duration || "Full Day"}</span>
+                  </div>
+                  
+                  <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-md rounded-full px-4 py-2 border border-white/20">
+                    <Users className="h-5 w-5 text-white" />
+                    <span className="font-medium">
                       {workshop.id === "full-stack-hackathon" && registeredCount !== null 
                         ? `${registeredCount} registered` 
                         : workshop.students}
                     </span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <Badge variant="outline" className="border-white/30 text-white">
-                      {workshop.level}
-                    </Badge>
+                </div>
+                
+                {workshop.date && (
+                  <div className="mb-8 bg-white/10 backdrop-blur-md rounded-xl px-6 py-4 inline-block border border-white/20 shadow-lg transform hover:translate-y-[-5px] transition-all duration-300">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
+                        <Clock className="h-6 w-6 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-white/80 text-sm">Workshop Starts In</p>
+                        <p className="text-2xl font-bold text-white">{countdown}</p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <Calendar className="h-5 w-5 text-white/80" />
-                    <span>
-                      {workshop.date 
-                        ? workshop.date.toLocaleDateString() 
-                        : "Upcoming"}
-                    </span>
+                )}
+              </div>
+              
+              <div className="flex justify-center lg:justify-end">
+                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 shadow-2xl max-w-md w-full transform hover:translate-y-[-5px] transition-all duration-300">
+                  <div className="text-center mb-6">
+                    <h2 className="text-2xl font-bold text-white mb-2">Join This Workshop</h2>
+                    <p className="text-white/80">
+                      {workshop.registrationOpen 
+                        ? "Limited spots available. Reserve yours now!" 
+                        : "Registration opening soon. Join the waitlist!"}
+                    </p>
+                  </div>
+                  
+                  <div className="space-y-6">
+                    {workshop.registrationOpen ? (
+                      <>
+                        <div className="flex items-center justify-between p-4 bg-white/10 rounded-xl border border-white/20 mb-4">
+                          <div>
+                            <p className="text-white/80 text-sm">Regular Price</p>
+                            <p className="text-xl font-bold text-white/60 line-through">₹2,999</p>
+                          </div>
+                          <div className="bg-white/20 rounded-lg px-3 py-1">
+                            <p className="text-white font-bold">100% OFF</p>
+                          </div>
+                        </div>
+                        
+                        <div className="bg-white/10 rounded-xl border border-white/20 p-4 text-center">
+                          <p className="text-white/80 text-sm">Early Bird Price</p>
+                          <p className="text-3xl font-bold text-white">FREE</p>
+                        </div>
+                        
+                        <Button 
+                          onClick={() => setShowRegistrationForm(true)}
+                          size="lg"
+                          className="w-full bg-white hover:bg-white/90 text-gray-900 hover:shadow-xl transition-all duration-300 text-lg font-bold py-6"
+                        >
+                          Register Now
+                          <ArrowRight className="ml-2 h-5 w-5" />
+                        </Button>
+                        
+                        <div className="flex items-center justify-center space-x-2 text-white/80 text-sm">
+                          <Users className="h-4 w-4" />
+                          <p>Only {workshop.id === "full-stack-hackathon" ? (250 - (registeredCount || 0)) : 8} spots remaining</p>
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="bg-white/10 rounded-xl border border-white/20 p-6 text-center mb-4">
+                          <p className="text-white text-lg mb-2">Registration opening soon</p>
+                          <p className="text-white/80 text-sm">Be the first to know when spots become available</p>
+                        </div>
+                        
+                        <Button 
+                          variant="outline"
+                          onClick={() => navigate('/contact')}
+                          size="lg"
+                          className="w-full border-white text-white hover:bg-white/20 transition-all duration-300 text-lg font-medium py-6"
+                        >
+                          Join the Waitlist
+                          <ArrowRight className="ml-2 h-5 w-5" />
+                        </Button>
+                      </>
+                    )}
                   </div>
                 </div>
-                {workshop.registrationOpen ? (
-                  <Button 
-                    onClick={() => setShowRegistrationForm(true)}
-                    className="w-full bg-white text-gray-900 hover:bg-white/90 hover:shadow-lg transition-all duration-200"
-                  >
-                    Register Now
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                ) : (
-                  <Button 
-                    disabled
-                    className="w-full bg-white/50 text-gray-900 cursor-not-allowed"
-                  >
-                    Registration Not Open
-                  </Button>
-                )}
               </div>
             </div>
           </div>

@@ -387,7 +387,7 @@ const Contact = () => {
                   <Phone className="h-10 w-10" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Call Us Direct 📞</h3>
-                <p className="text-gray-600 font-medium mb-2">+91 98765 43210</p>
+                <p className="text-gray-600 font-medium mb-2">+91 96428 72160</p>
                 <p className="text-gray-600 font-medium">Mon-Fri, 10:00 AM - 6:00 PM IST</p>
                 <p className="text-sm text-green-600 mt-4 font-medium">Friendly voices guaranteed! 😊</p>
               </CardContent>
@@ -399,7 +399,7 @@ const Contact = () => {
                   <MessageSquare className="h-10 w-10" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">WhatsApp Chat 💬</h3>
-                <p className="text-gray-600 font-medium mb-2">+91 98765 43210</p>
+                <p className="text-gray-600 font-medium mb-2">+91 96428 72160</p>
                 <p className="text-gray-600 font-medium">Quick questions welcome!</p>
                 <p className="text-sm text-blue-600 mt-4 font-medium">Usually online & ready to help! 🚀</p>
               </CardContent>
