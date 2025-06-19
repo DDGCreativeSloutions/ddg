@@ -1,156 +1,166 @@
 <!DOCTYPE html>
 <html lang="en-IN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Offline - DesignDeliverGrow</title>
-    <meta name="description" content="You're currently offline. Please check your internet connection.">
-    <link rel="icon" type="image/png" sizes="32x32" href="/logo/favicon-32x32.png">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 500px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .logo {
-            max-width: 200px;
-            height: auto;
-            margin: 0 auto 20px;
-            display: block;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-        
-        p {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-            line-height: 1.6;
-        }
-        
-        .retry-btn {
-            background: white;
-            color: #667eea;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin: 10px;
-        }
-        
-        .retry-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .offline-icon {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            opacity: 0.8;
-        }
-        
-        .features {
-            margin-top: 30px;
-            text-align: left;
-        }
-        
-        .feature {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-        }
-        
-        .feature::before {
-            content: "✓";
-            margin-right: 10px;
-            color: #4ade80;
-            font-weight: bold;
-        }
-        
-        @media (max-width: 480px) {
-            .container {
-                padding: 30px 20px;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .offline-icon {
-                font-size: 3rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Offline - DesignDeliverGrow</title>
+  <meta name="description" content="You're currently offline. Please check your internet connection." />
+  <link rel="icon" type="image/png" sizes="32x32" href="/logo/favicon-32x32.png" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, sans-serif;
+background: linear-gradient(120deg, #ffffff, #f0f0f0, #e0e0e0);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      color: #000000;
+      text-align: center;
+      background-size: 400% 400%;
+      animation: gradientMove 20s ease infinite;
+    }
+
+    @keyframes gradientMove {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .container {
+      max-width: 500px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 40px;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      background: linear-gradient(to right, #7e22ce, #2563eb, #22c55e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 10px;
+    }
+
+    .logo:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .offline-icon {
+      font-size: 4rem;
+      margin: 20px 0;
+      opacity: 0.85;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .retry-btn {
+      background: linear-gradient(to right, #7e22ce, #2563eb);
+      color: #000;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    }
+
+    .retry-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .features {
+      margin-top: 35px;
+      text-align: left;
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+      opacity: 0.95;
+    }
+
+    .feature::before {
+      content: "✓";
+      margin-right: 10px;
+      color: #34d399;
+      font-weight: bold;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 30px 20px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .offline-icon {
+        font-size: 3rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <img src="https://designdelivergrow.store/logo.png" alt="DDG Logo" class="logo">
-        <div class="offline-icon">📡</div>
-        <h1>You're Offline</h1>
-        <p>It looks like you've lost your internet connection. Don't worry, you can still browse some of our cached content!</p>
-        
-        <button class="retry-btn" onclick="window.location.reload()">
-            Try Again
-        </button>
-        
-        <button class="retry-btn" onclick="window.history.back()">
-            Go Back
-        </button>
-        
-        <div class="features">
-            <div class="feature">Professional web design services</div>
-            <div class="feature">Student project assistance</div>
-            <div class="feature">Social media marketing</div>
-            <div class="feature">Educational workshops</div>
-        </div>
-        
-        <p style="margin-top: 30px; font-size: 0.9rem; opacity: 0.7;">
-            Once you're back online, you'll have access to all our services and latest updates.
-        </p>
+  <div class="container">
+    <div class="logo">DesignDeliverGrow</div>
+    <div class="offline-icon">📡</div>
+    <h1>You're Offline</h1>
+    <p>Oops! It seems like your internet connection is lost. But don’t worry, we’ve saved some features for you!</p>
+
+    <button class="retry-btn" onclick="window.location.reload()">Try Again</button>
+    <button class="retry-btn" onclick="window.history.back()">Go Back</button>
+
+    <div class="features">
+      <div class="feature">Professional web design services</div>
+      <div class="feature">Student project assistance</div>
+      <div class="feature">Social media marketing</div>
+      <div class="feature">Educational workshops</div>
     </div>
 
-    <script>
-        // Check for connection and auto-reload
-        window.addEventListener('online', () => {
-            window.location.reload();
-        });
-        
-        // Retry connection every 30 seconds
-        setInterval(() => {
-            if (navigator.onLine) {
-                window.location.reload();
-            }
-        }, 30000);
-    </script>
+    <p style="margin-top: 30px; font-size: 0.85rem; opacity: 0.7;">
+      Once you're back online, you'll get full access to everything we offer!
+    </p>
+  </div>
+
+  <script>
+    window.addEventListener('online', () => window.location.reload());
+
+    setInterval(() => {
+      if (navigator.onLine) {
+        window.location.reload();
+      }
+    }, 30000);
+  </script>
 </body>
 </html>
