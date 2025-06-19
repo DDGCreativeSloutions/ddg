@@ -5,12 +5,15 @@ In today’s digital landscape, building robust and efficient web applications o
 ## Introduction to RESTful APIs and Node.js
 
 ### What is a RESTful API?
+![RESTful API Overview](../blog/images/RESTfulAPI.png)
 Ah, the mystical world of APIs! RESTful APIs (Representational State Transfer) are like the friendly neighborhood delivery service of the internet. They allow different software systems to communicate with each other in a standardized way, using HTTP requests to perform operations on resources represented as URLs. In simpler terms, if your app is a restaurant, the RESTful API is the waiter taking your order and bringing you the food (or data) you asked for.
 
 ### Benefits of Using Node.js for API Development
+![Benefits of Using Node.js for API Development Overview](../blog/images/Benefits.png)
 So, why choose Node.js for our API adventure? Well, Node.js is like that overzealous friend who’s good at everything. It’s lightweight, efficient, and built on JavaScript, which is perfect for building fast and scalable network applications. With its non-blocking I/O model, Node.js can handle multiple requests simultaneously—no waiting for the slow cooker to finish cooking! Its vast ecosystem of packages (thanks to npm) and great community support make it a top choice for developing RESTful APIs.
 
 ### Overview of the Tutorial
+![Overview of the Tutorial](../blog/images/OverviewoftheTutorial.png)
 In this tutorial, we’ll be donning our coding capes to create a RESTful API using Node.js and Express. We’ll set up our development environment, build a simple server, define endpoints, and implement CRUD operations (Create, Read, Update, Delete). By the end, you’ll have a fully functional API that you can proudly show off to your friends (or just use for personal projects). Let’s get started!
 
 ---
@@ -18,6 +21,7 @@ In this tutorial, we’ll be donning our coding capes to create a RESTful API us
 ## Setting Up Your Development Environment
 
 ### Installing Node.js and npm
+![Installing Node.js and npm Overview ](../blog/images/installing.png)
 First things first—time to roll up those sleeves and get your tools ready! Head over to the [Node.js website](https://nodejs.org/) and download the latest version of Node.js. The good news? npm (Node Package Manager) comes bundled with it, so you get two-for-one. Once you’ve installed it, you can check if everything is in order by opening your terminal and typing `node -v` and `npm -v`. If you see version numbers, you’re golden! If not, maybe try turning it off and on again?
 
 ### Choosing a Code Editor
