@@ -71,7 +71,7 @@ const WorkshopDetail = () => {
 
   // Fetch registered count from SheetDB for the first workshop
   useEffect(() => {
-    if (workshop?.id === "full-stack-hackathon") {
+    if (workshop?.id === "full-stack-web-weekend") {
       fetch('https://sheetdb.io/api/v1/w7cl475isdyph/count')
         .then(res => res.json())
         .then(data => {
@@ -162,7 +162,7 @@ const WorkshopDetail = () => {
       await response.json();
       
       // Update the registration count
-      if (workshop?.id === "full-stack-hackathon") {
+      if (workshop?.id === "full-stack-web-weekend") {
         const countResponse = await fetch('https://sheetdb.io/api/v1/w7cl475isdyph/count');
         const countData = await countResponse.json();
         if (typeof countData?.rows === "number") setRegisteredCount(countData.rows);
@@ -475,7 +475,7 @@ const WorkshopDetail = () => {
                   <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-md rounded-full px-4 py-2 border border-white/20">
                     <Users className="h-5 w-5 text-white" />
                     <span className="font-medium">
-                      {workshop.id === "full-stack-hackathon" && registeredCount !== null 
+                      {workshop.id === "full-stack-web-weekend" && registeredCount !== null 
                         ? `${registeredCount} registered` 
                         : workshop.students}
                     </span>
@@ -537,7 +537,7 @@ const WorkshopDetail = () => {
                         
                         <div className="flex items-center justify-center space-x-2 text-white/80 text-sm">
                           <Users className="h-4 w-4" />
-                          <p>Only {workshop.id === "full-stack-hackathon" ? (250 - (registeredCount || 0)) : 8} spots remaining</p>
+                          <p>Only {workshop.id === "full-stack-web-weekend" ? (250 - (registeredCount || 0)) : 8} spots remaining</p>
                         </div>
                       </>
                     ) : (
@@ -902,7 +902,7 @@ const WorkshopDetail = () => {
                   
                   <div className="flex items-center justify-center space-x-2 text-sm text-gray-500">
                     <Users className="h-4 w-4" />
-                    <p>Only {workshop.id === "full-stack-hackathon" ? (250 - (registeredCount || 0)) : 8} spots remaining</p>
+                    <p>Only {workshop.id === "full-stack-web-weekend" ? (250 - (registeredCount || 0)) : 8} spots remaining</p>
                   </div>
                 </div>
               ) : (
