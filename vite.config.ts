@@ -4,10 +4,18 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
-  server: {
+export default defineConfig(({ mode }) => ({  server: {
     host: "::",
     port: 8080,
+  },
+  base: '/',
+  build: {
+    assetsDir: 'assets',
+    rollupOptions: {
+      output: {
+        assetFileNames: 'assets/[name].[ext]'
+      }
+    }
   },
   plugins: [
     react(),

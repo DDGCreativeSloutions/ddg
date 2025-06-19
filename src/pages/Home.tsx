@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, CheckCircle, Star, Users, Award, TrendingUp, Sparkles, Zap, Globe, ShieldCheck, ExternalLink, Code, Palette, Rocket, Brain, Target, MousePointer, Play } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -23,10 +24,13 @@ const Home = () => {
   const [activeService, setActiveService] = useState<number | null>(null);
   const [mousePosition, setMousePosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
   const [scrollY, setScrollY] = useState(0);
-  const [isVisible, setIsVisible] = useState<Record<string, boolean>>({});
+  const [isVisible, setIsVisible] = useState<Record<string, boolean>>({ hero: true });
   const heroRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    // Set initial visibility for hero section
+    setIsVisible(prev => ({ ...prev, hero: true }));
+
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
@@ -36,33 +40,41 @@ const Home = () => {
     };
 
     const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      threshold: 0,
+      rootMargin: '0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setIsVisible(prev => ({ ...prev, [entry.target.id]: true }));
+        if (entry.target.id) {
+          setIsVisible(prev => ({ 
+            ...prev, 
+            [entry.target.id]: entry.isIntersecting || prev[entry.target.id]
+          }));
         }
       });
     }, observerOptions);
 
-    // Observe all sections
+    // Explicitly observe hero section
+    if (heroRef.current) {
+      observer.observe(heroRef.current);
+    }
+
+    // Observe other sections
     document.querySelectorAll('[id]').forEach(el => {
-      if (el.id) observer.observe(el);
+      if (el.id && el.id !== 'hero') observer.observe(el);
     });
 
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('scroll', handleScroll);
 
     return () => {
+      observer.disconnect();
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('scroll', handleScroll);
-      observer.disconnect();
     };
   }, []);
-
+  
   // Lottie Component
   interface LottieAnimationProps extends React.HTMLAttributes<HTMLDivElement> {
     src: string;
@@ -241,241 +253,61 @@ const Home = () => {
     />
   );
 
+  // SEO Data
+  const faqData = [
+    {
+      question: "What services does DesignDeliverGrow offer?",
+      answer: "We offer web design & development, student project assistance, social media marketing, and educational workshops to help you grow digitally."
+    },
+    {
+      question: "How can DesignDeliverGrow help with student projects?",
+      answer: "We provide end-to-end support for academic projects including code implementation, project reports, presentations, and GitHub setup for both minor and major projects."
+    },
+    {
+      question: "What makes DesignDeliverGrow different from other web design companies?",
+      answer: "We combine professional web design with educational support, offering personalized guidance for students, startups, and businesses with affordable pricing and comprehensive solutions."
+    }
+  ];
+
+  const breadcrumbs = [
+    { name: "Home", url: "https://www.designdelivergrow.store/" }
+  ];
   return (
-    <div className="min-h-screen overflow-hidden relative text-responsive">
-      <style>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-30px) rotate(180deg); }
-        }
-        @keyframes morphing {
-          0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: rotate(0deg); }
-          25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; transform: rotate(90deg); }
-          50% { border-radius: 70% 30% 40% 60% / 40% 70% 60% 30%; transform: rotate(180deg); }
-          75% { border-radius: 40% 70% 60% 30% / 70% 40% 30% 60%; transform: rotate(270deg); }
-          100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: rotate(360deg); }
-        }
-        @keyframes gradient-shift {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-        @keyframes twinkle {
-          0%, 100% { opacity: 0.2; transform: scale(1); }
-          50% { opacity: 1; transform: scale(1.5); }
-        }
-        @keyframes slideInFromLeft {
-          0% { transform: translateX(-100px); opacity: 0; }
-          100% { transform: translateX(0); opacity: 1; }
-        }
-        @keyframes slideInFromRight {
-          0% { transform: translateX(100px); opacity: 0; }
-          100% { transform: translateX(0); opacity: 1; }
-        }
-        @keyframes slideInFromBottom {
-          0% { transform: translateY(100px); opacity: 0; }
-          100% { transform: translateY(0); opacity: 1; }
-        }
-        @keyframes scaleIn {
-          0% { transform: scale(0.8); opacity: 0; }
-          100% { transform: scale(1); opacity: 1; }
-        }
-        @keyframes bounceIn {
-          0% { transform: scale(0.3); opacity: 0; }
-          50% { transform: scale(1.1); opacity: 0.8; }
-          100% { transform: scale(1); opacity: 1; }
-        }
-        @keyframes rotateIn {
-          0% { transform: rotate(-180deg) scale(0); opacity: 0; }
-          100% { transform: rotate(0deg) scale(1); opacity: 1; }
-        }
-        @keyframes glow {
-          0%, 100% { box-shadow: 0 0 20px rgba(147, 51, 234, 0.3); }
-          50% { box-shadow: 0 0 40px rgba(147, 51, 234, 0.6), 0 0 60px rgba(59, 130, 246, 0.4); }
-        }
-        @keyframes fadeIn {
-          0% { opacity: 0; }
-          100% { opacity: 1; }
-        }
-        /* New Advanced Animations */
-        @keyframes floatWithGlow {
-          0%, 100% { transform: translateY(0) rotate(0deg); filter: drop-shadow(0 0 8px rgba(147, 51, 234, 0.3)); }
-          25% { transform: translateY(-15px) rotate(5deg); filter: drop-shadow(0 0 12px rgba(147, 51, 234, 0.4)); }
-          50% { transform: translateY(-30px) rotate(0deg); filter: drop-shadow(0 0 16px rgba(147, 51, 234, 0.5)); }
-          75% { transform: translateY(-15px) rotate(-5deg); filter: drop-shadow(0 0 12px rgba(147, 51, 234, 0.4)); }
-        }
-        @keyframes textShimmer {
-          0% { background-position: -100% 0; }
-          100% { background-position: 200% 0; }
-        }
-        @keyframes pulseRing {
-          0% { transform: scale(0.8); opacity: 0; }
-          50% { opacity: 0.5; }
-          100% { transform: scale(1.5); opacity: 0; }
-        }
-        @keyframes blurIn {
-          0% { filter: blur(15px); opacity: 0; transform: scale(0.9); }
-          100% { filter: blur(0); opacity: 1; transform: scale(1); }
-        }
-        @keyframes floatingNumbers {
-          0%, 100% { transform: translateY(0) translateX(0); }
-          25% { transform: translateY(-10px) translateX(5px); }
-          50% { transform: translateY(-20px) translateX(0); }
-          75% { transform: translateY(-10px) translateX(-5px); }
-        }
-        @keyframes borderGlow {
-          0%, 100% { border-color: rgba(147, 51, 234, 0.3); }
-          50% { border-color: rgba(59, 130, 246, 0.6); }
-        }
-        @keyframes rotateGradient {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-        @keyframes breathe {
-          0%, 100% { transform: scale(1); }
-          50% { transform: scale(1.05); }
-        }
-        @keyframes waveEffect {
-          0% { transform: translateX(0) translateY(0); }
-          25% { transform: translateX(5px) translateY(-5px); }
-          50% { transform: translateX(10px) translateY(0); }
-          75% { transform: translateX(5px) translateY(5px); }
-          100% { transform: translateX(0) translateY(0); }
-        }
-        @keyframes typewriter {
-          from { width: 0; }
-          to { width: 100%; }
-        }
-        @keyframes blink {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0; }
-        }
-        @keyframes bounce {
-          0%, 20%, 53%, 80%, 100% { transform: translate3d(0,0,0) rotate(0deg); }
-          40%, 43% { transform: translate3d(0,-30px,0) rotate(10deg); }
-          70% { transform: translate3d(0,-15px,0) rotate(-5deg); }
-          90% { transform: translate3d(0,-4px,0) rotate(2deg); }
-        }
-        
-        /* Animation Classes */
-        .animate-slide-in-left { animation: slideInFromLeft 0.8s ease-out forwards; }
-        .animate-slide-in-right { animation: slideInFromRight 0.8s ease-out forwards; }
-        .animate-slide-in-bottom { animation: slideInFromBottom 0.8s ease-out forwards; }
-        .animate-scale-in { animation: scaleIn 0.6s ease-out forwards; }
-        .animate-bounce-in { animation: bounceIn 0.8s ease-out forwards; }
-        .animate-rotate-in { animation: rotateIn 0.8s ease-out forwards; }
-        .animate-glow { animation: glow 2s ease-in-out infinite; }
-        .animate-fade-in { animation: fadeIn 1s ease-out forwards; }
-        .animate-float-glow { animation: floatWithGlow 6s ease-in-out infinite; }
-        .animate-text-shimmer { background-size: 200% auto; animation: textShimmer 3s linear infinite; }
-        .animate-pulse-ring { animation: pulseRing 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite; }
-        .animate-blur-in { animation: blurIn 0.8s ease-out forwards; }
-        .animate-floating-numbers { animation: floatingNumbers 5s ease-in-out infinite; }
-        .animate-border-glow { animation: borderGlow 2s ease-in-out infinite; }
-        .animate-rotate-gradient { animation: rotateGradient 8s linear infinite; }
-        .animate-breathe { animation: breathe 4s ease-in-out infinite; }
-        .animate-wave { animation: waveEffect 3s ease-in-out infinite; }
-        .animate-typewriter { overflow: hidden; white-space: nowrap; animation: typewriter 4s steps(40) 1s forwards; }
-        .animate-cursor { animation: blink 0.7s infinite; }
-        
-        .morphing-bg { animation: morphing 12s ease-in-out infinite; }
-        .gradient-animate { 
-          background-size: 400% 400%;
-          animation: gradient-shift 6s ease infinite;
-        }
-        .glass-effect {
-          backdrop-filter: blur(20px);
-          background: rgba(255, 255, 255, 0.1);
-          border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        .lottie-container {
-          width: 100%;
-          height: 100%;
-          border: none;
-          background: transparent;
-        }
-        .service-card:hover .service-icon {
-          animation: bounce 0.6s ease-in-out;
-        }
-        
-        /* Futuristic Elements */
-        .glow-border {
-          position: relative;
-        }
-        .glow-border::after {
-          content: '';
-          position: absolute;
-          inset: -3px;
-          border-radius: inherit;
-          padding: 3px;
-          background: linear-gradient(45deg, rgba(147, 51, 234, 0.5), rgba(59, 130, 246, 0.5));
-          -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-          -webkit-mask-composite: xor;
-          mask-composite: exclude;
-          opacity: 0;
-          transition: opacity 0.3s ease;
-        }
-        .glow-border:hover::after {
-          opacity: 1;
-        }
-        
-        .text-gradient-shimmer {
-          background: linear-gradient(to right, #9333ea, #3b82f6, #9333ea);
-          background-size: 200% auto;
-          color: transparent;
-          -webkit-background-clip: text;
-          background-clip: text;
-          animation: textShimmer 3s linear infinite;
-        }
-        
-        .pulse-ring {
-          position: relative;
-        }
-        .pulse-ring::before {
-          content: '';
-          position: absolute;
-          inset: 0;
-          border-radius: inherit;
-          padding: 0;
-          background: linear-gradient(45deg, rgba(147, 51, 234, 0.5), rgba(59, 130, 246, 0.5));
-          animation: pulseRing 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
-          z-index: -1;
-        }
-        
-        /* Mobile responsiveness fixes */
-        .break-words {
-          word-wrap: break-word;
-          word-break: break-word;
-          hyphens: auto;
-        }
-        
-        .text-responsive {
-          word-wrap: break-word;
-          overflow-wrap: break-word;
-          hyphens: auto;
-        }
-        
-        @media (max-width: 640px) {
-          .service-card {
-            margin-bottom: 1rem;
-          }
-          
-          .service-icon {
-            margin-bottom: 1rem;
-          }
-          
-          h1, h2, h3, h4, h5, h6 {
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-            hyphens: auto;
-          }
-          
-          p, span, div {
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-          }
-        }
-      `}</style>
+    <React.Fragment>
+      <SEO
+        title="DesignDeliverGrow - Professional Web Design, Student Projects & Digital Marketing"
+        description="Transform your digital presence with DesignDeliverGrow. Expert web design & development, student project assistance, social media marketing, and educational workshops. Trusted by 200+ projects across India."
+        keywords="web design India, website development, student project assistance, social media marketing, educational workshops, React development, Node.js development, digital marketing, UI UX design, professional websites, academic projects, CSE projects, final year projects, startup websites, responsive design, SEO optimized websites"
+        canonical="https://www.designdelivergrow.store/"
+        ogImage="https://www.designdelivergrow.store/og-home.jpg"
+        faqSchema={faqData}
+        reviewSchema={{
+          ratingValue: 4.9,
+          reviewCount: 150,
+          bestRating: 5,
+          worstRating: 1
+        }}
+        localBusinessSchema={{
+          address: "India",
+          telephone: "+91-9642872160",
+          priceRange: "₹₹",
+          openingHours: [
+            "Monday:09:00-18:00",
+            "Tuesday:09:00-18:00", 
+            "Wednesday:09:00-18:00",
+            "Thursday:09:00-18:00",
+            "Friday:09:00-18:00",
+            "Saturday:10:00-16:00"
+          ]
+        }}
+        breadcrumbs={breadcrumbs}
+      />
+      
+      <div className="min-h-screen overflow-hidden relative text-responsive">
+        {/* Skip Link for Accessibility */}
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
 
       {/* Enhanced Floating Orbs Background */}
       <div className="fixed inset-0 pointer-events-none hidden sm:block">
@@ -503,53 +335,85 @@ const Home = () => {
       </div>
 
       {/* Enhanced Hero Section */}
-      <section id="hero" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 via-blue-50 to-cyan-50 overflow-hidden" ref={heroRef}>
-        <div className="absolute inset-0 opacity-10 pointer-events-none">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'linear-gradient(to right, rgba(99,102,241,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(99,102,241,0.05) 1px, transparent 1px)',
-            backgroundSize: '40px 40px',
-            animation: 'breathe 8s ease-in-out infinite'
-          }}></div>
-        </div>
+      <main id="main-content">      <section id="hero" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 via-blue-50 to-cyan-50 overflow-hidden" ref={heroRef}>
+          <div className="absolute inset-0 opacity-10 pointer-events-none">
+            <div className="absolute inset-0" style={{
+              backgroundImage: 'linear-gradient(to right, rgba(99,102,241,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(99,102,241,0.05) 1px, transparent 1px)',
+              backgroundSize: '40px 40px'
+            }}></div>
+          </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
-          <div className={`space-y-6 sm:space-y-8 ${isVisible.hero ? 'animate-blur-in' : 'opacity-0'}`} style={{animationDelay: '0.2s'}}>
-            <span className="inline-flex items-center px-5 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-medium shadow-sm pulse-ring">
-              <Sparkles className="w-4 h-4 mr-2 text-purple-500 animate-wave" />
-              Trusted by 200+ Projects
-            </span>
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+            <div className={`space-y-6 sm:space-y-8 ${isVisible.hero ? 'animate-blur-in' : 'opacity-0'}`} style={{animationDelay: '0.2s'}}>
+              <span className="inline-flex items-center px-5 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-medium shadow-sm pulse-ring">
+                <Sparkles className="w-4 h-4 mr-2 text-purple-500 animate-wave" />
+                Trusted by 200+ Projects
+              </span>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-black text-gradient-shimmer leading-tight">
-              Design.Deliver.Grow.
-            </h1>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-black text-gradient-shimmer leading-tight">
+                Design.Deliver.Grow
+              </h1>
+              <h2 className='text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold text-gradient-shimmer'>A Professional Web Design & Development Services in India</h2>
 
-           <div className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 leading-relaxed">
-  <p className="max-w-xs sm:max-w-lg lg:max-w-2xl">
-    We help you excel in <span className="font-semibold text-purple-600">web design</span>, <span className="font-semibold text-blue-600">project execution</span>,<br className="hidden sm:inline" /> and <span className="font-semibold text-cyan-600">skill development</span>.
-  </p>
-</div>
+              <div className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 leading-relaxed">
+                <p className="max-w-xs sm:max-w-lg lg:max-w-2xl">
+                  Transform your digital presence with expert <strong>web design</strong>, <strong>student project assistance</strong>, and <strong>educational workshops</strong>. We help students, startups, and businesses grow online.
+                </p>
+              </div>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
               <button
                 onClick={() => navigate('/services')}
                 className="bg-gradient-to-r from-purple-600 to-blue-500 text-white px-6 py-3 sm:py-4 rounded-xl font-bold shadow-lg hover:scale-105 transition-all duration-300 glow-border text-sm sm:text-base"
+                aria-label="Explore our web design and development services"
               >
-                Explore Services
+                Explore Our Services
               </button>
               <button
                 onClick={() => navigate('/contact')}  
                 className="border-2 border-purple-300 text-purple-700 px-6 py-3 sm:py-4 rounded-xl font-bold hover:bg-purple-50 transition duration-300 animate-border-glow text-sm sm:text-base"
+                aria-label="Book a free consultation with our experts"
               >
-                Book Consultation
+                Book Free Consultation
               </button>
             </div>
-          </div>
 
-          <div className={`mt-8 lg:mt-0 ${isVisible.hero ? 'animate-blur-in' : 'opacity-0'}`} style={{animationDelay: '0.4s'}}>
+            {/* Quick Links for Internal Linking */}
+            <div className="flex flex-wrap gap-2 pt-4 text-sm">
+              <button 
+                onClick={() => navigate('/services')} 
+                className="text-purple-600 hover:text-purple-800 underline"
+              >
+                Web Development
+              </button>
+              <span className="text-gray-400">•</span>
+              <button 
+                onClick={() => navigate('/services')} 
+                className="text-blue-600 hover:text-blue-800 underline"
+              >
+                Student Projects
+              </button>
+              <span className="text-gray-400">•</span>
+              <button 
+                onClick={() => navigate('/workshops')} 
+                className="text-cyan-600 hover:text-cyan-800 underline"
+              >
+                Workshops
+              </button>
+              <span className="text-gray-400">•</span>
+              <button 
+                onClick={() => navigate('/projects')} 
+                className="text-green-600 hover:text-green-800 underline"
+              >
+                Portfolio
+              </button>
+            </div>
+          </div>          
+           <div className={`mt-8 lg:mt-0 ${isVisible.hero ? 'animate-blur-in' : 'opacity-0'}`} style={{animationDelay: '0.4s'}}>
             <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] bg-transparent flex items-center justify-center">
               <LottieAnimation
-                src="/DDG1.gif"
-                alt="Animation"
+                src="/assets/DDG1.gif"
+                alt="DesignDeliverGrow - Professional web design and development services animation"
                 className="w-full h-full rounded-xl sm:rounded-2xl animate-float-glow"
               />
             </div>
@@ -562,11 +426,33 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`text-center mb-16 sm:mb-20 ${isVisible.services ? 'animate-blur-in' : 'opacity-0'}`}>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-gray-900 mb-4 sm:mb-6 text-gradient-shimmer">
-              Our Services
+              Our Digital Services
             </h2>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed px-4">
-              Comprehensive solutions to help you succeed in your digital journey
+              Comprehensive <strong>web design</strong>, <strong>student project assistance</strong>, and <strong>digital marketing solutions</strong> to help you succeed online
             </p>
+            <div className="flex flex-wrap justify-center gap-4 mt-6">
+              <button 
+                onClick={() => navigate('/services')} 
+                className="text-purple-600 hover:text-purple-800 underline font-medium"
+              >
+                View All Services
+              </button>
+              <span className="text-gray-400">•</span>
+              <button 
+                onClick={() => navigate('/contact')} 
+                className="text-blue-600 hover:text-blue-800 underline font-medium"
+              >
+                Get Quote
+              </button>
+              <span className="text-gray-400">•</span>
+              <button 
+                onClick={() => navigate('/projects')} 
+                className="text-green-600 hover:text-green-800 underline font-medium"
+              >
+                See Our Work
+              </button>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
@@ -837,17 +723,16 @@ const Home = () => {
               <button
                 onClick={() => navigate('/services')}
                 className="bg-transparent border-2 border-white/50 text-white px-6 sm:px-8 py-4 sm:py-5 rounded-xl font-bold text-lg sm:text-xl hover:bg-white/10 transition-all duration-300 animate-border-glow"
-              >
-                Explore Services
+              >                Explore Services
               </button>
             </div>
           </div>
         </div>
       </section>
-
-      
-    </div>
+    </main>
+  </div>
+    </React.Fragment>
   );
-};
+}
 
 export default Home;

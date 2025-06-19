@@ -411,10 +411,10 @@ const WorkshopDetail = () => {
             playsInline
             className="absolute inset-0 w-full h-full object-cover md:object-center object-[25%] scale-[1.02]"
           >
-            <source src="/bg.mp4" type="video/mp4" />
+            <source src="/assets/bg.mp4" type="video/mp4" />
           </video>
           {/* Custom gradient overlay with increased opacity for better text visibility on mobile */}
-          <div className={`absolute inset-0 bg-gradient-to-br ${workshop.color} md:opacity-50 opacity-60`}></div>
+          <div className={`absolute inset-0 bg-gradient-to-br ${workshop.color} md:opacity-40 opacity-20`}></div>
           
           {/* Additional decorative elements */}
           <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10 mix-blend-overlay"></div>

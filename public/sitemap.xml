@@ -1,29 +1,181 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
-xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+  
+  <!-- Homepage -->
   <url>
     <loc>https://www.designdelivergrow.store/</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.designdelivergrow.store/og-home.png</image:loc>
+      <image:title>DesignDeliverGrow - Professional Web Design Services</image:title>
+      <image:caption>Professional web design, student project assistance, and digital marketing services</image:caption>
+    </image:image>
   </url>
+  
+  <!-- About Page -->
   <url>
     <loc>https://www.designdelivergrow.store/about</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  
+  <!-- Services Page -->
   <url>
     <loc>https://www.designdelivergrow.store/services</loc>
-    <priority>0.8</priority>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.designdelivergrow.store/services-hero.png</image:loc>
+      <image:title>Web Design and Development Services</image:title>
+    </image:image>
   </url>
+  
+  <!-- Projects Page -->
   <url>
     <loc>https://www.designdelivergrow.store/projects</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  
+  <!-- Workshops Page -->
   <url>
     <loc>https://www.designdelivergrow.store/workshops</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  
+  <!-- Individual Workshop Pages -->
   <url>
-    <loc>https://www.designdelivergrow.store/contact</loc>
+    <loc>https://www.designdelivergrow.store/workshops/full-stack-weekend</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <!-- Add more URLs as needed -->
+  
+  <url>
+    <loc>https://www.designdelivergrow.store/workshops/ai-in-a-day</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog Page -->
+  <url>
+    <loc>https://www.designdelivergrow.store/blog</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Blog Posts -->
+  <url>
+    <loc>https://www.designdelivergrow.store/blog/web-development-guide-2024</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <news:news>
+      <news:publication>
+        <news:name>DesignDeliverGrow Blog</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2024-12-19</news:publication_date>
+      <news:title>Complete Web Development Guide 2024</news:title>
+    </news:news>
+  </url>
+  
+  <url>
+    <loc>https://www.designdelivergrow.store/blog/student-to-software-developer</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.designdelivergrow.store/blog/final-year-project-guide</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.designdelivergrow.store/blog/social-media-marketing-strategy</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.designdelivergrow.store/blog/building-restful-apis-nodejs</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.designdelivergrow.store/blog/ai-ml-project-ideas-2024</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Contact Page -->
+  <url>
+    <loc>https://www.designdelivergrow.store/contact</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Legal Pages -->
+  <url>
+    <loc>https://www.designdelivergrow.store/privacy-policy</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.designdelivergrow.store/terms-of-service</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <!-- Service Category Pages -->
+  <url>
+    <loc>https://www.designdelivergrow.store/services/web-design</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.designdelivergrow.store/services/student-projects</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.designdelivergrow.store/services/social-media-marketing</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.designdelivergrow.store/services/educational-workshops</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
 </urlset>

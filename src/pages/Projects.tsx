@@ -18,7 +18,7 @@ const Projects = () => {
       title: "E-Library Website",
       category: "Web Development",
       description: "Web application to browse, search, and read books online",
-      image: "/image.png",
+      image: "/assets/image.png",
       technologies: ["HTML", "CSS", "JavaScript", "REST APIs"],
       features: [
         "Responsive UI design",
@@ -40,7 +40,7 @@ const Projects = () => {
   title: "NEO Explorer",
   category: "Web Development",
   description: "Web app to visualize NASA's Near Earth Objects (NEO) using public API data",
-  image: "/neo.png",
+  image: "/assets/neo.png",
   technologies: ["JavaScript", "HTML", "CSS", "NASA API"],
   features: [
     "Real-time NEO data visualization",
@@ -61,7 +61,7 @@ const Projects = () => {
   title: "MedBridge",
   category: "AI/ML",
   description: "An AI-powered hospital management system for efficient patient care, appointment scheduling, and resource optimization.",
-  image: "/hospital.png",
+  image: "/assets/hospital.png",
   technologies: ["React", "Node.js", "Express", "MongoDB", "Python", "Machine Learning"],
   features: [
     "AI-based patient triage and risk prediction",
@@ -89,7 +89,7 @@ const Projects = () => {
   title: "LearnByDoing",
   category: "CSE",
   description: "Interactive coding platform enabling users to learn by building real-world projects",
-  image: "/lbd.png",
+  image: "/assets/lbd.png",
   technologies: ["React", "Node.js", "MongoDB", "Express", "JWT"],
   features: [
     "User authentication & role-based access",
@@ -110,7 +110,7 @@ const Projects = () => {
     title: "Library Management System",
     category: "CSE",
     description: "A comprehensive system to manage library books, members, and transactions efficiently.",
-    image: "/lms.png",
+    image: "/assets/lms.png",
     technologies: ["HTML", "CSS", "Javascript", "datatables"],
     features: [
       "Book inventory management",
@@ -136,7 +136,7 @@ const Projects = () => {
   title: "Academic Performance Predictor",
   category: "AI/ML",
   description: "A machine learning system that predicts student academic performance based on historical data and key indicators.",
-  image: "/ap.png",
+  image: "/assets/ap.png",
   technologies: ["Python", "Pandas", "Scikit-learn", "Matplotlib"],
   features: [
     "Data preprocessing and feature engineering",
@@ -161,7 +161,7 @@ const Projects = () => {
   title: "Fake Media Detection System",
   category: "AI/ML",
   description: "AI-driven platform for detecting fake news, manipulated images, and deepfakes using NLP, computer vision, and blockchain.",
-  image: "/fake.png",
+  image: "/assets/fake.png",
   technologies: ["React", "XGBoost", "Blockchain", "OpenCV"],
   features: [
     "Media upload support for text, images, and videos",
@@ -188,7 +188,7 @@ const Projects = () => {
     title: "Coding Quiz",
     category: "Web Development",
     description: "A web-based coding quiz platform to test and improve programming knowledge.",
-    image: "/quiz.png", // Add an image to your public folder or use an emoji like "📝"
+    image: "/assets/quiz.png", // Add an image to your public folder or use an emoji like "📝"
     technologies: ["React", "JavaScript", "HTML", "CSS"],
     features: [
       "Multiple choice coding questions",

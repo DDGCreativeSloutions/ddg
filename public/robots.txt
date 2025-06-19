@@ -1,13 +1,113 @@
+# Robots.txt for DesignDeliverGrow
+# https://www.designdelivergrow.store/robots.txt
+
 User-agent: *
 Allow: /
+
+# Allow all image formats
 Allow: /*.png$
 Allow: /*.jpg$
 Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.webp$
+Allow: /*.avif$
 Allow: /*.svg$
 Allow: /*.ico$
+
+# Allow specific assets
 Allow: /logo.png
 Allow: /android-chrome-*.png
 Allow: /apple-touch-icon.png
 Allow: /favicon*
+Allow: /og-*.jpg
+Allow: /og-*.png
 
+# Allow CSS and JS files
+Allow: /*.css$
+Allow: /*.js$
+
+# Allow manifest and service worker
+Allow: /site.webmanifest
+Allow: /sw.js
+Allow: /manifest.json
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /_next/
+Disallow: /api/
+Disallow: /.well-known/
+
+# Disallow search and filter parameters
+Disallow: /*?*
+Disallow: /*&*
+
+# Disallow temporary and development files
+Disallow: /*.tmp$
+Disallow: /*.temp$
+Disallow: /*.bak$
+Disallow: /*.log$
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1
+
+# Sitemap location
 Sitemap: https://www.designdelivergrow.store/sitemap.xml
+
+# Additional sitemaps
+Sitemap: https://www.designdelivergrow.store/blog-sitemap.xml
+Sitemap: https://www.designdelivergrow.store/services-sitemap.xml
+Sitemap: https://www.designdelivergrow.store/projects-sitemap.xml
+
+# Specific rules for different bots
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MegaIndex
+Disallow: /
