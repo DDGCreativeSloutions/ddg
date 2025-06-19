@@ -3,7 +3,7 @@ As we step into 2024, the fields of artificial intelligence (AI) and machine lea
 # AI & Machine Learning Project Ideas for Students in 2024
 
 ## Introduction to AI and Machine Learning for Students
-
+[← Back to Blog](../blog)
 ### What is AI and Machine Learning?
 Artificial Intelligence (AI) is the fancy term we use when computers mimic human intelligence. Think of it as a really smart assistant that can learn and make decisions. Machine Learning (ML), on the other hand, is like the little sibling of AI. It's the branch that teaches computers how to learn from data without being explicitly programmed. If you’ve ever wondered how Netflix knows what you want to binge-watch next or how your phone can recognize your face, you’re experiencing the magic of AI and ML!
 

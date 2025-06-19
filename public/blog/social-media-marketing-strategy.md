@@ -3,7 +3,7 @@ In today’s digital age, social media has become an indispensable tool for star
 # Social Media Marketing Strategy for Startups: From Zero to 10K Followers
 
 ## Introduction to Social Media Marketing for Startups
-
+[← Back to Blog](../blog)
 ### Understanding the Importance of Social Media
 
 In the wild world of startups, social media is like the glittering golden ticket to the marvelous amusement park of growth. It’s where you can connect with potential customers, build your brand’s personality, and generate buzz without breaking the bank. With millions of users scrolling, liking, and sharing, social media isn’t just a fad; it’s the lifeblood of modern marketing strategies. Think of it as your virtual marketplace where you can show off your wares, engage with customers, and, if all goes well, build a loyal tribe of followers who are just as excited about your startup as you are!

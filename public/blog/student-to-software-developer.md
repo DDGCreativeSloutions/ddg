@@ -3,7 +3,7 @@ Transitioning from student life to a professional software developer can be both
 # From Student to Software Developer: Career Roadmap 2024
 
 ## Introduction: Navigating the Transition from Student to Software Developer
-
+[← Back to Blog](../blog)
 Ah, the age-old journey of transforming from a fresh-faced student with dreams as big as your student loans into a competent software developer armed with lines of code and caffeinated beverages. Whether you’re finishing up your degree, contemplating a career switch, or just wondering how to escape the clutches of your current job, it’s crucial to have a roadmap. Think of it as your GPS for getting to that elusive destination known as “employed software developer.”
 
 ### The Importance of a Career Roadmap

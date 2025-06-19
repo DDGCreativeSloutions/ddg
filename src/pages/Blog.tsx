@@ -20,7 +20,13 @@ const Blog = () => {
       3: 'social-media-marketing-strategy',
       4: 'ai-ml-project-ideas-2024',
       5: 'student-to-software-developer',
-      6: 'building-restful-apis-nodejs'
+      6: 'building-restful-apis-nodejs',
+      7: 'From Project to Publication',
+      8: 'Important Questions for Your Sem prepared form Previous question paper',
+      9:'Master Cutting-Edge Tech with Our Weekly Workshops on AI, IoT, Web Dev & More!',
+      10:'Project Handover Guide',
+      11:'The Ultimate Guide to College and School Websites',
+      12:'We Provide Ready-to-Use Solutions for Problem Statements in any type of Hackathons'
     };
     navigate(`/blog/${slugMap[post.id]}`);
   };
@@ -124,7 +130,75 @@ const Blog = () => {
       readTime: "20 min read",
       image: "⚙️",
       tags: ["Node.js", "REST API", "Backend", "MongoDB"]
-    }
+    },
+{
+  id: 8,
+  title: "ACE Semester Exams – Important Questions",
+  excerpt: "Get ahead in your semester exams with our curated list of important questions tailored to ACE syllabus patterns.",
+  category: "Exam Preparation",
+  author: "Academic Coach",
+  date: "2024-03-01",
+  readTime: "6 min read",
+  image: "📘",
+  tags: ["ACE", "Exams", "Important Questions", "Study Guide"]
+},
+{
+  id: 9,
+  title: "Master Cutting-Edge Tech with Our Weekly Workshops on AI, IoT, Web Dev & More!",
+  excerpt: "Join our hands-on workshops every weekend to explore the latest in AI, IoT, and Web Development with industry experts.",
+  category: "Workshops",
+  author: "Tech Mentor",
+  date: "2024-03-08",
+  readTime: "8 min read",
+  image: "🚀",
+  tags: ["Workshops", "AI", "IoT", "Web Development"]
+},
+{
+  id: 10,
+  title: "Project Handover Guide – How We Ensure Smooth Delivery & Setup for Your Academic Project",
+  excerpt: "Discover how we make academic project delivery seamless with proper documentation, setup support, and technical assistance.",
+  category: "Academic Projects",
+  author: "Project Coordinator",
+  date: "2024-03-15",
+  readTime: "7 min read",
+  image: "📦",
+  tags: ["Project Handover", "Academic Projects", "Setup Guide"]
+},
+{
+  id: 11,
+  title: "The Ultimate Guide to College & School Websites – Must-Have Features & Best Practices",
+  excerpt: "Learn what makes a great educational website—from design and responsiveness to student portal integration and more.",
+  category: "Web Design",
+  author: "UI/UX Strategist",
+  date: "2024-03-22",
+  readTime: "10 min read",
+  image: "🏫",
+  tags: ["School Websites", "College Websites", "Web Design", "Best Practices"]
+},
+{
+  id: 12,
+  title: "Winning Hackathons Made Easy – How We Provide Ready-to-Use Solutions for Problem Statements",
+  excerpt: "Increase your chances of hackathon success with our pre-built project ideas, documentation templates, and expert mentoring.",
+  category: "Hackathons",
+  author: "Innovation Coach",
+  date: "2024-03-29",
+  readTime: "9 min read",
+  image: "🏆",
+  tags: ["Hackathons", "Problem Statements", "Ready Solutions", "Project Ideas"]
+},
+{
+  id:7 ,
+  title: "From Project to Publication – Turning Your Work into Research Papers",
+  excerpt: "Learn how to transform your academic or technical project into a publishable research paper with step-by-step guidance.",
+  category: "Research & Publishing",
+  author: "Research Mentor",
+  date: "2024-02-24",
+  readTime: "12 min read",
+  image: "📝",
+  tags: ["Research", "Project to Paper", "Academic Writing", "Publication"]
+}
+
+    
   ];
 
   const featuredPosts = blogPosts.filter(post => post.featured);
@@ -204,26 +278,7 @@ const Blog = () => {
       </section>
 
       {/* Category Filter */}
-      <section className="py-8 bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap gap-3 justify-center">
-            {categories.map((category) => (
-              <Button
-                key={category}
-                variant={selectedCategory === category ? "default" : "outline"}
-                onClick={() => setSelectedCategory(category)}
-                className={selectedCategory === category ? 
-                  "bg-gradient-to-r from-purple-600 to-cyan-400 hover:from-purple-700 hover:to-cyan-500" : 
-                  "border-purple-200 hover:bg-purple-50"
-                }
-              >
-                {category}
-              </Button>
-            ))}
-          </div>
-        </div>
-      </section>
-
+      
       {/* Featured Posts */}
       {featuredPosts.length > 0 && (
         <section className="py-16 bg-gray-50">
@@ -291,6 +346,27 @@ const Blog = () => {
           </div>
         </section>
       )}
+      {/* Category Filter */}
+      <section className="py-8 bg-white border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap gap-3 justify-center">
+            {categories.map((category) => (
+              <Button
+                key={category}
+                variant={selectedCategory === category ? "default" : "outline"}
+                onClick={() => setSelectedCategory(category)}
+                className={selectedCategory === category ? 
+                  "bg-gradient-to-r from-purple-600 to-cyan-400 hover:from-purple-700 hover:to-cyan-500" : 
+                  "border-purple-200 hover:bg-purple-50"
+                }
+              >
+                {category}
+              </Button>
+            ))}
+          </div>
+        </div>
+      </section>
+
 
       {/* Regular Posts */}
       <section className="py-16 bg-white">

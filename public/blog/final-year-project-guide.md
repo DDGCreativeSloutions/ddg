@@ -3,7 +3,7 @@ Choosing the perfect final year project is a pivotal decision for students in Co
 # How to Choose the Perfect Final Year Project: CSE, AI/ML & AIDS Guide
 
 ## Introduction to Final Year Projects: Importance and Impact
-
+[← Back to Blog](../blog)
 ### Significance of Final Year Projects in Academic Growth
 Ah, the final year project—the grand finale of your academic journey. Think of it as the graduation capstone, a dazzling way to showcase everything you've learned (and maybe a little bit of what you Googled). Final year projects allow you to apply theoretical knowledge in practical scenarios, enabling you to engage deeply with your chosen subject. They not only enhance your critical thinking and problem-solving skills but also give you the ultimate bragging rights at family gatherings. “Oh, what did I do in university? Just a little something called ‘transforming data into wisdom.’ No big deal.”
 
