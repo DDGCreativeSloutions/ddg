@@ -439,7 +439,7 @@ const ClientForm = () => {
           className="flex justify-between items-center mb-6 sm:mb-8 relative z-30 bg-white/50 dark:bg-gray-900/50 backdrop-blur-md rounded-2xl p-4 shadow-lg"
         >
           <div className="flex items-center gap-2 sm:gap-3">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 overflow-hidden rounded-xl shadow-lg bg-gradient-to-r from-purple-600 to-blue-500 flex items-center justify-center">
+           <div className="w-10 h-10 sm:w-12 sm:h-12 overflow-hidden rounded-xl shadow-lg bg-gradient-to-r from-purple-600 to-blue-500 flex items-center justify-center">
               <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             </div>
             <div>
@@ -550,11 +550,18 @@ const ClientForm = () => {
             <div className="relative inline-block mb-4 sm:mb-6">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-blue-600/20 blur-2xl rounded-full"></div>
               <div className="relative bg-gradient-to-r from-primary to-blue-600 p-4 sm:p-6 rounded-2xl sm:rounded-3xl shadow-2xl">
+<<<<<<< HEAD
                <img src="/logo1.png" alt="" width="100" /> {/* <GraduationCap className="w-12 h-12 sm:w-16 sm:h-16 text-white mx-auto" /> */}
               </div>
               <div className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 w-6 h-6 sm:w-8 sm:h-8 bg-yellow-400 rounded-full flex items-center justify-center animate-bounce">
                 <Star className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-800" />
+=======
+                <div className="w-12 h-12 sm:w-16 sm:h-16 overflow-hidden mx-auto">
+                  <img src="/logo.png" alt="DDG Logo" className="w-full h-full object-contain" />
+                </div>
+>>>>>>> 21a4a17a2db9a6580d9bf67edfb47d262f240718
               </div>
+              
             </div>
 
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-800 via-primary to-blue-600 bg-clip-text text-transparent mb-4 px-4">
