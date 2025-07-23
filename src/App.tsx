@@ -19,6 +19,7 @@ import BlogPost from '@/components/BlogPost';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import Admin from './pages/Admin';
+import ClientForm from './pages/ClientForm';
 
 function App() {
   // Test WebP support on mount
@@ -45,23 +46,25 @@ function App() {
         <Sonner />
         <BrowserRouter>
           <GoogleAnalytics trackingId="G-XXXXXXXXXX" />
-          <Layout>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/workshops" element={<Workshops />} />
-              <Route path="/workshops/:id" element={<WorkshopDetail />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/blog/:slug" element={<BlogPost />} />
-              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-              <Route path="/terms-of-service" element={<TermsOfService />} />
-              <Route path="*" element={<NotFound />} />
-              <Route path="/admin" element={<Admin />} />
-            </Routes>
-          </Layout>
+          <Routes>
+            {/* Routes with Layout */}
+            <Route path="/" element={<Layout><Home /></Layout>} />
+            <Route path="/about" element={<Layout><About /></Layout>} />
+            <Route path="/services" element={<Layout><Services /></Layout>} />
+            <Route path="/projects" element={<Layout><Projects /></Layout>} />
+            <Route path="/workshops" element={<Layout><Workshops /></Layout>} />
+            <Route path="/workshops/:id" element={<Layout><WorkshopDetail /></Layout>} />
+            <Route path="/blog" element={<Layout><Blog /></Layout>} />
+            <Route path="/contact" element={<Layout><Contact /></Layout>} />
+            <Route path="/blog/:slug" element={<Layout><BlogPost /></Layout>} />
+            <Route path="/privacy-policy" element={<Layout><PrivacyPolicy /></Layout>} />
+            <Route path="/terms-of-service" element={<Layout><TermsOfService /></Layout>} />
+            <Route path="*" element={<Layout><NotFound /></Layout>} />
+            <Route path="/admin" element={<Layout><Admin /></Layout>} />
+            
+            {/* Routes without Layout */}
+            <Route path="/form" element={<ClientForm />} />
+          </Routes>
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

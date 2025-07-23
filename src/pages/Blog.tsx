@@ -36,13 +36,13 @@ const Blog = () => {
     "@type": "Blog",
     "name": "DesignDeliverGrow Blog",
     "description": "Expert insights on web development, student projects, digital marketing, and technology trends",
-    "url": "https://www.designdelivergrow.com/blog",
+    "url": "https://www.designdelivergrow.store/blog",
     "publisher": {
       "@type": "Organization",
       "name": "DesignDeliverGrow",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.designdelivergrow.com/logo.png"
+        "url": "https://www.designdelivergrow.store/logo.png"
       }
     },
     "blogPost": [
@@ -55,7 +55,7 @@ const Blog = () => {
           "name": "DDG Team"
         },
         "datePublished": "2024-01-15",
-        "url": "https://www.designdelivergrow.com/blog/web-development-guide-2024"
+        "url": "https://www.designdelivergrow.store/blog/web-development-guide-2024"
       }
     ]
   };
