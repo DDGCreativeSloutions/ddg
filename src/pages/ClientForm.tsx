@@ -261,9 +261,9 @@ const ClientForm = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <div className="relative min-h-screen bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       {/* Enhanced Floating Background Elements */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <div className="absolute top-1/4 left-1/4 w-32 h-32 sm:w-64 sm:h-64 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-1/4 right-1/4 w-48 h-48 sm:w-96 sm:h-96 bg-gradient-to-r from-pink-400/10 to-orange-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 sm:w-80 sm:h-80 bg-gradient-to-r from-green-400/10 to-blue-400/10 rounded-full blur-3xl animate-pulse delay-500"></div>
@@ -272,12 +272,12 @@ const ClientForm = () => {
         <div className="absolute bottom-10 left-10 w-20 h-20 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full blur-2xl animate-bounce delay-700"></div>
       </div>
 
-      <div className="relative z-10 container mx-auto py-4 sm:py-8 px-4">
+      <div className="relative z-20 container mx-auto py-4 sm:py-8 px-4 min-h-screen flex flex-col">
         {/* Enhanced Mobile-First Navigation Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="flex justify-between items-center mb-6 sm:mb-8"
+          className="flex justify-between items-center mb-6 sm:mb-8 relative z-30 bg-white/50 dark:bg-gray-900/50 backdrop-blur-md rounded-2xl p-4 shadow-lg"
         >
           <div className="flex items-center gap-2 sm:gap-3">
             <div className="w-10 h-10 sm:w-12 sm:h-12 overflow-hidden rounded-xl shadow-lg bg-gradient-to-r from-purple-600 to-blue-500 flex items-center justify-center">
@@ -333,7 +333,7 @@ const ClientForm = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="sm:hidden mb-6 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-2xl shadow-xl border border-gray-200/50 dark:border-gray-700/50 overflow-hidden"
+              className="sm:hidden mb-6 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-2xl shadow-xl border border-gray-200/50 dark:border-gray-700/50 overflow-hidden z-40 relative"
             >
               <div className="p-4 space-y-3">
                 <Button 
@@ -465,7 +465,7 @@ const ClientForm = () => {
             transition={{ delay: 0.4 }}
           >
             {/* 1. Card Enhancement: Add glassmorphism, stronger gradient, and shadow */}
-            <Card className="border-0 shadow-2xl bg-gradient-to-br from-white/80 via-primary/30 to-blue-100/80 dark:from-gray-900/80 dark:via-primary/20 dark:to-blue-900/80 backdrop-blur-2xl rounded-3xl sm:rounded-[2rem] overflow-hidden ring-2 ring-primary/10 hover:ring-primary/30 transition-all duration-500">
+            <Card className="relative z-30 border-0 shadow-2xl bg-gradient-to-br from-white/80 via-primary/30 to-blue-100/80 dark:from-gray-900/80 dark:via-primary/20 dark:to-blue-900/80 backdrop-blur-2xl rounded-3xl sm:rounded-[2rem] overflow-hidden ring-2 ring-primary/10 hover:ring-primary/30 transition-all duration-500">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-blue-600/10 pointer-events-none" />
               {/* Progress Bar (Stepper) */}
               <div className="w-full h-2 bg-gradient-to-r from-primary/20 to-blue-600/20 rounded-t-3xl overflow-hidden mb-2">
