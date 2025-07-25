@@ -219,7 +219,7 @@ const ClientForm = () => {
         id: "branch",
         type: "text",
         required: true,
-        placeholder: "e.g., CSE, IT, ECE",
+        placeholder: "e.g., CSE, IT, AIML",
       },
       {
         label: "Year of Study *",
@@ -236,7 +236,7 @@ const ClientForm = () => {
         id: "projectDomain",
         type: "text",
         required: true,
-        placeholder: "e.g., Web Development, AI/ML, IoT",
+        placeholder: "e.g., Web Development, AI/ML",
       },
       {
         label: "Project Title (if any)",
