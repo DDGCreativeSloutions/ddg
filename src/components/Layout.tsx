@@ -258,7 +258,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               <div className="space-y-2 text-gray-400">
                 <p><strong>Email:</strong> <a href="mailto:info@designdelivergrow.store" className="text-gray-400 hover:text-white transition-colors duration-200">info@designdelivergrow.store</a></p>
                 <p><strong>Phone:</strong> +9196428 72160</p>
-                <p><strong>Location:</strong> Hyderabad, TS, INDIA</p>
+                <p><strong>Location:</strong> Hyderabad, TG, INDIA</p>
               </div>
             </div>
           </div>
