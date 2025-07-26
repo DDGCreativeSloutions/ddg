@@ -9,6 +9,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Checkbox } from '@/components/ui/checkbox';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
+import { Github, Linkedin, Instagram, Facebook } from "lucide-react";
+
 import {
   GraduationCap,
   User,
@@ -774,6 +776,23 @@ const ClientForm = () => {
                 <ExternalLink className="w-3 h-3 ml-1" />
               </Button>
             </div>
+            <p className="text-gray-500 dark:text-gray-400 text-sm mt-4">
+              Follow us on social media for updates and inspiration!
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+                          <a href="https://github.com/DDGCreativeSloutions" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <Github className="h-6 w-6 text-gray-500 hover:text-purple-600 transition" />
+                          </a>
+                          <a href="https://www.linkedin.com/company/designdelivergrow" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <Linkedin className="h-6 w-6 text-gray-500 hover:text-blue-700 transition" />
+                          </a>
+                          <a href="https://www.instagram.com/designdelivergrow/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <Instagram className="h-6 w-6 text-gray-500 hover:text-pink-500 transition" />
+                          </a>
+                          <a href="https://www.facebook.com/profile.php?id=61577027030683" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <Facebook className="h-6 w-6 text-gray-500 hover:text-blue-600 transition" />
+                          </a>
+                        </div>
 
             <p className="text-gray-600 dark:text-gray-400 text-sm">
               © 2025 DesignDeliverGrow. Empowering students to achieve academic excellence.
