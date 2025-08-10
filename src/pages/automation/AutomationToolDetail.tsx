@@ -93,18 +93,28 @@ const AutomationToolDetail = () => {
           {/* Left Column */}
           <div className="lg:col-span-2 space-y-8">
             {/* Navigation Tabs */}
-            <div className="bg-white rounded-xl shadow-md p-1">
-              <div className="flex space-x-2">
-                {['features', 'integration', 'requirements', 'reviews'].map((tab) => (
-                  <Button
-                    key={tab}
-                    variant={activeTab === tab ? 'default' : 'ghost'}
-                    onClick={() => setActiveTab(tab)}
-                    className="flex-1 capitalize"
-                  >
-                    {tab}
-                  </Button>
-                ))}
+            <div className="bg-white rounded-xl shadow-md p-2">
+              <div className="flex gap-2">
+                {['features', 'integration', 'requirements', 'reviews'].map((tab) => {
+                  const isActive = activeTab === tab;
+                  return (
+                    <Button
+                      key={tab}
+                      type="button"
+                      role="tab"
+                      aria-selected={isActive}
+                      onClick={() => setActiveTab(tab)}
+                      className={`flex-1 capitalize rounded-md transition-colors duration-200 ${
+                        isActive
+                          ? 'bg-gradient-to-r from-purple-600 to-cyan-400 text-white shadow border-0'
+                          : 'bg-white text-gray-700 border border-gray-200 hover:bg-gray-50'
+                      }`}
+                      variant="ghost"
+                    >
+                      {tab}
+                    </Button>
+                  );
+                })}
               </div>
             </div>
 

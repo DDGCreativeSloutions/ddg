@@ -114,7 +114,7 @@ const AutomationTools = () => {
 
                 <Button 
                   variant={expandedTool === index ? "outline" : "default"}
-                  className="w-full mt-4"
+                  className={`w-full mt-4 flex-1 bg-gradient-to-r ${tool.color} hover:shadow-lg transform hover:scale-105 transition-all duration-200`}
                   onClick={() => setExpandedTool(expandedTool === index ? null : index)}
                 >
                   {expandedTool === index ? 'Show Less' : 'Learn More'}
