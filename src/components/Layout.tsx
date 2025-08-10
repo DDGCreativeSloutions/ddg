@@ -13,11 +13,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   const navigate = useNavigate();
 
   const navigation = [
-    { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Services', href: '/services' },
     { name: 'Projects', href: '/projects' },
-    { name: 'Workshops', href: '/workshops' },
+    { name: 'Automation Tools', href: '/tools' },
     { name: 'Blog', href: '/blog' },
   ];
 

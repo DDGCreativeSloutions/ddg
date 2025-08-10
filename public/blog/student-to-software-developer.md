@@ -131,4 +131,4 @@ A strong portfolio is crucial as it showcases your skills, projects, and practic
 
 4. What are the best ways to network in the tech industry?
 
-Networking can be done through attending industry conferences, joining coding meetups or workshops, participating in online forums, and leveraging social media platforms like LinkedIn. Building relationships with professionals in the field can open doors to job opportunities and valuable mentorship.
+Networking can be done through attending industry conferences, joining coding meetups, participating in online forums, and leveraging social media platforms like LinkedIn. Building relationships with professionals in the field can open doors to job opportunities and valuable mentorship.

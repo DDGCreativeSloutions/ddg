@@ -6,7 +6,7 @@ const PrivacyPolicy = () => {
     <div className="container mx-auto px-4 py-8 max-w-4xl">
       <SEO 
         title="Privacy Policy - Design Deliver Grow"
-        description="Learn how DesignDeliverGrow collects, uses, and protects your personal information when you use our services, projects, and workshops."
+        description="Learn how DesignDeliverGrow collects, uses, and protects your personal information when you use our services, projects, and automation tools."
       />
       <h1 className="text-4xl font-bold mb-8">Privacy Policy</h1>
       
@@ -35,7 +35,7 @@ const PrivacyPolicy = () => {
           <h2 className="text-2xl font-semibold mb-4">3. How We Use Your Information</h2>
           <p>Your data helps us provide a better experience. We use it to:</p>
           <ul className="list-disc pl-6 mb-4">
-            <li>Deliver and improve our services, including workshops, web development, and project assistance</li>
+            <li>Deliver and improve our services, including automation tools, web development, and project assistance</li>
             <li>Process transactions and send relevant invoices</li>
             <li>Provide customer support</li>
             <li>Send updates, promotions, or service-related messages (you may opt out)</li>

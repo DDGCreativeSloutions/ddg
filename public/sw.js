@@ -19,7 +19,7 @@ const DYNAMIC_ASSETS = [
   '/services',
   '/about',
   '/projects',
-  '/workshops',
+  '/tools',
   '/contact',
   '/blog'
 ];

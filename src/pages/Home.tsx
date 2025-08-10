@@ -130,19 +130,24 @@ const Home = () => {
       ]
     },
     {
-      title: "Educational Workshops",
-      description: "Learn cutting-edge technologies with expert guidance",
+      title: "Automation Tools",
+      description: "WhatsApp Bulk Message Sender for personalized campaigns at scale",
       icon: <Rocket className="w-8 h-8" />,
       color: "from-orange-500 to-red-500",
-      features: ["Expert Instructors", "Hands-on Projects", "Certificates", "Job Support"],
+      features: [
+        "Bulk sending with smart batching",
+        "Personalization with name/placeholders",
+        "CSV/Excel contact import",
+        "Scheduling & rate limiting"
+      ],
       packages: [
         {
-          name: "Full Stack Weekend",
-          features: ["2 Days", "Frontend + Backend", "Live Deployment", "Team Collaboration"]
+          name: "Free Trial",
+          features: ["Limited sends", "CSV import", "Templates", "Basic scheduling"]
         },
         {
-          name: "AI in a Day: Build Your First Model",
-          features: ["1 Day", "Python & ML Basics", "Real Dataset", "Model Building"]
+          name: "Pro Campaigns",
+          features: ["Higher limits", "Media attachments", "Advanced scheduling", "Delivery reports"]
         }
       ]
     }
@@ -175,7 +180,7 @@ const Home = () => {
   const stats = [
     { icon: Award, label: "Projects Delivered", value: "200+", color: "text-purple-600" },
     { icon: Users, label: "Happy Clients", value: "100+", color: "text-blue-600" },
-    { icon: TrendingUp, label: "Workshops Delivered", value: "50+", color: "text-green-600" },
+    { icon: TrendingUp, label: "Automation Tools Launched", value: "10+", color: "text-green-600" },
     { icon: Star, label: "Average Rating", value: "4.9/5", color: "text-orange-600" }
   ];
 
@@ -257,7 +262,7 @@ const Home = () => {
   const faqData = [
     {
       question: "What services does DesignDeliverGrow offer?",
-      answer: "We offer web design & development, student project assistance, social media marketing, and educational workshops to help you grow digitally."
+      answer: "We offer web design & development, student project assistance, social media marketing, and automation tools to help you grow digitally."
     },
     {
       question: "How can DesignDeliverGrow help with student projects?",
@@ -275,9 +280,9 @@ const Home = () => {
   return (
     <React.Fragment>
       <SEO
-        title="DesignDeliverGrow - Professional Web Design, Student Projects & Digital Marketing"
-        description="Transform your digital presence with DesignDeliverGrow. Expert web design & development, student project assistance, social media marketing, and educational workshops. Trusted by 200+ projects across India."
-        keywords="web design India, website development, student project assistance, social media marketing, educational workshops, React development, Node.js development, digital marketing, UI UX design, professional websites, academic projects, CSE projects, final year projects, startup websites, responsive design, SEO optimized websites"
+        title="DesignDeliverGrow - Web Design, Student Projects, Automation Tools & Digital Marketing"
+        description="Transform your digital presence with DesignDeliverGrow. Expert web design & development, student project assistance, social media marketing, and automation tools. Trusted by 200+ projects across India."
+        keywords="web design India, website development, student project assistance, social media marketing, automation tools, React development, Node.js development, digital marketing, UI UX design, professional websites, academic projects, CSE projects, final year projects, startup websites, responsive design, SEO optimized websites"
         canonical="https://www.designdelivergrow.store/"
         ogImage="https://www.designdelivergrow.store/og-home.jpg"
         faqSchema={faqData}
@@ -357,7 +362,7 @@ const Home = () => {
 
               <div className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 leading-relaxed">
                 <p className="max-w-xs sm:max-w-lg lg:max-w-2xl">
-                  Transform your digital presence with expert <strong>web design</strong>, <strong>student project assistance</strong>, and <strong>educational workshops</strong>. We help students, startups, and businesses grow online.
+                  Transform your digital presence with expert <strong>web design</strong>, <strong>student project assistance</strong>, and <strong>automation tools</strong>. We help students, startups, and businesses grow online.
                 </p>
               </div>
 
@@ -395,10 +400,10 @@ const Home = () => {
               </button>
               <span className="text-gray-400">•</span>
               <button 
-                onClick={() => navigate('/workshops')} 
+                onClick={() => navigate('/tools')} 
                 className="text-cyan-600 hover:text-cyan-800 underline"
               >
-                Workshops
+                Automation Tools
               </button>
               <span className="text-gray-400">•</span>
               <button 

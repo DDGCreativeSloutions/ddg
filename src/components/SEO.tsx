@@ -127,7 +127,7 @@ const SEO = ({
           "addressLocality": "India"
         },
         "foundingDate": "2023",
-        "description": "Professional web design, student project assistance, social media marketing, and educational workshops for digital growth.",
+        "description": "Professional web design, student project assistance, social media marketing, and automation tools for digital growth.",
         "knowsAbout": [
           "Web Development",
           "React Development",
@@ -135,7 +135,7 @@ const SEO = ({
           "Student Project Assistance",
           "Social Media Marketing",
           "Digital Marketing",
-          "Educational Workshops",
+           "Automation Tools",
           "AI/ML Projects",
           "Full Stack Development",
           "UI/UX Design"

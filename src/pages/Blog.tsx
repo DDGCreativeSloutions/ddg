@@ -23,7 +23,7 @@ const Blog = () => {
       6: 'building-restful-apis-nodejs',
       7: 'From Project to Publication',
       8: 'Important Questions for Your Sem prepared form Previous question paper',
-      9:'Master Cutting-Edge Tech with Our Weekly Workshops on AI, IoT, Web Dev & More!',
+      9:'Master Automation: Weekly Tools to Supercharge AI, Dev & Workflows!',
       10:'Project Handover Guide',
       11:'The Ultimate Guide to College and School Websites',
       12:'We Provide Ready-to-Use Solutions for Problem Statements in any type of Hackathons'
@@ -144,14 +144,14 @@ const Blog = () => {
 },
 {
   id: 9,
-  title: "Master Cutting-Edge Tech with Our Weekly Workshops on AI, IoT, Web Dev & More!",
-  excerpt: "Join our hands-on workshops every weekend to explore the latest in AI, IoT, and Web Development with industry experts.",
-  category: "Workshops",
+  title: "Master Automation: Weekly Tools to Supercharge AI, Dev & Workflows!",
+  excerpt: "Explore practical automation tools each week to speed up AI, IoT, and Web Dev workflows with expert-led guidance.",
+  category: "Automation",
   author: "Tech Mentor",
   date: "2024-03-08",
   readTime: "8 min read",
   image: "🚀",
-  tags: ["Workshops", "AI", "IoT", "Web Development"]
+  tags: ["Automation", "AI", "IoT", "Web Development"]
 },
 {
   id: 10,

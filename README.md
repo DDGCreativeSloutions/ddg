@@ -5,7 +5,7 @@
 
 > **Empowering students, startups, and professionals to design, deliver, and grow in the digital world.**
 
-DesignDeliverGrow is a full-stack platform offering **professional web design**, **student project assistance**, **social media marketing**, and **educational workshops**. Whether you're a computer science student looking for project guidance, a startup needing a stunning website, or a learner eager to upskill with AI or Web Dev, we are your one-stop solution.
+DesignDeliverGrow is a full-stack platform offering **professional web design**, **student project assistance**, **social media marketing**, and **automation tools**. Whether you're a computer science student looking for project guidance, a startup needing a stunning website, or a builder eager to speed up with AI & Dev tools, we are your one-stop solution.
 
 ---
 
@@ -33,7 +33,7 @@ DesignDeliverGrow is a full-stack platform offering **professional web design**,
 * Content creation, ad targeting, analytics, and growth
 * **Packages starting from ₹5,999**
 
-### 📚 Educational Workshops
+### 🤖 Automation Tools
 
 * **Web Development Masterclass**
 * **AI/ML Fundamentals**
@@ -48,7 +48,7 @@ DesignDeliverGrow is a full-stack platform offering **professional web design**,
 * 📅 Interactive **appointment booking** system
 * 💼 Expandable **service cards** with transparent pricing
 * 🎓 Engaging, interactive **student projects portfolio**
-* 🧠 Curated **workshops** to skill up with real-world examples
+* ⚙️ Curated **automation tools** to speed up real projects
 * 🔍 **SEO-optimized structure** & **schema markup** for better ranking
 * 📧 Professional email: `info@designdelivergrow.store`
 

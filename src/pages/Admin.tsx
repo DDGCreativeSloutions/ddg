@@ -18,7 +18,7 @@ const serviceLabels: Record<string, string> = {
   'web-design': 'Web Design & Development',
   'student-project': 'Student Project Assistance',
   'social-media': 'Social Media Marketing',
-  'workshops': 'Educational Workshops',
+  'tools': 'Automation Tools',
   'other': 'Other Amazing Services',
 };
 

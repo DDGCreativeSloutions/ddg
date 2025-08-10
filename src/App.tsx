@@ -10,8 +10,8 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Projects from "./pages/Projects";
-import Workshops from "./pages/Workshops";
-import WorkshopDetail from "./pages/workshops/WorkshopDetail";
+import AutomationTools from "./pages/AutomationTools";
+import AutomationToolDetail from "./pages/automation/AutomationToolDetail";
 import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
@@ -52,8 +52,8 @@ function App() {
             <Route path="/about" element={<Layout><About /></Layout>} />
             <Route path="/services" element={<Layout><Services /></Layout>} />
             <Route path="/projects" element={<Layout><Projects /></Layout>} />
-            <Route path="/workshops" element={<Layout><Workshops /></Layout>} />
-            <Route path="/workshops/:id" element={<Layout><WorkshopDetail /></Layout>} />
+            <Route path="/tools" element={<Layout><AutomationTools /></Layout>} />
+            <Route path="/tools/:id" element={<Layout><AutomationToolDetail /></Layout>} />
             <Route path="/blog" element={<Layout><Blog /></Layout>} />
             <Route path="/contact" element={<Layout><Contact /></Layout>} />
             <Route path="/blog/:slug" element={<Layout><BlogPost /></Layout>} />

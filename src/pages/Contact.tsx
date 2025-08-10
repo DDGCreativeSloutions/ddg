@@ -19,16 +19,18 @@ const Contact = () => {
     notes: '',
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
-  const [currentStep, setCurrentStep] = useState(1);
   const [isFloating, setIsFloating] = useState(false);
   const [sparkles, setSparkles] = useState([]);
   const [errorMsg, setErrorMsg] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
+  const [currentField, setCurrentField] = useState('intro');
+  const [typedText, setTypedText] = useState('');
 
   const services = [
     { value: 'web-design', label: '🚀 Web Design & Development', emoji: '🚀' },
     { value: 'student-project', label: '📚 Student Project Assistance', emoji: '📚' },
     { value: 'social-media', label: '📱 Social Media Marketing', emoji: '📱' },
-    { value: 'workshops', label: '🎓 Educational Workshops', emoji: '🎓' },
+    { value: 'tools', label: '🤖 Automation Tools', emoji: '🤖' },
     { value: 'other', label: '✨ Other Amazing Services', emoji: '✨' },
   ];
 
@@ -72,10 +74,6 @@ const Contact = () => {
 
   const handleSelectChange = (name, value) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
-    // Automatically advance to step 2 when a service is selected
-    if (name === 'service' && currentStep === 1) {
-      setCurrentStep(2);
-    }
   };
 
   const handleSubmit = async () => {
@@ -117,21 +115,11 @@ const Contact = () => {
   const getProgressWidth = () => {
     let progress = 0;
     
-    // Step 1 progress (50% of total)
-    if (formData.service) {
-      progress += 50;
-    }
-    
-    // Step 2 progress (50% of total)
-    if (currentStep >= 2) {
-      // Base progress for reaching step 2
-      progress += 10;
-      
-      // Additional progress for each field
-      if (formData.name) progress += 10;
-      if (formData.email) progress += 10;
-      if (formData.whatsapp) progress += 20;
-    }
+    // Calculate progress based on filled fields
+    if (formData.service) progress += 25;
+    if (formData.name) progress += 25;
+    if (formData.email) progress += 25;
+    if (formData.whatsapp) progress += 25;
     
     return `${progress}%`;
   };
@@ -220,7 +208,6 @@ const Contact = () => {
                 <Button
                   onClick={() => {
                     setFormSubmitted(false);
-                    setCurrentStep(1);
                   }}
                   className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
                 >
@@ -230,109 +217,99 @@ const Contact = () => {
             </Card>
           ) : (
             <Card className="border-0 shadow-2xl bg-white/90 backdrop-blur-sm overflow-hidden w-full max-w-6xl mx-auto">
-              <div className="h-2 bg-gray-200">
-                <div 
-                  className="h-full bg-gradient-to-r from-purple-500 to-blue-500 transition-all duration-700 ease-out"
-                  style={{ width: getProgressWidth() }}
-                />
-              </div>
-              
-              <CardContent className="p-6 md:p-12 lg:p-16">
+              <CardContent className="p-6 md:p-12 lg:p-16 relative">
                 <div className="text-center mb-8 md:mb-10">
-                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                    Book Your Free Consultation Now!
+                  <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent mb-4 animate-fadeIn">
+                    🌟 Book Your Free Consultation — Let's Make Magic Together! 🌟
                   </h2>
-                  <p className="text-lg md:text-xl text-gray-600">
-                    Choose a service and tell us about yourself to get started!
-                  </p>
                 </div>
                 {errorMsg && (
-                  <div className="mb-4 text-red-600 font-semibold text-center">{errorMsg}</div>
+                  <div className="mb-4 text-red-600 font-semibold text-center animate-shake">{errorMsg}</div>
                 )}
-                <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 md:gap-10 lg:gap-12">
-                  {/* Step 1: Service Selection */}
-                  <div className={`transition-all duration-500 ${currentStep === 1 ? 'opacity-100' : 'opacity-80'}`}>
-                    <Label className="text-lg font-bold text-gray-900 mb-4 flex items-center">
-                      <Rocket className="h-5 w-5 mr-2 text-purple-600" />
-                      Step 1: Choose Your Adventure
-                    </Label>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-4">
-                      {services.map((service) => (
-                        <button
-                          key={service.value}
-                          type="button"
-                          onClick={() => handleSelectChange('service', service.value)}
-                          className={`p-5 rounded-xl border-2 text-left transition-all duration-300 hover:scale-105 ${
-                            formData.service === service.value
-                              ? 'border-purple-500 bg-gradient-to-br from-purple-50 to-blue-50 shadow-lg'
-                              : 'border-gray-200 hover:border-purple-300 bg-white hover:shadow-md'
-                          }`}
-                          disabled={currentStep > 1}
-                        >
-                          <div className="text-2xl mb-2">{service.emoji}</div>
-                          <div className="font-medium text-gray-900">{service.label.replace(/^[^\s]+ /, '')}</div>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
+                <div className="max-w-3xl mx-auto space-y-8 relative">
+                  <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-2xl p-8 shadow-lg transform transition-all duration-500 hover:shadow-xl">
+                    <div className="prose prose-lg max-w-none">
+                      <div className="space-y-8 text-xl leading-relaxed text-gray-700">
+                        <p className="animate-fadeIn relative group">
+                          Hey there! 👋 I'm{' '}
+                          <span className="inline-block relative">
+                            <Input
+                              type="text"
+                              name="name"
+                              value={formData.name}
+                              onChange={handleChange}
+                              placeholder="[your name]"
+                              className="inline-block w-40 px-2 py-1 border-b-2 border-purple-300 focus:border-purple-500 bg-transparent text-purple-600 font-semibold placeholder:text-purple-300"
+                            />
+                            <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 transform scale-x-0 transition-transform group-hover:scale-x-100"></span>
+                          </span>
+                          , and I'm reaching out because I'm interested in something amazing.
+                        </p>
 
-                  {/* Step 2: Personal Information */}
-                  <div className={`transition-all duration-500 ${currentStep >= 2 ? 'opacity-100' : 'opacity-50'}`}>
-                    <Label className="text-lg font-bold text-gray-900 mb-4 flex items-center">
-                      <Heart className="h-5 w-5 mr-2 text-blue-600" />
-                      Step 2: Let's Get Acquainted
-                    </Label>
-                    <div className="space-y-6">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                        <div className="space-y-2">
-                          <Label htmlFor="name" className="text-base font-medium">What's your name? 😊</Label>
-                          <Input
-                            id="name"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleChange}
-                            placeholder="John Awesome"
-                            className="text-base p-4 border-2 focus:border-purple-500 rounded-lg transition-all duration-300"
-                            disabled={currentStep < 2}
-                          />
-                        </div>
-                        <div className="space-y-2">
-                          <Label htmlFor="email" className="text-base font-medium">Your email address 📧</Label>
-                          <Input
-                            id="email"
-                            name="email"
-                            type="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            placeholder="john@awesome.com"
-                            className="text-base p-4 border-2 focus:border-purple-500 rounded-lg transition-all duration-300"
-                            disabled={currentStep < 2}
-                          />
-                        </div>
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="whatsapp" className="text-base font-medium">WhatsApp number 📱</Label>
-                        <Input
-                          id="whatsapp"
-                          name="whatsapp"
-                          value={formData.whatsapp}
-                          onChange={handleChange}
-                          placeholder="+91 98765 43210"
-                          className="text-base p-4 border-2 focus:border-purple-500 rounded-lg transition-all duration-300"
-                          disabled={currentStep < 2}
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="notes" className="text-base font-medium">Anything special you'd like to share? ✨</Label>
-                        <Textarea
-                          id="notes"
-                          name="notes"
-                          value={formData.notes}
-                          onChange={handleChange}
-                          placeholder="Tell us about your dreams, goals, or any specific requirements..."
-                          className="text-base p-4 border-2 focus:border-purple-500 rounded-lg transition-all duration-300 min-h-[100px] resize-none"
-                          disabled={currentStep < 2}
-                        />
+                        <p className="animate-fadeIn delay-100">
+                          I'm specifically looking for help with{' '}
+                          <span className="relative inline-block min-w-[300px] group">
+                            <select
+                              name="service"
+                              value={formData.service}
+                              onChange={(e) => handleSelectChange('service', e.target.value)}
+                              className="w-full appearance-none bg-transparent border-b-2 border-purple-300 px-4 py-2 pr-10 text-purple-600 font-semibold cursor-pointer focus:outline-none focus:border-purple-500 transition-all duration-300"
+                            >
+                              <option value="" disabled hidden>Choose a service...</option>
+                              {services.map((service) => (
+                                <option key={service.value} value={service.value} className="text-gray-700">
+                                  {service.emoji} {service.label.replace(/^[^\s]+ /, '')}
+                                </option>
+                              ))}
+                            </select>
+                            <div className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none">
+                              <div className="w-6 h-6 flex items-center justify-center bg-gradient-to-r from-purple-500 to-blue-500 rounded-full text-white group-hover:scale-110 transition-transform duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                </svg>
+                              </div>
+                            </div>
+                            <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                          </span>
+                          . You can reach out to me at{' '}
+                          <span className="inline-block relative group">
+                            <Input
+                              type="email"
+                              name="email"
+                              value={formData.email}
+                              onChange={handleChange}
+                              placeholder="[your email]"
+                              className="inline-block w-48 px-2 py-1 border-b-2 border-purple-300 focus:border-purple-500 bg-transparent text-purple-600 font-semibold placeholder:text-purple-300"
+                            />
+                            <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 transform scale-x-0 transition-transform group-hover:scale-x-100"></span>
+                          </span>
+                          {' '}or message me on WhatsApp at{' '}
+                          <span className="inline-block relative group">
+                            <Input
+                              type="text"
+                              name="whatsapp"
+                              value={formData.whatsapp}
+                              onChange={handleChange}
+                              placeholder="[your number]"
+                              className="inline-block w-40 px-2 py-1 border-b-2 border-purple-300 focus:border-purple-500 bg-transparent text-purple-600 font-semibold placeholder:text-purple-300"
+                            />
+                            <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 transform scale-x-0 transition-transform group-hover:scale-x-100"></span>
+                          </span>.
+                        </p>
+
+                        <p className="animate-fadeIn delay-200">
+                          Here's a little bit about what I'm looking for:{' '}
+                          <span className="block mt-4 relative group">
+                            <Textarea
+                              name="notes"
+                              value={formData.notes}
+                              onChange={handleChange}
+                              placeholder="Share your dreams, goals, or specific requirements here..."
+                              className="w-full p-4 min-h-[120px] bg-white/50 border-2 border-purple-200 focus:border-purple-500 rounded-lg resize-none text-purple-600 placeholder:text-purple-300"
+                            />
+                            <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 transform scale-x-0 transition-transform group-hover:scale-x-100"></span>
+                          </span>
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -340,17 +317,23 @@ const Contact = () => {
 
                 {/* Submit Button */}
                 <div className="text-center pt-8 md:pt-10">
-                  {currentStep >= 2 && (
-                    <Button
-                      onClick={handleSubmit}
-                      disabled={!formData.service || !formData.name || !formData.email || !formData.whatsapp}
-                      className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-lg md:text-xl px-10 py-5 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
-                    >
-                      <Sparkles className="mr-3 h-6 w-6" />
-                      Book My FREE Consultation
-                      <ArrowRight className="ml-3 h-6 w-6" />
-                    </Button>
-                  )}
+                  <Button
+                    onClick={handleSubmit}
+                    disabled={!formData.service || !formData.name || !formData.email || !formData.whatsapp}
+                    className="relative group bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-lg md:text-xl px-12 py-6 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    <span className="absolute inset-0 w-full h-full rounded-full bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 animate-pulse group-hover:animate-none opacity-75 blur-xl transition-opacity group-hover:opacity-100"></span>
+                    <span className="relative flex items-center justify-center space-x-2">
+                      <Sparkles className="h-6 w-6 animate-bounce" />
+                      <span>Let's make something awesome! 💫</span>
+                      <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform" />
+                    </span>
+                  </Button>
+                  {!formData.service || !formData.name || !formData.email || !formData.whatsapp ? (
+                    <p className="mt-4 text-sm text-purple-600 animate-pulse">
+                      ✨ Fill in all the magic details above to continue!
+                    </p>
+                  ) : null}
                 </div>
               </CardContent>
             </Card>        

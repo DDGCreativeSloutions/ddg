@@ -106,7 +106,7 @@ For cloud/hosted projects, we provide:
 We offer:  
 📚 User manuals (PDF/Google Docs)  
 🛟 1-week post-delivery support (email/chat)  
-🎓 Training workshops (for institutional clients)  
+🎓 Training sessions (for institutional clients)  
 
 🔹 How We Help: We simulate student evaluations to preempt questions.  
 

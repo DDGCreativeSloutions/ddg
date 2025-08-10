@@ -18,7 +18,7 @@ const NotFound = () => {
     { name: "Home", path: "/", description: "Return to our homepage" },
     { name: "Services", path: "/services", description: "Explore our web design and development services" },
     { name: "Projects", path: "/projects", description: "View our portfolio of completed projects" },
-    { name: "Workshops", path: "/workshops", description: "Join our educational workshops" },
+    { name: "Automation Tools", path: "/tools", description: "Explore our productivity tools" },
     { name: "About Us", path: "/about", description: "Learn more about DesignDeliverGrow" },
     { name: "Contact", path: "/contact", description: "Get in touch with our team" }
   ];
@@ -38,8 +38,8 @@ const NotFound = () => {
     <>
       <SEO
         title="Page Not Found - 404 Error"
-        description="The page you're looking for doesn't exist. Explore our web design services, student project assistance, and educational workshops at DesignDeliverGrow."
-        keywords="404 error, page not found, DesignDeliverGrow, web design, student projects, workshops"
+        description="The page you're looking for doesn't exist. Explore our web design services, student project assistance, and automation tools at DesignDeliverGrow."
+        keywords="404 error, page not found, DesignDeliverGrow, web design, student projects, automation tools"
         noindex={true}
         faqSchema={faqData}
         breadcrumbs={[
@@ -191,10 +191,10 @@ const NotFound = () => {
                     → Social Media Marketing
                   </Link>
                   <Link 
-                    to="/workshops" 
+                    to="/tools" 
                     className="block text-gray-600 hover:text-purple-600 transition-colors"
                   >
-                    → Educational Workshops
+                    → Automation Tools
                   </Link>
                 </div>
               </div>

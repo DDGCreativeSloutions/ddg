@@ -24,7 +24,7 @@ const Services = () => {
       "@type": "Country",
       "name": "India"
     },
-    "description": "Comprehensive digital solutions including web design, student project assistance, social media marketing, and educational workshops.",
+    "description": "Comprehensive digital solutions including web design, student project assistance, social media marketing, and automation tools.",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "DesignDeliverGrow Services",
@@ -188,65 +188,43 @@ const Services = () => {
       ]
     },
     {
-  title: "Educational Workshops",
-  description: "Interactive workshops to enhance your skills in web development, AI, and digital marketing",
-  icon: "💻",
-  color: "from-orange-500 to-red-500",
-  features: [
-    "Expert Instructors",
-    "Hands-on Projects",
-    "Industry Certificates",
-    "Job Placement Support",
-    "Live Sessions",
-    "Recorded Materials"
-  ],
-  packages: [
-    {
-      name: "Full Stack Hackathon Weekend",
-      duration: "2 Days",
+      title: "Automation Tools",
+      description: "Powerful automation tools to streamline workflows and boost productivity",
+      icon: "🤖",
+      color: "from-orange-500 to-red-500",
       features: [
-        "Frontend + Backend in 48 hours",
-        "React, Node.js, MongoDB",
-        "Live Deployment & Collaboration",
-        "Hackathon Certificate"
+        "AI Assistants",
+        "Code Generation",
+        "Popular Integrations",
+        "Team Collaboration",
+        "Cross-platform Support",
+        "Documentation"
       ],
-      popular: true
-    },
-    {
-      name: "AI in a Day: Build Your First Model",
-      duration: "1 Day",
-      features: [
-        "Python & ML Basics",
-        "Data Analysis with Pandas",
-        "Model Training & Evaluation",
-        "Certificate of Completion"
-      ],
-      popular: false
-    },
-    {
-      name: "Design Thinking Bootcamp",
-      duration: "3 Days",
-      features: [
-        "Problem Solving & Ideation",
-        "Prototyping & User Testing",
-        "Pitching Ideas",
-        "Certified Design Thinker Credential"
-      ],
-      popular: false
-    },
-    {
-      name: "Inside the Software Industry: Senior Engineer Insights",
-      duration: "1 Day",
-      features: [
-        "Agile, DevOps & SDLC",
-        "Career Growth Sessions",
-        "Live Q&A with Senior Engineer",
-        "Industry Insights Certificate"
-      ],
-      popular: false
+      packages: [
+        {
+          name: "Starter Toolkit",
+          duration: "Instant Access",
+          features: [
+            "Free tools",
+            "Basic AI assistance",
+            "Popular integrations",
+            "Quick start"
+          ],
+          popular: true
+        },
+        {
+          name: "Pro Automation Suite",
+          duration: "Monthly/Yearly",
+          features: [
+            "Advanced AI",
+            "Custom workflows",
+            "Multi-IDE support",
+            "Priority support"
+          ],
+          popular: false
+        }
+      ]
     }
-  ]
-}
 
   ];
 
@@ -256,7 +234,7 @@ const Services = () => {
         title="Our Services | Web Design, Project Assistance & Digital Growth"
         description="Explore our wide range of services including website development, student project support, and marketing solutions with transparent pricing."
         schema={servicesSchema}
-        keywords="web design services, student project help, social media marketing, educational workshops, transparent pricing"
+        keywords="web design services, student project help, social media marketing, automation tools, transparent pricing"
       />
 
       {/* Hero Section */}
@@ -344,8 +322,8 @@ const Services = () => {
                           <Button 
                             className="w-full mt-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700" 
                             onClick={() => {
-                              if (service.title === "Educational Workshops") {
-                                navigate('/workshops');
+                              if (service.title === "Automation Tools") {
+                                navigate('/tools');
                               } else {
                                 setShowModal(true);
                               }
