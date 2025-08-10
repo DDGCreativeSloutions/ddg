@@ -11,7 +11,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   const observerRef = useRef<IntersectionObserver | null>(null);
   const location = useLocation();
   const navigate = useNavigate();
-
+const [visitCount, setVisitCount] = useState<number | null>(null);
   const navigation = [
     { name: 'About', href: '/about' },
     { name: 'Services', href: '/services' },
@@ -27,7 +27,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       const progress = (window.scrollY / totalScroll) * 100;
       setScrollY(progress);
     };
-
     // Intersection Observer for scroll animations
     observerRef.current = new IntersectionObserver(
       (entries) => {
@@ -53,6 +52,12 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       }
     };
   }, []);
+useEffect(() => {
+  fetch('https://abacus.jasoncameron.dev/hit/designdelivergrow/visits')
+    .then(res => res.json())
+    .then(data => setVisitCount(data.value))
+    .catch(() => setVisitCount(null));
+}, []);
 
   const handleBookConsultation = () => {
     navigate('/contact');
@@ -266,6 +271,11 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             <p className="text-gray-400 text-sm">
               &copy; {new Date().getFullYear()} DesignDeliverGrow. All rights reserved.
             </p>
+            {visitCount !== null && (
+              <p className="text-sm text-gray-400 mt-2 md:mt-0">
+                Total Visitors: <span className="font-semibold text-white">{visitCount}</span>
+              </p>
+            )}
             <div className="flex space-x-4">
               <a href="https://github.com/DDGCreativeSloutions" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <Github className="h-6 w-6 text-gray-500 hover:text-purple-600 transition" />
