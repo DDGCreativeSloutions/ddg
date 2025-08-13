@@ -304,11 +304,11 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       {children}
 
       {/* ADVANCED FOOTER */}
-      <footer className="relative z-50 bg-gray-950 text-white overflow-hidden footer-glow">
+      <footer className="relative z-50 bg-black text-white overflow-hidden footer-glow">
         {/* soft gradient halo */}
         <div className="absolute inset-0 gradient-ring pointer-events-none" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 bg-black">
 
           {/* Main grid */}
           <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-10">

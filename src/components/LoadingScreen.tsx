@@ -11,7 +11,11 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading, progress }) =>
 
   return (
     <motion.div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-purple-900 via-blue-900 to-black"
+      className="fixed inset-0 z-50 flex items-center justify-center"
+      style={{
+        background: 'radial-gradient(circle at center, #312E81 0%, #1E1B4B 50%, #000 100%)',
+        boxShadow: 'inset 0 0 100px rgba(139, 92, 246, 0.2)'
+      }}
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.8, ease: "easeInOut" }}
@@ -20,10 +24,12 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading, progress }) =>
       <div className="relative w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64">
         {/* Rotating Outer Ring */}
         <motion.div
-          className="absolute inset-0 rounded-full border-2 sm:border-4 border-blue-500/30"
+          className="absolute inset-0 rounded-full border-2 sm:border-4"
           style={{
+            borderColor: '#3B82F6',
             borderRightColor: 'transparent',
-            borderBottomColor: 'transparent'
+            borderBottomColor: 'transparent',
+            filter: 'brightness(1.2) drop-shadow(0 0 10px rgba(59, 130, 246, 0.5))'
           }}
           animate={{ rotate: 360 }}
           transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
@@ -31,10 +37,12 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading, progress }) =>
         
         {/* Pulsing Middle Ring */}
         <motion.div
-          className="absolute inset-3 sm:inset-4 rounded-full border-2 sm:border-4 border-purple-500/40"
+          className="absolute inset-3 sm:inset-4 rounded-full border-2 sm:border-4"
           style={{
+            borderColor: '#8B5CF6',
             borderTopColor: 'transparent',
-            borderLeftColor: 'transparent'
+            borderLeftColor: 'transparent',
+            filter: 'brightness(1.2) drop-shadow(0 0 10px rgba(139, 92, 246, 0.5))'
           }}
           animate={{
             scale: [1, 1.1, 1],

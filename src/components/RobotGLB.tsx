@@ -200,11 +200,11 @@ const RobotGLBModel: React.FC<RobotGLBModelProps> = ({
         // Enhanced mobile-specific movements
         switch(sectionIndex) {
           case 0:
-            // More dramatic floating motion
-            positionX = Math.sin(time * 0.3) * 1.2 + Math.cos(time * 0.15) * 0.5;
-            positionY = Math.sin(time * 0.4) * 0.8 + Math.cos(time * 0.25) * 0.3;
+            // More dramatic floating motion with adjusted positioning
+            positionX = Math.sin(time * 0.3) * 0.8;
+            positionY = Math.sin(time * 0.4) * 0.6 - 2; // Lower position for mobile
             rotationY = time * 0.1 + Math.sin(time * 0.2) * 0.4;
-            scale = 2.8 + Math.sin(time * 0.6) * 0.2 + touchIntensity * 0.3;
+            scale = 2.0 + Math.sin(time * 0.6) * 0.1 + touchIntensity * 0.2;
             break;
             
           case 1:
@@ -474,11 +474,11 @@ const RobotGLB: React.FC<{ modelPath: string }> = ({ modelPath }) => {
   }, [isMobile, touchIntensity]);
 
   return (
-    <div className="fixed top-[60px] md:top-0 left-0 w-full h-[calc(100%-60px)] md:h-full pointer-events-none z-10">
+    <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-10">
       <Canvas
         camera={{ 
-          position: [0, 0, isMobile ? 4 : 6], 
-          fov: isMobile ? 65 : 50 
+          position: [0, 0, isMobile ? 8 : 6], 
+          fov: isMobile ? 50 : 50 
         }}
         gl={{
           alpha: true,
