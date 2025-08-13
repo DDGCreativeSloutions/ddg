@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Section } from '@/components/ui/Section';
 import { Header } from '@/components/ui/Header';
 import { PageTransition } from '@/components/ui/PageTransition';
-
+import { Link } from 'react-router-dom';
 const Projects = () => {
   const [selectedFilter, setSelectedFilter] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
@@ -434,12 +434,15 @@ const Projects = () => {
             />
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-              <Button className="px-6 py-4 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-bold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 text-lg">
-                Start Your Project
-                <ArrowRight className="inline-block ml-2 w-5 h-5" />
-              </Button>
-              
-              <Button 
+              <Link
+  to="/contact"
+  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+>
+  <Button className="px-6 py-4 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-bold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 text-lg">
+    Start Your Project
+    <ArrowRight className="inline-block ml-2 w-5 h-5" />
+  </Button>
+</Link>              <Button 
                 variant="outline"
                 className="px-6 py-4 bg-white/80 border border-white/40 text-gray-800 font-bold rounded-2xl hover:bg-white/90 transition-all duration-500 text-lg"
               >

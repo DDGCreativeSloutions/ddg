@@ -7,6 +7,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import SEO from '@/components/SEO';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Services = () => {
   const [expandedService, setExpandedService] = useState<number | null>(null);
@@ -476,21 +477,25 @@ const Services = () => {
             Free consultation available for all services.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/contact" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <Button 
               size="lg" 
-              onClick={() => navigate('/contact')}
+            
               className="bg-white text-purple-600 hover:bg-white hover:text-blue-600 text-lg px-8 py-3"
             >
               Book Free Consultation
             </Button>
+            </Link>
+            <Link to="/projects" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <Button 
               size="lg" 
               variant="outline" 
-              onClick={() => navigate('/projects')}
+              
               className="border-white bg-white text-blue-600 hover:bg-white hover:text-purple-600 text-lg px-8 py-3"
             >
               View Our Work
             </Button>
+            </Link>
           </div>
         </div>
       </section>
