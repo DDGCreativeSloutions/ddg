@@ -563,15 +563,15 @@ const ClientForm = () => {
               Student Project Registration
             </h1>
             <div className="flex flex-wrap items-center justify-center gap-2 mb-4 sm:mb-6 px-4">
-              <Badge variant="secondary" className="px-3 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium bg-gradient-to-r from-primary/10 to-blue-600/10 border-primary/20">
+              <Badge variant="gradient-purple" className="px-3 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium">
                 <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                 Premium Service
               </Badge>
-              <Badge variant="secondary" className="px-3 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium bg-gradient-to-r from-green-500/10 to-emerald-500/10 border-green-500/20">
+              <Badge variant="gradient-green" className="px-3 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium">
                 <Award className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                 Expert Team
               </Badge>
-              <Badge variant="secondary" className="px-3 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium bg-gradient-to-r from-orange-500/10 to-red-500/10 border-orange-500/20">
+              <Badge variant="gradient-blue" className="px-3 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium">
                 <Clock className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                 24/7 Support
               </Badge>

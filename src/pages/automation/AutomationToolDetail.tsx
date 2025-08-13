@@ -80,9 +80,9 @@ const AutomationToolDetail = () => {
                 </div>
               </div>
               <div className="flex items-center space-x-4 mt-6">
-                <Badge variant="outline" className="text-sm">{tool.category}</Badge>
-                <Badge variant="outline" className="text-sm">{tool.pricing}</Badge>
-                <Badge variant="outline" className="text-sm">{tool.level}</Badge>
+                <Badge variant="gradient-purple" className="text-sm">{tool.category}</Badge>
+                <Badge variant="gradient-blue" className="text-sm">{tool.pricing}</Badge>
+                <Badge variant="gradient-green" className="text-sm">{tool.level}</Badge>
               </div>
             </div>
           </div>

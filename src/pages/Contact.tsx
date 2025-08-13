@@ -1,13 +1,14 @@
 'use client';
-
-import { useState, useEffect } from 'react';
-import { ArrowRight, Check, Mail, Phone, MessageSquare, Sparkles, Rocket, Heart, Zap, Star, Gift } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import React, { useEffect, useState } from 'react';
+import { ArrowRight, Check, Mail, Phone, MessageSquare, Sparkles } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-
+import { Section } from '@/components/ui/Section';
+import { Header } from '@/components/ui/Header';
+import { PageTransition } from '@/components/ui/PageTransition';
+import { Button } from '@/components/ui/button';
+import PageLayout from '@/components/PageLayout';
 const SHEETDB_API_URL = "https://sheetdb.io/api/v1/dcatblz3r9uht"; 
 
 const Contact = () => {
@@ -125,317 +126,278 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-50 relative overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {sparkles.map((sparkle) => (
-          <div
-            key={sparkle.id}
-            className="absolute animate-pulse"
-            style={{
-              left: `${sparkle.left}%`,
-              top: `${sparkle.top}%`,
-              animationDelay: `${sparkle.delay}s`,
-            }}
-          >
-            <Sparkles className="h-4 w-4 text-purple-400 opacity-60" />
-          </div>
-        ))}
-        
-        <div className="absolute top-20 left-10 animate-bounce delay-1000">
-          <Heart className="h-8 w-8 text-blue-400 opacity-40" />
-        </div>
-        <div className="absolute top-40 right-20 animate-bounce delay-2000">
-          <Star className="h-6 w-6 text-yellow-400 opacity-40" />
-        </div>
-        <div className="absolute bottom-20 left-20 animate-bounce delay-500">
-          <Zap className="h-7 w-7 text-blue-400 opacity-40" />
-        </div>
-      </div>
-
+    <PageLayout>
+      <PageTransition>
       {/* Hero Section */}
-      <section className="py-20 relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className={`transform transition-all duration-1000 ${isFloating ? 'translate-y-2' : 'translate-y-0'}`}>
-            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-100 to-cyan-100 rounded-full text-sm font-medium text-purple-700 mb-6 border border-purple-200/50 backdrop-blur-sm">
-              <Gift className="h-4 w-4 mr-2" />
-              FREE Consultation • Limited Time Offer
-            </div>
-            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent mb-6 leading-tight">
-              Let's Create Magic Together! 
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto mb-8 leading-relaxed">
-              Ready to turn your vision into reality? Book a <span className="font-bold text-purple-600">completely FREE</span> consultation 
-              and discover how we can supercharge your success! 🚀
-            </p>
+      <Section className="pt-24">
+        <Header
+          title="Let's Create Magic Together!"
+          subtitle="Ready to turn your vision into reality? Book a completely FREE consultation and discover how we can supercharge your success! 🚀"
+          badge="FREE Consultation • Limited Time Offer"
+          titleGradient
+          centered
+        />
             
-            <div className="flex flex-wrap justify-center gap-4 mb-8">
-              {benefits.map((benefit, index) => (
-                <div
-                  key={index}
-                  className="bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium text-gray-700 shadow-sm border border-purple-200 hover:shadow-md transition-all duration-300 hover:scale-105"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  {benefit}
-                </div>
-              ))}
+        {/* Benefits */}
+        <div className="flex flex-wrap justify-center gap-4">
+          {benefits.map((benefit, index) => (
+            <div
+              key={index}
+              className="bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium text-gray-700 shadow-sm border border-purple-200 hover:shadow-md transition-all duration-300 hover:scale-105"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              {benefit}
             </div>
-          </div>
+          ))}
         </div>
-      </section>
+      </Section>
 
       {/* Interactive Booking Form */}
-      <section className="py-12 relative z-10">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          {formSubmitted ? (
-            <Card className="border-0 shadow-2xl bg-gradient-to-br from-green-50 to-emerald-50 transform animate-pulse">
-              <CardContent className="p-12 text-center">
-                <div className="relative">
-                  <div className="w-24 h-24 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg animate-bounce">
-                    <Check className="h-12 w-12 text-white" />
-                  </div>
-                  <div className="absolute -top-2 -right-2 animate-spin">
-                    <Sparkles className="h-8 w-8 text-yellow-400" />
-                  </div>
+      <Section className="py-12">
+        {formSubmitted ? (
+          <Card className="border-0 shadow-2xl bg-gradient-to-br from-green-50 to-emerald-50 transform animate-pulse max-w-4xl mx-auto">
+            <CardContent className="p-12 text-center">
+              <div className="relative">
+                <div className="w-24 h-24 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg animate-bounce">
+                  <Check className="h-12 w-12 text-white" />
                 </div>
-                <h2 className="text-4xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-4">
-                  Woohoo! 🎉 Request Submitted!
+                <div className="absolute -top-2 -right-2 animate-spin">
+                  <Sparkles className="h-8 w-8 text-yellow-400" />
+                </div>
+              </div>
+              <h2 className="text-4xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-4">
+                Woohoo! 🎉 Request Submitted!
+              </h2>
+              <p className="text-xl text-gray-700 mb-8 leading-relaxed">
+                Your consultation request is flying our way! We'll reach out within 24 hours to schedule your 
+                <span className="font-bold text-green-600"> FREE consultation</span>. Get ready for something amazing! ✨
+              </p>
+              <Button
+                onClick={() => {
+                  setFormSubmitted(false);
+                }}
+                className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+              >
+                Help Someone Else Too! 💝
+              </Button>
+            </CardContent>
+          </Card>
+        ) : (
+          <Card className="border-0 shadow-2xl bg-white/90 backdrop-blur-sm overflow-hidden w-full max-w-4xl mx-auto">
+            <CardContent className="p-6 md:p-12 lg:p-16 relative">
+              <div className="text-center mb-8 md:mb-10">
+                <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent mb-4 animate-fadeIn">
+                  🌟 Book Your Free Consultation — Let's Make Magic Together! 🌟
                 </h2>
-                <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-                  Your consultation request is flying our way! We'll reach out within 24 hours to schedule your 
-                  <span className="font-bold text-green-600"> FREE consultation</span>. Get ready for something amazing! ✨
-                </p>
-                <Button
-                  onClick={() => {
-                    setFormSubmitted(false);
-                  }}
-                  className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
-                >
-                  Help Someone Else Too! 💝
-                </Button>
-              </CardContent>
-            </Card>
-          ) : (
-            <Card className="border-0 shadow-2xl bg-white/90 backdrop-blur-sm overflow-hidden w-full max-w-6xl mx-auto">
-              <CardContent className="p-6 md:p-12 lg:p-16 relative">
-                <div className="text-center mb-8 md:mb-10">
-                  <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent mb-4 animate-fadeIn">
-                    🌟 Book Your Free Consultation — Let's Make Magic Together! 🌟
-                  </h2>
-                </div>
-                {errorMsg && (
-                  <div className="mb-4 text-red-600 font-semibold text-center animate-shake">{errorMsg}</div>
-                )}
-                <div className="max-w-3xl mx-auto space-y-8 relative">
-                  <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-2xl p-8 shadow-lg transform transition-all duration-500 hover:shadow-xl">
-                    <div className="prose prose-lg max-w-none">
-                      <div className="space-y-8 text-xl leading-relaxed text-gray-700">
-                        <p className="animate-fadeIn relative group">
-                          Hey there! 👋 I'm{' '}
-                          <span className="inline-block relative">
-                            <Input
-                              type="text"
-                              name="name"
-                              value={formData.name}
-                              onChange={handleChange}
-                              placeholder="[your name]"
-                              className="inline-block w-40 px-2 py-1 border-b-2 border-purple-300 focus:border-purple-500 bg-transparent text-purple-600 font-semibold placeholder:text-purple-300"
-                            />
-                            <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 transform scale-x-0 transition-transform group-hover:scale-x-100"></span>
-                          </span>
-                          , and I'm reaching out because I'm interested in something amazing.
-                        </p>
+              </div>
+              {errorMsg && (
+                <div className="mb-4 text-red-600 font-semibold text-center animate-shake">{errorMsg}</div>
+              )}
+              <div className="max-w-3xl mx-auto space-y-8 relative">
+                <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-2xl p-8 shadow-lg transform transition-all duration-500 hover:shadow-xl">
+                  <div className="prose prose-lg max-w-none">
+                    <div className="space-y-8 text-xl leading-relaxed text-gray-700">
+                      <p className="animate-fadeIn relative group">
+                        Hey there! 👋 I'm{' '}
+                        <span className="inline-block relative">
+                          <Input
+                            type="text"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            placeholder="[your name]"
+                            className="inline-block w-40 px-2 py-1 border-b-2 border-purple-300 focus:border-purple-500 bg-transparent text-purple-600 font-semibold placeholder:text-purple-300"
+                          />
+                          <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 transform scale-x-0 transition-transform group-hover:scale-x-100"></span>
+                        </span>
+                        , and I'm reaching out because I'm interested in something amazing.
+                      </p>
 
-                        <p className="animate-fadeIn delay-100">
-                          I'm specifically looking for help with{' '}
-                          <span className="relative inline-block min-w-[300px] group">
-                            <select
-                              name="service"
-                              value={formData.service}
-                              onChange={(e) => handleSelectChange('service', e.target.value)}
-                              className="w-full appearance-none bg-transparent border-b-2 border-purple-300 px-4 py-2 pr-10 text-purple-600 font-semibold cursor-pointer focus:outline-none focus:border-purple-500 transition-all duration-300"
-                            >
-                              <option value="" disabled hidden>Choose a service...</option>
-                              {services.map((service) => (
-                                <option key={service.value} value={service.value} className="text-gray-700">
-                                  {service.emoji} {service.label.replace(/^[^\s]+ /, '')}
-                                </option>
-                              ))}
-                            </select>
-                            <div className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none">
-                              <div className="w-6 h-6 flex items-center justify-center bg-gradient-to-r from-purple-500 to-blue-500 rounded-full text-white group-hover:scale-110 transition-transform duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                </svg>
-                              </div>
+                      <p className="animate-fadeIn delay-100">
+                        I'm specifically looking for help with{' '}
+                        <span className="relative inline-block min-w-[300px] group">
+                          <select
+                            name="service"
+                            value={formData.service}
+                            onChange={(e) => handleSelectChange('service', e.target.value)}
+                            className="w-full appearance-none bg-transparent border-b-2 border-purple-300 px-4 py-2 pr-10 text-purple-600 font-semibold cursor-pointer focus:outline-none focus:border-purple-500 transition-all duration-300"
+                          >
+                            <option value="" disabled hidden>Choose a service...</option>
+                            {services.map((service) => (
+                              <option key={service.value} value={service.value} className="text-gray-700">
+                                {service.emoji} {service.label.replace(/^[^\s]+ /, '')}
+                              </option>
+                            ))}
+                          </select>
+                          <div className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none">
+                            <div className="w-6 h-6 flex items-center justify-center bg-gradient-to-r from-purple-500 to-blue-500 rounded-full text-white group-hover:scale-110 transition-transform duration-300">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                              </svg>
                             </div>
-                            <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-                          </span>
-                          . You can reach out to me at{' '}
-                          <span className="inline-block relative group">
-                            <Input
-                              type="email"
-                              name="email"
-                              value={formData.email}
-                              onChange={handleChange}
-                              placeholder="[your email]"
-                              className="inline-block w-48 px-2 py-1 border-b-2 border-purple-300 focus:border-purple-500 bg-transparent text-purple-600 font-semibold placeholder:text-purple-300"
-                            />
-                            <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 transform scale-x-0 transition-transform group-hover:scale-x-100"></span>
-                          </span>
-                          {' '}or message me on WhatsApp at{' '}
-                          <span className="inline-block relative group">
-                            <Input
-                              type="text"
-                              name="whatsapp"
-                              value={formData.whatsapp}
-                              onChange={handleChange}
-                              placeholder="[your number]"
-                              className="inline-block w-40 px-2 py-1 border-b-2 border-purple-300 focus:border-purple-500 bg-transparent text-purple-600 font-semibold placeholder:text-purple-300"
-                            />
-                            <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 transform scale-x-0 transition-transform group-hover:scale-x-100"></span>
-                          </span>.
-                        </p>
+                          </div>
+                          <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                        </span>
+                        . You can reach out to me at{' '}
+                        <span className="inline-block relative group">
+                          <Input
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            placeholder="[your email]"
+                            className="inline-block w-48 px-2 py-1 border-b-2 border-purple-300 focus:border-purple-500 bg-transparent text-purple-600 font-semibold placeholder:text-purple-300"
+                          />
+                          <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 transform scale-x-0 transition-transform group-hover:scale-x-100"></span>
+                        </span>
+                        {' '}or message me on WhatsApp at{' '}
+                        <span className="inline-block relative group">
+                          <Input
+                            type="text"
+                            name="whatsapp"
+                            value={formData.whatsapp}
+                            onChange={handleChange}
+                            placeholder="[your number]"
+                            className="inline-block w-40 px-2 py-1 border-b-2 border-purple-300 focus:border-purple-500 bg-transparent text-purple-600 font-semibold placeholder:text-purple-300"
+                          />
+                          <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 transform scale-x-0 transition-transform group-hover:scale-x-100"></span>
+                        </span>.
+                      </p>
 
-                        <p className="animate-fadeIn delay-200">
-                          Here's a little bit about what I'm looking for:{' '}
-                          <span className="block mt-4 relative group">
-                            <Textarea
-                              name="notes"
-                              value={formData.notes}
-                              onChange={handleChange}
-                              placeholder="Share your dreams, goals, or specific requirements here..."
-                              className="w-full p-4 min-h-[120px] bg-white/50 border-2 border-purple-200 focus:border-purple-500 rounded-lg resize-none text-purple-600 placeholder:text-purple-300"
-                            />
-                            <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 transform scale-x-0 transition-transform group-hover:scale-x-100"></span>
-                          </span>
-                        </p>
-                      </div>
+                      <p className="animate-fadeIn delay-200">
+                        Here's a little bit about what I'm looking for:{' '}
+                        <span className="block mt-4 relative group">
+                          <Textarea
+                            name="notes"
+                            value={formData.notes}
+                            onChange={handleChange}
+                            placeholder="Share your dreams, goals, or specific requirements here..."
+                            className="w-full p-4 min-h-[120px] bg-white/50 border-2 border-purple-200 focus:border-purple-500 rounded-lg resize-none text-purple-600 placeholder:text-purple-300"
+                          />
+                          <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 transform scale-x-0 transition-transform group-hover:scale-x-100"></span>
+                        </span>
+                      </p>
                     </div>
                   </div>
                 </div>
-
-                {/* Submit Button */}
-                <div className="text-center pt-8 md:pt-10">
-                  <Button
-                    onClick={handleSubmit}
-                    disabled={!formData.service || !formData.name || !formData.email || !formData.whatsapp}
-                    className="relative group bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-lg md:text-xl px-12 py-6 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    <span className="absolute inset-0 w-full h-full rounded-full bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 animate-pulse group-hover:animate-none opacity-75 blur-xl transition-opacity group-hover:opacity-100"></span>
-                    <span className="relative flex items-center justify-center space-x-2">
-                      <Sparkles className="h-6 w-6 animate-bounce" />
-                      <span>Let's make something awesome! 💫</span>
-                      <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform" />
-                    </span>
-                  </Button>
-                  {!formData.service || !formData.name || !formData.email || !formData.whatsapp ? (
-                    <p className="mt-4 text-sm text-purple-600 animate-pulse">
-                      ✨ Fill in all the magic details above to continue!
-                    </p>
-                  ) : null}
-                </div>
-              </CardContent>
-            </Card>        
-            )}
-        </div>
-      </section>
-
-      {/* Fun Contact Cards */}
-      <section className="py-20 relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-6">
-              Or Reach Out Instantly! 
-            </h2>
-            <p className="text-xl text-gray-600">Multiple ways to connect because we love hearing from you!</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="text-center hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-gradient-to-br from-blue-50 to-purple-50 border-0 group">
-              <CardContent className="p-10">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full text-white mb-6 group-hover:animate-pulse">
-                  <Mail className="h-10 w-10" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Email Magic 📧</h3>
-                <p className="text-gray-600 font-medium mb-2">info@designdelivergrow.store</p>
-                <p className="text-gray-600 font-medium">support@designdelivergrow.store</p>
-                <p className="text-sm text-purple-600 mt-4 font-medium">We reply within 2 hours! ⚡</p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-gradient-to-br from-green-50 to-emerald-50 border-0 group">
-              <CardContent className="p-10">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full text-white mb-6 group-hover:animate-pulse">
-                  <Phone className="h-10 w-10" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Call Us Direct 📞</h3>
-                <p className="text-gray-600 font-medium mb-2">+91 96428 72160</p>
-                <p className="text-gray-600 font-medium">Mon-Fri, 10:00 AM - 6:00 PM IST</p>
-                <p className="text-sm text-green-600 mt-4 font-medium">Friendly voices guaranteed! 😊</p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-gradient-to-br from-indigo-50 to-blue-50 border-0 group">
-              <CardContent className="p-10">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-full text-white mb-6 group-hover:animate-pulse">
-                  <MessageSquare className="h-10 w-10" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">WhatsApp Chat 💬</h3>
-                <p className="text-gray-600 font-medium mb-2">+91 96428 72160</p>
-                <p className="text-gray-600 font-medium">Quick questions welcome!</p>
-                <p className="text-sm text-blue-600 mt-4 font-medium">Usually online & ready to help! 🚀</p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Fun FAQ Section */}
-      <section className="py-20 bg-white/80 backdrop-blur-sm relative z-10">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-6">
-              Quick Answers to Your Questions! 
-            </h2>
-            <p className="text-xl text-gray-600">Everything you need to know (and probably more!)</p>
-          </div>
-
-          <div className="space-y-6">
-            {[
-              {
-                q: '⏰ How quickly will you get back to me?',
-                a: 'Lightning fast! We typically respond within 24 hours, often much sooner. For urgent stuff, hit us up on WhatsApp! 📱',
-              },
-              {
-                q: '💰 Is the consultation really, truly FREE?',
-                a: 'Absolutely! No hidden costs, no surprise fees. Just pure value and awesome conversation about your goals! 🎁',
-              },
-              {
-                q: '📅 Can I reschedule if something comes up?',
-                a: 'Of course! Life happens, and we totally get it. Just drop us a message and we\'ll sort it out! 😊',
-              },
-              {
-                q: '🎯 What exactly can we discuss in the consultation?',
-                a: 'Anything and everything! Web design, projects, marketing, courses, or even that crazy idea you\'ve been thinking about! 🚀',
-              },
-              {
-                q: '💳 Do I need to pay anything upfront?',
-                a: 'Nope! Zero payment required. We believe in building trust first, amazing results second, and fair pricing always! ✨',
-              },
-            ].map((faq, i) => (
-              <div
-                key={i}
-                className="bg-gradient-to-r from-purple-50 to-blue-50 border border-purple-200 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]"
-              >
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{faq.q}</h3>
-                <p className="text-gray-700 text-lg leading-relaxed">{faq.a}</p>
               </div>
-            ))}
-          </div>
+
+              {/* Submit Button */}
+              <div className="text-center pt-8 md:pt-10">
+                <Button
+                  onClick={handleSubmit}
+                  disabled={!formData.service || !formData.name || !formData.email || !formData.whatsapp}
+                  className="relative group bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-lg md:text-xl px-12 py-6 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <span className="absolute inset-0 w-full h-full rounded-full bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 animate-pulse group-hover:animate-none opacity-75 blur-xl transition-opacity group-hover:opacity-100"></span>
+                  <span className="relative flex items-center justify-center space-x-2">
+                    <Sparkles className="h-6 w-6 animate-bounce" />
+                    <span>Let's make something awesome! 💫</span>
+                    <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform" />
+                  </span>
+                </Button>
+                {!formData.service || !formData.name || !formData.email || !formData.whatsapp ? (
+                  <p className="mt-4 text-sm text-purple-600 animate-pulse">
+                    ✨ Fill in all the magic details above to continue!
+                  </p>
+                ) : null}
+              </div>
+            </CardContent>
+          </Card>        
+        )}
+      </Section>
+
+      {/* Contact Cards */}
+      <Section className="py-20">
+        <Header
+          title="Or Reach Out Instantly!"
+          subtitle="Multiple ways to connect because we love hearing from you!"
+          titleGradient
+          centered
+        />
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <Card className="text-center hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-gradient-to-br from-blue-50 to-purple-50 border-0 group">
+            <CardContent className="p-10">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full text-white mb-6 group-hover:animate-pulse">
+                <Mail className="h-10 w-10" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Email Magic 📧</h3>
+              <p className="text-gray-600 font-medium mb-2">info@designdelivergrow.store</p>
+              <p className="text-gray-600 font-medium">support@designdelivergrow.store</p>
+              <p className="text-sm text-purple-600 mt-4 font-medium">We reply within 2 hours! ⚡</p>
+            </CardContent>
+          </Card>
+
+          <Card className="text-center hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-gradient-to-br from-green-50 to-emerald-50 border-0 group">
+            <CardContent className="p-10">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full text-white mb-6 group-hover:animate-pulse">
+                <Phone className="h-10 w-10" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Call Us Direct 📞</h3>
+              <p className="text-gray-600 font-medium mb-2">+91 96428 72160</p>
+              <p className="text-gray-600 font-medium">Mon-Fri, 10:00 AM - 6:00 PM IST</p>
+              <p className="text-sm text-green-600 mt-4 font-medium">Friendly voices guaranteed! 😊</p>
+            </CardContent>
+          </Card>
+
+          <Card className="text-center hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-gradient-to-br from-indigo-50 to-blue-50 border-0 group">
+            <CardContent className="p-10">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-full text-white mb-6 group-hover:animate-pulse">
+                <MessageSquare className="h-10 w-10" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">WhatsApp Chat 💬</h3>
+              <p className="text-gray-600 font-medium mb-2">+91 96428 72160</p>
+              <p className="text-gray-600 font-medium">Quick questions welcome!</p>
+              <p className="text-sm text-blue-600 mt-4 font-medium">Usually online & ready to help! 🚀</p>
+            </CardContent>
+          </Card>
         </div>
-      </section>
-    </div>
+      </Section>
+
+      {/* FAQ Section */}
+      <Section className="py-20">
+        <Header
+          title="Quick Answers to Your Questions!"
+          subtitle="Everything you need to know (and probably more!)"
+          titleGradient
+          centered
+        />
+        <div className="space-y-6 max-w-5xl mx-auto">
+          {[
+            {
+              q: '⏰ How quickly will you get back to me?',
+              a: 'Lightning fast! We typically respond within 24 hours, often much sooner. For urgent stuff, hit us up on WhatsApp! 📱',
+            },
+            {
+              q: '💰 Is the consultation really, truly FREE?',
+              a: 'Absolutely! No hidden costs, no surprise fees. Just pure value and awesome conversation about your goals! 🎁',
+            },
+            {
+              q: '📅 Can I reschedule if something comes up?',
+              a: 'Of course! Life happens, and we totally get it. Just drop us a message and we\'ll sort it out! 😊',
+            },
+            {
+              q: '🎯 What exactly can we discuss in the consultation?',
+              a: 'Anything and everything! Web design, projects, marketing, courses, or even that crazy idea you\'ve been thinking about! 🚀',
+            },
+            {
+              q: '💳 Do I need to pay anything upfront?',
+              a: 'Nope! Zero payment required. We believe in building trust first, amazing results second, and fair pricing always! ✨',
+            },
+          ].map((faq, i) => (
+            <div
+              key={i}
+              className="bg-gradient-to-r from-purple-50 to-blue-50 border border-purple-200 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]"
+            >
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{faq.q}</h3>
+              <p className="text-gray-700 text-lg leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+    </PageTransition>
+    </PageLayout>
   );
 };
 

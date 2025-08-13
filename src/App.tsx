@@ -3,6 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { LoadingProvider } from "./context/LoadingContext";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import GoogleAnalytics from "./components/GoogleAnalytics";
@@ -42,30 +43,32 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <GoogleAnalytics trackingId="G-XXXXXXXXXX" />
-          <Routes>
-            {/* Routes with Layout */}
-            <Route path="/" element={<Layout><Home /></Layout>} />
-            <Route path="/about" element={<Layout><About /></Layout>} />
-            <Route path="/services" element={<Layout><Services /></Layout>} />
-            <Route path="/projects" element={<Layout><Projects /></Layout>} />
-            <Route path="/tools" element={<Layout><AutomationTools /></Layout>} />
-            <Route path="/tools/:id" element={<Layout><AutomationToolDetail /></Layout>} />
-            <Route path="/blog" element={<Layout><Blog /></Layout>} />
-            <Route path="/contact" element={<Layout><Contact /></Layout>} />
-            <Route path="/blog/:slug" element={<Layout><BlogPost /></Layout>} />
-            <Route path="/privacy-policy" element={<Layout><PrivacyPolicy /></Layout>} />
-            <Route path="/terms-of-service" element={<Layout><TermsOfService /></Layout>} />
-            <Route path="*" element={<Layout><NotFound /></Layout>} />
-            <Route path="/admin" element={<Layout><Admin /></Layout>} />
-            
-            {/* Routes without Layout */}
-            <Route path="/form" element={<ClientForm />} />
-          </Routes>
-        </BrowserRouter>
+        <LoadingProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <GoogleAnalytics trackingId="G-XXXXXXXXXX" />
+            <Routes>
+              {/* Routes with Layout */}
+              <Route path="/" element={<Layout><Home /></Layout>} />
+              <Route path="/about" element={<Layout><About /></Layout>} />
+              <Route path="/services" element={<Layout><Services /></Layout>} />
+              <Route path="/projects" element={<Layout><Projects /></Layout>} />
+              <Route path="/tools" element={<Layout><AutomationTools /></Layout>} />
+              <Route path="/tools/:id" element={<Layout><AutomationToolDetail /></Layout>} />
+              <Route path="/blog" element={<Layout><Blog /></Layout>} />
+              <Route path="/contact" element={<Layout><Contact /></Layout>} />
+              <Route path="/blog/:slug" element={<Layout><BlogPost /></Layout>} />
+              <Route path="/privacy-policy" element={<Layout><PrivacyPolicy /></Layout>} />
+              <Route path="/terms-of-service" element={<Layout><TermsOfService /></Layout>} />
+              <Route path="*" element={<Layout><NotFound /></Layout>} />
+              <Route path="/admin" element={<Layout><Admin /></Layout>} />
+              
+              {/* Routes without Layout */}
+              <Route path="/form" element={<ClientForm />} />
+            </Routes>
+          </BrowserRouter>
+        </LoadingProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );

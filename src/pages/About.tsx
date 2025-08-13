@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import PageLayout from '../components/PageLayout';
 import { Users, Target, Heart, Award, TrendingUp, Globe, Sparkles, Zap, Shield, Lightbulb, ArrowRight, Star, CheckCircle } from 'lucide-react';
 
 const About = () => {
@@ -205,7 +206,7 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white overflow-hidden">
+    <PageLayout>
       <style>{`
         /* Mobile responsiveness fixes */
         .break-words {
@@ -868,7 +869,7 @@ const About = () => {
         }
       `}</style>
      
-    </div>
+    </PageLayout>
   );
 };
 

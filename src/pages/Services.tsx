@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import { CheckCircle, ArrowRight, Star, Users } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { CheckCircle, ArrowRight, Star, Users, Sparkles } from 'lucide-react';
+import PageLayout from '../components/PageLayout';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -229,7 +231,7 @@ const Services = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <PageLayout>
       <SEO
         title="Our Services | Web Design, Project Assistance & Digital Growth"
         description="Explore our wide range of services including website development, student project support, and marketing solutions with transparent pricing."
@@ -238,115 +240,180 @@ const Services = () => {
       />
 
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+      <section className="py-20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Our Services
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-100 to-cyan-100 rounded-full text-sm font-medium text-purple-700 mb-6 border border-purple-200/50 backdrop-blur-sm transform transition-all duration-1000"
+            >
+              <Sparkles className="w-4 h-4 mr-2 text-purple-600 animate-glow-pulse" />
+              Professional Digital Services
+            </motion.div>
+            
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-4xl md:text-6xl font-black bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent mb-6"
+            >
+              Transform Your Digital Presence
+            </motion.h1>
+            
+            <motion.p 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-xl text-black max-w-3xl mx-auto leading-relaxed backdrop-blur-sm bg-white/10 p-4 rounded-2xl border border-white/10"
+            >
               Comprehensive digital solutions with transparent pricing and detailed packages. 
               Click on any service to explore features and pricing.
-            </p>
+            </motion.p>
           </div>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 bg-white">
+      <section className="py-20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {services.map((service, index) => (
-              <Card 
-                key={index} 
-                className={`cursor-pointer transition-all duration-300 hover:shadow-xl ${
-                  expandedService === index ? 'ring-2 ring-blue-500 shadow-xl' : ''
-                }`}
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                className="group perspective-1000"
               >
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-4 mb-6">
-                    <div className="text-4xl">{service.icon}</div>
-                    <div className="flex-1">
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2">{service.title}</h3>
-                      <p className="text-gray-600">{service.description}</p>
+                <Card 
+                  className={`cursor-pointer transform-3d backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl shadow-3d hover:bg-white/15 transition-all duration-500 ${
+                    expandedService === index ? 'ring-2 ring-purple-500 shadow-xl' : ''
+                  }`}
+                >
+                  <CardContent className="p-6">
+                    <div className="flex items-start space-x-4 mb-6">
+                      <motion.div 
+                        className={`flex-shrink-0 w-16 h-16 bg-gradient-to-r ${service.color} rounded-3xl flex items-center justify-center text-4xl shadow-3d`}
+                        whileHover={{ rotateY: 180, scale: 1.1 }}
+                        transition={{ duration: 0.6 }}
+                      >
+                        {service.icon}
+                      </motion.div>
+                      <div className="flex-1">
+                        <h3 className="text-2xl font-black text-gray-900 mb-2 group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-blue-600 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-500">
+                          {service.title}
+                        </h3>
+                        <p className="text-gray-700">{service.description}</p>
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Features Preview */}
-                  <div className="mb-6">
-                    <h4 className="font-semibold text-gray-900 mb-3">Key Features:</h4>
-                    <div className="grid grid-cols-2 gap-2">
-                      {service.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-center space-x-2">
-                          <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
-                          <span className="text-sm text-gray-600">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Expanded Content */}
-                  {expandedService === index && (
-                    <div className="animate-fade-in space-y-6 border-t pt-6">
-                      <h4 className="text-xl font-bold text-gray-900">Available Packages:</h4>
-                      
-                      {service.packages.map((pkg, pkgIdx) => (
-                        <div key={pkgIdx} className="relative border rounded-xl p-6 hover:shadow-md transition-shadow">
-                          {pkg.popular && (
-                            <Badge className="absolute -top-3 left-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-                              Most Popular
-                            </Badge>
-                          )}
-                          
-                          <div className="flex justify-between items-start mb-4">
-                            <div>
-                              <h5 className="text-lg font-bold text-gray-900">{pkg.name}</h5>
-                              <p className="text-gray-600">Duration: {pkg.duration}</p>
-                            </div>
-                            <div className="text-right">
-                              <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                                {pkg.price}
-                              </div>
-                            </div>
-                          </div>
-                          
-                          <div className="space-y-2">
-                            {pkg.features.map((feature, featureIdx) => (
-                              <div key={featureIdx} className="flex items-start space-x-2">
-                                <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                                <span className="text-gray-700">{feature}</span>
-                              </div>
-                            ))}
-                          </div>
-                          
-                          <Button 
-                            className="w-full mt-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700" 
-                            onClick={() => {
-                              if (service.title === "Automation Tools") {
-                                navigate('/tools');
-                              } else {
-                                setShowModal(true);
-                              }
-                            }}
+                    {/* Features Preview */}
+                    <div className="mb-6">
+                      <h4 className="font-black text-gray-900 mb-3">Key Features:</h4>
+                      <div className="grid grid-cols-2 gap-2">
+                        {service.features.map((feature, idx) => (
+                          <motion.div 
+                            key={idx} 
+                            className="flex items-center space-x-2"
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: idx * 0.1 }}
                           >
-                            Get Started
-                            <ArrowRight className="ml-2 h-4 w-4" />
-                          </Button>
-                        </div>
-                      ))}
+                            <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0 animate-glow-pulse" />
+                            <span className="text-sm text-gray-700">{feature}</span>
+                          </motion.div>
+                        ))}
+                      </div>
                     </div>
-                  )}
 
-                  <Button 
-                    variant="outline" 
-                    className="w-full mt-4"
-                    onClick={() => setExpandedService(expandedService === index ? null : index)}
-                  >
-                    {expandedService === index ? 'Show Less' : 'View Packages & Pricing'}
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </CardContent>
-              </Card>
+                    {/* Expanded Content */}
+                    {expandedService === index && (
+                      <motion.div 
+                        className="space-y-6 border-t pt-6"
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.5 }}
+                      >
+                        <h4 className="text-xl font-black text-gray-900">Available Packages:</h4>
+                        
+                        {service.packages.map((pkg, pkgIdx) => (
+                          <motion.div 
+                            key={pkgIdx} 
+                            className={`relative backdrop-blur-xl bg-gradient-to-r ${service.color} bg-opacity-20 border border-white/20 rounded-3xl p-6 hover:shadow-3d transition-all duration-300`}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: pkgIdx * 0.2 }}
+                            whileHover={{ scale: 1.02, rotateX: 2 }}
+                          >
+                            {pkg.popular && (
+                              <Badge className="absolute -top-3 left-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white">
+                                Most Popular
+                              </Badge>
+                            )}
+                            
+                            <div className="flex justify-between items-start mb-4">
+                              <div>
+                                <h5 className="text-xl font-black text-gray-900">{pkg.name}</h5>
+                                <p className="text-gray-700">Duration: {pkg.duration}</p>
+                              </div>
+                              <div className="text-right">
+                                <div className="text-2xl font-black bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+                                  {pkg.price}
+                                </div>
+                              </div>
+                            </div>
+                            
+                            <div className="space-y-3">
+                              {pkg.features.map((feature, featureIdx) => (
+                                <motion.div 
+                                  key={featureIdx} 
+                                  className="flex items-start space-x-2"
+                                  initial={{ opacity: 0, x: -20 }}
+                                  animate={{ opacity: 1, x: 0 }}
+                                  transition={{ delay: featureIdx * 0.1 }}
+                                >
+                                  <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0 animate-glow-pulse" />
+                                  <span className="text-gray-800 font-medium">{feature}</span>
+                                </motion.div>
+                              ))}
+                            </div>
+                            
+                            <motion.button 
+                              className="w-full mt-6 gradient-button"
+                              whileHover={{ scale: 1.05 }}
+                              whileTap={{ scale: 0.95 }}
+                              onClick={() => {
+                                if (service.title === "Automation Tools") {
+                                  navigate('/tools');
+                                } else {
+                                  setShowModal(true);
+                                }
+                              }}
+                            >
+                              Get Started
+                              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                            </motion.button>
+                          </motion.div>
+                        ))}
+                      </motion.div>
+                    )}
+
+                    <motion.button 
+                      className="w-full mt-6 gradient-button"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => setExpandedService(expandedService === index ? null : index)}
+                    >
+                      {expandedService === index ? 'Show Less' : 'View Packages & Pricing'}
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </motion.button>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -456,7 +523,7 @@ const Services = () => {
         </div>
       )}
       
-    </div>
+    </PageLayout>
   );
 };
 
