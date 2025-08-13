@@ -1,22 +1,22 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { 
-  ArrowRight, 
-  CheckCircle, 
-  Star, 
-  Users, 
-  Award, 
-  TrendingUp, 
-  Sparkles, 
-  Zap, 
-  Globe, 
-  ShieldCheck, 
-  Code, 
-  Palette, 
-  Rocket, 
-  Brain, 
-  Target, 
-  Play 
+import {
+  ArrowRight,
+  CheckCircle,
+  Star,
+  Users,
+  Award,
+  TrendingUp,
+  Sparkles,
+  Zap,
+  Globe,
+  ShieldCheck,
+  Code,
+  Palette,
+  Rocket,
+  Brain,
+  Target,
+  Play
 } from 'lucide-react';
 import ThreeBackground from '../components/ThreeBackground';
 import ParallaxSection from '../components/ParallaxSection';
@@ -25,10 +25,10 @@ import RobotGLB from '../components/RobotGLB';
 import { useSmoothScroll } from '../hooks/useSmoothScroll';
 import { useMouseParallax } from '../hooks/useScrollParallax';
 import CardSwap, { Card } from '../components/CardSwap';
-
+import { Link } from 'react-router-dom';
 const Home = () => {
   useSmoothScroll();
-  
+
   const [activeService, setActiveService] = useState<number | null>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
@@ -76,7 +76,7 @@ const Home = () => {
 
     loadAssets();
   }, []);
-  
+
   // Scroll progress tracking
   useEffect(() => {
     const handleScroll = () => {
@@ -89,13 +89,13 @@ const Home = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  
+
   interface ServicePackage {
     name: string;
     price?: string;
     features: string[];
   }
-  
+
   interface Service {
     title: string;
     description: string;
@@ -191,31 +191,31 @@ const Home = () => {
   ];
 
   const features = [
-    { 
-      icon: Zap, 
-      title: "Lightning Fast", 
-      description: "Optimized for speed and performance with cutting-edge technologies", 
+    {
+      icon: Zap,
+      title: "Lightning Fast",
+      description: "Optimized for speed and performance with cutting-edge technologies",
       color: "from-yellow-400 to-orange-500",
       stats: "99.9% Uptime"
     },
-    { 
-      icon: ShieldCheck, 
-      title: "Secure & Reliable", 
-      description: "Enterprise-grade security standards with advanced encryption", 
+    {
+      icon: ShieldCheck,
+      title: "Secure & Reliable",
+      description: "Enterprise-grade security standards with advanced encryption",
       color: "from-green-400 to-emerald-500",
       stats: "256-bit SSL"
     },
-    { 
-      icon: Globe, 
-      title: "Global Reach", 
-      description: "Serving clients across India and beyond with 24/7 support", 
+    {
+      icon: Globe,
+      title: "Global Reach",
+      description: "Serving clients across India and beyond with 24/7 support",
       color: "from-blue-400 to-cyan-500",
       stats: "50+ Countries"
     },
-    { 
-      icon: Sparkles, 
-      title: "Modern Design", 
-      description: "Latest UI/UX trends and technologies for exceptional user experience", 
+    {
+      icon: Sparkles,
+      title: "Modern Design",
+      description: "Latest UI/UX trends and technologies for exceptional user experience",
       color: "from-purple-400 to-pink-500",
       stats: "100% Custom"
     }
@@ -266,7 +266,7 @@ const Home = () => {
 
   return (
     <div className="min-h-screen overflow-hidden relative bg-transparent">
-      
+
       {/* Skip Link for Accessibility */}
       <a href="#main-content" className="skip-link">
         Skip to main content
@@ -274,10 +274,10 @@ const Home = () => {
 
       {/* 3D Background */}
       <ThreeBackground />
-      
+
       {/* Interactive Robot (GLB model) that moves with user */}
       <RobotGLB modelPath="/models/main-robot.glb" />
-      
+
       {/* Floating Robot Head for Testimonials and CTA */}
       <RobotHeadCTA />
 
@@ -493,13 +493,13 @@ const Home = () => {
         <section className="relative min-h-screen flex items-center justify-start perspective-1000 px-4 sm:px-6 lg:px-8">
           <ParallaxSection speed={0.2} className="relative z-10 max-w-7xl mx-auto py-12 sm:py-16 w-full">
             <div className="max-w-4xl lg:max-w-6xl xl:max-w-7xl">
-              <motion.div 
+              <motion.div
                 className="space-y-6 sm:space-y-8 lg:space-y-10"
                 initial={{ opacity: 0, x: -100, rotateY: -15 }}
                 animate={{ opacity: 1, x: 0, rotateY: 0 }}
                 transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
               >
-                <motion.div 
+                <motion.div
                   className="inline-flex items-center px-4 py-2 sm:px-6 sm:py-3 backdrop-blur-xl bg-white/10 border border-white/20 text-black rounded-full text-xs sm:text-sm font-medium shadow-lg"
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
@@ -509,16 +509,17 @@ const Home = () => {
                   Trusted by 200+ Projects
                 </motion.div>
 
-                <motion.h1 
-                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent leading-tight transform-3d break-words"
+                <motion.h1
+                  className="block pb-[0.25em] overflow-visible text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent leading-[1.2] transform-3d break-words"
+                  style={{ WebkitTextFillColor: 'transparent', WebkitBackgroundClip: 'text' }}
                   initial={{ opacity: 0, y: 50, rotateX: -15 }}
                   animate={{ opacity: 1, y: 0, rotateX: 0 }}
                   transition={{ duration: 1, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
                 >
                   Design.Deliver.Grow
                 </motion.h1>
-                
-                <motion.h2 
+
+                <motion.h2
                   className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent leading-relaxed"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -527,7 +528,7 @@ const Home = () => {
                   Professional Web Design & Development Services in India
                 </motion.h2>
 
-                <motion.div 
+                <motion.div
                   className="text-sm sm:text-base md:text-lg lg:text-xl text-black leading-relaxed backdrop-blur-sm bg-white/10 p-4 sm:p-6 rounded-2xl border border-white/10"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -538,30 +539,33 @@ const Home = () => {
                   </p>
                 </motion.div>
 
-                <motion.div 
+                <motion.div
                   className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.8 }}
                 >
-                  <motion.button
-                    className="px-4 py-3 sm:px-6 sm:py-4 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-bold rounded-2xl shadow-3d backdrop-blur-xl hover:shadow-glow-purple transition-all duration-500 group text-sm sm:text-base"
-                    whileHover={{ scale: 1.05, rotateX: 5 }}
-                    whileTap={{ scale: 0.95 }}
-                    aria-label="Explore our web design and development services"
-                  >
-                    Explore Our Services
-                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform inline-block" />
-                  </motion.button>
-                  
-                  <motion.button
-                    className="px-4 py-3 sm:px-6 sm:py-4 backdrop-blur-xl bg-white/10 border border-white/20 text-black font-bold rounded-2xl hover:bg-white/20 transition-all duration-500 text-sm sm:text-base"
-                    whileHover={{ scale: 1.05, rotateX: -5 }}
-                    whileTap={{ scale: 0.95 }}
-                    aria-label="Book a free consultation with our experts"
-                  >
-                    Book Free Consultation
-                  </motion.button>
+                  <Link to="/services" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                    <motion.button
+                      className="px-4 py-3 sm:px-6 sm:py-4 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-bold rounded-2xl shadow-3d backdrop-blur-xl hover:shadow-glow-purple transition-all duration-500 group text-sm sm:text-base"
+                      whileHover={{ scale: 1.05, rotateX: 5 }}
+                      whileTap={{ scale: 0.95 }}
+                      aria-label="Explore our web design and development services"
+                    >
+                      Explore Our Services
+                      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform inline-block" />
+                    </motion.button>
+                  </Link>
+                  <Link to="/contact" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                    <motion.button
+                      className="px-4 py-3 sm:px-6 sm:py-4 backdrop-blur-xl bg-white/10 border border-white/20 text-black font-bold rounded-2xl hover:bg-white/20 transition-all duration-500 text-sm sm:text-base"
+                      whileHover={{ scale: 1.05, rotateX: -5 }}
+                      whileTap={{ scale: 0.95 }}
+                      aria-label="Book a free consultation with our experts"
+                    >
+                      Book Free Consultation
+                    </motion.button>
+                  </Link>
                 </motion.div>
               </motion.div>
             </div>
@@ -572,7 +576,7 @@ const Home = () => {
         <ParallaxSection speed={0.3}>
           <section className="pt-16 sm:pt-20 lg:pt-24 pb-10 sm:pb-14 lg:pb-16 relative px-4 sm:px-6 lg:px-8">
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <motion.div 
+              <motion.div
                 className="text-left mb-12 sm:mb-16 lg:mb-20 max-w-4xl"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -589,7 +593,7 @@ const Home = () => {
 
               <div className="grid grid-cols-1 gap-6 sm:gap-8 lg:gap-10 max-w-5xl">
                 {services.map((service, index) => (
-                  <motion.div 
+                  <motion.div
                     key={index}
                     className="group cursor-pointer perspective-1000"
                     onClick={() => setActiveService(activeService === index ? null : index)}
@@ -600,14 +604,14 @@ const Home = () => {
                     whileHover={{ scale: 1.02 }}
                   >
                     <div className="relative flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6 lg:space-x-8 h-full transform-3d backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl p-6 sm:p-8 shadow-3d hover:bg-white/15 transition-all duration-500">
-                      <motion.div 
+                      <motion.div
                         className={`flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r ${service.color} rounded-3xl flex items-center justify-center text-white shadow-3d`}
                         whileHover={{ rotateY: 180, scale: 1.1 }}
                         transition={{ duration: 0.6 }}
                       >
                         {service.icon}
                       </motion.div>
-                      
+
                       <div className="flex-1">
                         <h3 className="text-xl sm:text-2xl lg:text-3xl font-black text-gray-900 mb-3 sm:mb-4 group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-blue-600 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-500">
                           {service.title}
@@ -615,9 +619,9 @@ const Home = () => {
                         <p className="text-gray-700 mb-6 sm:mb-8 text-base sm:text-lg leading-relaxed">
                           {service.description}
                         </p>
-                        
+
                         {activeService === index && (
-                          <motion.div 
+                          <motion.div
                             className="space-y-6 sm:space-y-8"
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: "auto" }}
@@ -628,8 +632,8 @@ const Home = () => {
                               <h4 className="font-black text-gray-900 mb-4 sm:mb-6 text-lg sm:text-xl">Features:</h4>
                               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                                 {service.features.map((feature: string, idx: number) => (
-                                  <motion.div 
-                                    key={idx} 
+                                  <motion.div
+                                    key={idx}
                                     className="flex items-center space-x-3 sm:space-x-4"
                                     initial={{ opacity: 0, x: -20 }}
                                     animate={{ opacity: 1, x: 0 }}
@@ -645,8 +649,8 @@ const Home = () => {
                             <div>
                               <h4 className="font-black text-gray-900 mb-4 sm:mb-6 text-lg sm:text-xl">Packages:</h4>
                               {service.packages.map((pkg: ServicePackage, idx: number) => (
-                                <motion.div 
-                                  key={idx} 
+                                <motion.div
+                                  key={idx}
                                   className={`backdrop-blur-xl bg-gradient-to-r ${service.color} bg-opacity-20 border border-white/20 rounded-3xl p-6 sm:p-8 mb-4 sm:mb-6 hover:shadow-3d transition-all duration-300`}
                                   initial={{ opacity: 0, scale: 0.9 }}
                                   animate={{ opacity: 1, scale: 1 }}
@@ -674,16 +678,16 @@ const Home = () => {
                             </div>
                           </motion.div>
                         )}
-                        
+
                         <div className="flex flex-wrap gap-3 mt-6 sm:mt-8">
-                          <motion.button 
+                          <motion.button
                             className="gradient-button text-sm sm:text-base"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                           >
                             {activeService === index ? 'Show Less' : 'Learn More'}
                           </motion.button>
-                          
+
 
                         </div>
                       </div>
@@ -697,85 +701,112 @@ const Home = () => {
 
         {/* Projects Section - Right Aligned with Flip Cards */}
         <ParallaxSection speed={0.4}>
-          <section className="py-16 sm:py-20 lg:py-24 relative px-4 sm:px-6 lg:px-8">
-            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <motion.div 
-                className="text-right mb-12 sm:mb-16 lg:mb-20 ml-auto max-w-4xl"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.8 }}
-              >
-                <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent mb-4 sm:mb-6">
-                  Featured Projects
-                </h2>
-                <p className="text-base sm:text-xl md:text-2xl lg:text-3xl text-gray-900 max-w-3xl leading-relaxed backdrop-blur-sm bg-white/10 p-4 sm:p-6 rounded-2xl border border-white/10 ml-auto">
-                  Showcasing our expertise through innovative solutions
-                </p>
-              </motion.div>
+<section className="py-16 sm:py-20 lg:py-24 relative px-4 sm:px-6 lg:px-8">
+  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <motion.div
+      className="text-right mb-12 sm:mb-16 lg:mb-20 ml-auto max-w-4xl"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.8 }}
+    >
+      <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black bg-gradient-to-r from-[#7B2FF7] via-[#1DA1F2] to-[#28C76F] bg-clip-text text-transparent mb-4 sm:mb-6">
+        Featured Projects
+      </h2>
+      <p className="text-base sm:text-xl md:text-2xl lg:text-3xl text-black max-w-3xl leading-relaxed   p-4 sm:p-6 rounded-2xl ml-auto ">
+        Showcasing our expertise through innovative solutions
+      </p>
+    </motion.div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-6 max-w-7xl ml-auto justify-items-center">
-                {featuredProjects.map((project, index) => (
-                  <motion.div 
-                    key={index}
-                    className="flip-card w-full max-w-[280px]"
-                    initial={{ opacity: 0, x: 100 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, amount: 0.2 }}
-                    transition={{ duration: 0.8, delay: index * 0.2 }}
-                  >
-                    <div className="flip-card-inner">
-                      <div className="flip-card-front">
-                        <div className="text-4xl sm:text-5xl mb-4">{project.icon}</div>
-                        <span className="inline-block px-3 py-1 backdrop-blur-xl bg-white/20 border border-white/30 rounded-full text-xs font-medium mb-3">
-                          {project.category}
-                        </span>
-                        <h3 className="text-lg sm:text-xl font-black mb-3 leading-tight">{project.title}</h3>
-                        <p className="text-sm leading-relaxed mb-4">{project.description}</p>
-                        <div className="flex flex-wrap gap-1 justify-center">
-                          {project.tech.slice(0, 2).map((tech: string, idx: number) => (
-                            <span key={idx} className="px-2 py-1 backdrop-blur-xl bg-white/20 border border-white/30 rounded-full text-xs font-medium">
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                      
-                      <div className="flip-card-back">
-                        <h3 className="text-lg font-black mb-4">{project.title} Details</h3>
-                        <p className="text-sm leading-relaxed mb-4">{project.backDescription}</p>
-                        
-                        <div className="space-y-2 mb-4">
-                          <h4 className="font-bold text-sm">Key Features:</h4>
-                          {project.features.map((feature: string, idx: number) => (
-                            <div key={idx} className="flex items-center text-xs">
-                              <CheckCircle className="w-3 h-3 mr-2 text-green-300" />
-                              {feature}
-                            </div>
-                          ))}
-                        </div>
-                        
-                        <div className="flex flex-wrap gap-1 justify-center">
-                          {project.tech.map((tech: string, idx: number) => (
-                            <span key={idx} className="px-2 py-1 backdrop-blur-xl bg-white/20 border border-white/30 rounded-full text-xs font-medium">
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-6 max-w-7xl ml-auto justify-items-center">
+      {featuredProjects.map((project, index) => (
+        <motion.div
+          key={index}
+          className="flip-card w-full max-w-[280px]"
+          initial={{ opacity: 0, x: 100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8, delay: index * 0.2 }}
+        >
+          <div className="flip-card-inner">
+            {/* Front side */}
+            <div
+              className="flip-card-front relative p-4 rounded-xl text-white"
+              style={{
+                background: 'linear-gradient(135deg, #7B2FF7, #1DA1F2, #28C76F)',
+              }}
+            >
+              <div className="absolute inset-0 bg-black/50 backdrop-blur-md rounded-xl"></div>
+              <div className="relative z-10">
+                <div className="text-4xl sm:text-5xl mb-4">{project.icon}</div>
+                <span className="inline-block px-3 py-1 backdrop-blur-xl bg-black/30 rounded-full text-xs font-medium mb-3 text-white">
+                  {project.category}
+                </span>
+                <h3 className="text-lg sm:text-xl font-black mb-3 leading-tight text-white">
+                  {project.title}
+                </h3>
+                <p className="text-sm leading-relaxed mb-4 text-white/90">{project.description}</p>
+                <div className="flex flex-wrap gap-1 justify-center">
+                  {project.tech.slice(0, 2).map((tech: string, idx: number) => (
+                    <span
+                      key={idx}
+                      className="px-2 py-1 backdrop-blur-xl bg-black/30 rounded-full text-xs font-medium text-white"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
-          </section>
+
+            {/* Back side */}
+            <div
+              className="flip-card-back relative p-4 rounded-xl text-white"
+              style={{
+                background: 'linear-gradient(135deg, #28C76F, #1DA1F2, #7B2FF7)',
+              }}
+            >
+              <div className="absolute inset-0 bg-black/50 backdrop-blur-md rounded-xl"></div>
+              <div className="relative z-10">
+                <h3 className="text-lg font-black mb-4 text-white">{project.title} Details</h3>
+                <p className="text-sm leading-relaxed mb-4 text-white/90">{project.backDescription}</p>
+
+                <div className="space-y-2 mb-4">
+                  <h4 className="font-bold text-sm text-white">Key Features:</h4>
+                  {project.features.map((feature: string, idx: number) => (
+                    <div key={idx} className="flex items-center text-xs text-white/90">
+                      <CheckCircle className="w-3 h-3 mr-2 text-green-300" />
+                      {feature}
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex flex-wrap gap-1 justify-center">
+                  {project.tech.map((tech: string, idx: number) => (
+                    <span
+                      key={idx}
+                      className="px-2 py-1 backdrop-blur-xl bg-black/30 rounded-full text-xs font-medium text-white"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
+
         </ParallaxSection>
 
         {/* Testimonials Section - Left Aligned with Futuristic Cards */}
         <ParallaxSection speed={0.2}>
           <section className="py-16 sm:py-20 lg:py-24 relative px-4 sm:px-6 lg:px-8">
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <motion.div 
+              <motion.div
                 className="text-left mb-12 sm:mb-16 lg:mb-20 max-w-4xl"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -792,7 +823,7 @@ const Home = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-6 max-w-6xl justify-items-center">
                 {testimonials.map((testimonial, index) => (
-                  <motion.div 
+                  <motion.div
                     key={index}
                     className="testimonial-outer"
                     initial={{ opacity: 0, x: -100 }}
@@ -808,9 +839,9 @@ const Home = () => {
                       <div className="testimonial-line testimonial-bottoml"></div>
                       <div className="testimonial-line testimonial-leftl"></div>
                       <div className="testimonial-line testimonial-rightl"></div>
-                      
+
                       <div className="testimonial-highlight">{testimonial.highlight}</div>
-                      
+
                       <div className="flex items-center mb-4">
                         <div className="text-2xl mr-3">{testimonial.avatar}</div>
                         <div>
@@ -818,16 +849,16 @@ const Home = () => {
                           <p className="text-gray-300 text-xs">{testimonial.role}</p>
                         </div>
                       </div>
-                      
+
                       <p className="text-gray-200 text-xs text-center leading-relaxed mb-4 italic">
                         "{testimonial.content}"
                       </p>
-                      
+
                       <div className="flex justify-center">
                         {[...Array(5)].map((_, i) => (
-                          <Star 
+                          <Star
                             key={i}
-                            className={`w-3 h-3 ${i < testimonial.rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-500'}`} 
+                            className={`w-3 h-3 ${i < testimonial.rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-500'}`}
                           />
                         ))}
                       </div>
@@ -845,7 +876,7 @@ const Home = () => {
             <div className="relative max-w-7xl mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                 {/* Left side - Content */}
-                <motion.div 
+                <motion.div
                   className="order-1 lg:order-1 mb-8 lg:mb-0"
                   initial={{ opacity: 0, x: -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -858,11 +889,11 @@ const Home = () => {
                   <p className="text-base sm:text-xl md:text-2xl lg:text-3xl text-black max-w-3xl leading-relaxed backdrop-blur-sm bg-white/10 p-4 sm:p-6 rounded-2xl border border-white/10 mb-8">
                     We combine technical expertise with creative excellence
                   </p>
-                
+
                 </motion.div>
 
                 {/* Right side - CardSwap */}
-                <motion.div 
+                <motion.div
                   className="order-2 lg:order-2 flex justify-center lg:justify-end"
                   initial={{ opacity: 0, x: 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -885,10 +916,10 @@ const Home = () => {
                             <div className={`w-16 h-16 mb-6 bg-gradient-to-r ${feature.color} rounded-2xl flex items-center justify-center shadow-3d`}>
                               <feature.icon className="w-8 h-8 text-white" />
                             </div>
-                            
+
                             <h3 className="text-xl font-bold mb-4 text-white">{feature.title}</h3>
                             <p className="text-gray-300 leading-relaxed text-sm mb-4">{feature.description}</p>
-                            
+
                             <div className="mt-auto">
                               <span className={`inline-block px-4 py-2 bg-gradient-to-r ${feature.color} rounded-full text-white font-bold text-sm`}>
                                 {feature.stats}
@@ -909,7 +940,7 @@ const Home = () => {
         <ParallaxSection speed={0.1}>
           <section className="pt-10 sm:pt-12 lg:pt-14 pb-16 sm:pb-20 lg:pb-24 relative px-4 sm:px-6 lg:px-8">
             {/* Robot Head will float here from previous section */}
-            
+
             <div className="relative max-w-7xl mx-auto text-center">
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -918,14 +949,14 @@ const Home = () => {
                 transition={{ duration: 1 }}
                 className="perspective-1000"
               >
-                <motion.h2 
+                <motion.h2
                   className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 sm:mb-8 leading-tight bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent transform-3d"
                   style={{ transform: mouseTransform }}
                 >
                   Ready to Transform Your Digital Presence?
                 </motion.h2>
-                
-                <motion.p 
+
+                <motion.p
                   className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-black max-w-4xl mb-8 sm:mb-12 leading-relaxed mx-auto backdrop-blur-sm bg-white/10 p-4 sm:p-6 rounded-2xl border border-white/10"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -934,37 +965,40 @@ const Home = () => {
                 >
                   Let's collaborate to bring your vision to life with our expertise in design, development, and digital marketing.
                 </motion.p>
-                
-                <motion.div 
+
+                <motion.div
                   className="flex flex-col sm:flex-row gap-4 sm:gap-6 perspective-1000 justify-center"
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: 0.6 }}
                 >
-                  <motion.button
-                    className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-6 py-3 sm:px-8 sm:py-5 rounded-2xl font-bold text-base sm:text-xl shadow-3d backdrop-blur-xl"
-                    whileHover={{ 
-                      scale: 1.05, 
-                      rotateX: 5,
-                      boxShadow: "0 25px 50px rgba(168, 85, 247, 0.3)"
-                    }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Get Started Today
-                  </motion.button>
-                  
-                  <motion.button
-                    className="backdrop-blur-xl bg-white/10 border-2 border-white/30 text-black px-6 py-3 sm:px-8 sm:py-5 rounded-2xl font-bold text-base sm:text-xl"
-                    whileHover={{ 
-                      scale: 1.05, 
-                      rotateX: -5,
-                      backgroundColor: "rgba(255,255,255,0.2)"
-                    }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Explore Services
-                  </motion.button>
+                  <Link to="/contact" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                    <motion.button
+                      className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-6 py-3 sm:px-8 sm:py-5 rounded-2xl font-bold text-base sm:text-xl shadow-3d backdrop-blur-xl"
+                      whileHover={{
+                        scale: 1.05,
+                        rotateX: 5,
+                        boxShadow: "0 25px 50px rgba(168, 85, 247, 0.3)"
+                      }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      Get Started Today
+                    </motion.button>
+                  </Link>
+                  <Link to="/services" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                    <motion.button
+                      className="backdrop-blur-xl bg-white/10 border-2 border-white/30 text-black px-6 py-3 sm:px-8 sm:py-5 rounded-2xl font-bold text-base sm:text-xl"
+                      whileHover={{
+                        scale: 1.05,
+                        rotateX: -5,
+                        backgroundColor: "rgba(255,255,255,0.2)"
+                      }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      Explore Services
+                    </motion.button>
+                  </Link>
                 </motion.div>
               </motion.div>
             </div>

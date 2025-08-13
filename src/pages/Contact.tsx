@@ -153,22 +153,22 @@ const Contact = () => {
       </Section>
 
       {/* Interactive Booking Form */}
-      <Section className="py-12">
+      <Section className="py-6">
         {formSubmitted ? (
           <Card className="border-0 shadow-2xl bg-gradient-to-br from-green-50 to-emerald-50 transform animate-pulse max-w-4xl mx-auto">
-            <CardContent className="p-12 text-center">
+            <CardContent className="p-6 text-center">
               <div className="relative">
-                <div className="w-24 h-24 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg animate-bounce">
+                <div className="w-24 h-24 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg animate-bounce">
                   <Check className="h-12 w-12 text-white" />
                 </div>
                 <div className="absolute -top-2 -right-2 animate-spin">
                   <Sparkles className="h-8 w-8 text-yellow-400" />
                 </div>
               </div>
-              <h2 className="text-4xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-4">
+              <h2 className="text-4xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-2">
                 Woohoo! 🎉 Request Submitted!
               </h2>
-              <p className="text-xl text-gray-700 mb-8 leading-relaxed">
+              <p className="text-xl text-gray-700 mb-2 leading-relaxed">
                 Your consultation request is flying our way! We'll reach out within 24 hours to schedule your 
                 <span className="font-bold text-green-600"> FREE consultation</span>. Get ready for something amazing! ✨
               </p>
@@ -176,7 +176,7 @@ const Contact = () => {
                 onClick={() => {
                   setFormSubmitted(false);
                 }}
-                className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+                className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-lg px-2 py-2 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
               >
                 Help Someone Else Too! 💝
               </Button>
@@ -184,9 +184,9 @@ const Contact = () => {
           </Card>
         ) : (
           <Card className="border-0 shadow-2xl bg-white/90 backdrop-blur-sm overflow-hidden w-full max-w-4xl mx-auto">
-            <CardContent className="p-6 md:p-12 lg:p-16 relative">
-              <div className="text-center mb-8 md:mb-10">
-                <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent mb-4 animate-fadeIn">
+            <CardContent className="p-2 md:p-6 lg:p-3 relative">
+              <div className="text-center mb-4 md:mb-5">
+                <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent mb-2 animate-fadeIn">
                   🌟 Book Your Free Consultation — Let's Make Magic Together! 🌟
                 </h2>
               </div>

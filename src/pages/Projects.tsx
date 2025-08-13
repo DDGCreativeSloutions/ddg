@@ -226,14 +226,18 @@ const Projects = () => {
       <PageTransition>
       {/* Hero Section */}
       <Section className="pt-24">
-        <Header
-          title="Transforming Ideas into Reality"
-          subtitle="Explore our portfolio of innovative projects across various domains. Each project demonstrates our expertise and commitment to excellence."
-          badge="Our Latest Projects"
-          titleGradient
-          centered
-        />
-      </Section>
+  <Section className="pt-24">
+  <Header
+    title="Transforming Ideas into Reality"
+    subtitle="Explore our portfolio of innovative projects across various domains. Each project demonstrates our expertise and commitment to excellence."
+    badge="Our Latest Projects"
+    titleGradient
+    centered
+  />
+</Section>
+
+</Section>
+
 
       {/* Filter & Search Section */}
       <Section className="py-10">

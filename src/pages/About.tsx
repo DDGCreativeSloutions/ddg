@@ -272,14 +272,15 @@ const About = () => {
               Our Story of Empowerment
             </div>
             
-            <h1 
-              className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent mb-4 sm:mb-6 leading-tight transform transition-all duration-1000 delay-200 ${
-                isVisible.hero ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-              }`}
-            >
-              About DesignDeliverGrow
-            </h1>
-            
+            <h1
+  className={`block pb-[0.25em] overflow-visible text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent mb-4 sm:mb-6 leading-[1.2] transform transition-all duration-1000 delay-200 ${
+    isVisible.hero ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+  }`}
+  style={{ WebkitTextFillColor: 'transparent', WebkitBackgroundClip: 'text' }}
+>
+  About DesignDeliverGrow
+</h1>
+
             <div 
               className={`bg-gradient-to-r from-purple-600 to-cyan-500 p-1 rounded-xl sm:rounded-2xl mb-6 sm:mb-8 max-w-4xl mx-auto transform transition-all duration-1000 delay-400 ${
                 isVisible.hero ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-8 opacity-0 scale-95'

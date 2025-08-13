@@ -244,7 +244,7 @@ const Services = () => {
       <section className="py-20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -253,23 +253,24 @@ const Services = () => {
               <Sparkles className="w-4 h-4 mr-2 text-purple-600 animate-glow-pulse" />
               Professional Digital Services
             </motion.div>
-            
-            <motion.h1 
+
+            <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-4xl md:text-6xl font-black bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent mb-6"
+              className="block pb-[0.25em] overflow-visible text-4xl md:text-6xl font-black bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent mb-6 leading-[1.2]"
+              style={{ WebkitTextFillColor: 'transparent', WebkitBackgroundClip: 'text' }}
             >
               Transform Your Digital Presence
             </motion.h1>
-            
-            <motion.p 
+
+            <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-xl text-black max-w-3xl mx-auto leading-relaxed backdrop-blur-sm bg-white/10 p-4 rounded-2xl border border-white/10"
             >
-              Comprehensive digital solutions with transparent pricing and detailed packages. 
+              Comprehensive digital solutions with transparent pricing and detailed packages.
               Click on any service to explore features and pricing.
             </motion.p>
           </div>
@@ -289,14 +290,13 @@ const Services = () => {
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 className="group perspective-1000"
               >
-                <Card 
-                  className={`cursor-pointer transform-3d backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl shadow-3d hover:bg-white/15 transition-all duration-500 ${
-                    expandedService === index ? 'ring-2 ring-purple-500 shadow-xl' : ''
-                  }`}
+                <Card
+                  className={`cursor-pointer transform-3d backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl shadow-3d hover:bg-white/15 transition-all duration-500 ${expandedService === index ? 'ring-2 ring-purple-500 shadow-xl' : ''
+                    }`}
                 >
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-4 mb-6">
-                      <motion.div 
+                      <motion.div
                         className={`flex-shrink-0 w-16 h-16 bg-gradient-to-r ${service.color} rounded-3xl flex items-center justify-center text-4xl shadow-3d`}
                         whileHover={{ rotateY: 180, scale: 1.1 }}
                         transition={{ duration: 0.6 }}
@@ -316,8 +316,8 @@ const Services = () => {
                       <h4 className="font-black text-gray-900 mb-3">Key Features:</h4>
                       <div className="grid grid-cols-2 gap-2">
                         {service.features.map((feature, idx) => (
-                          <motion.div 
-                            key={idx} 
+                          <motion.div
+                            key={idx}
                             className="flex items-center space-x-2"
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
@@ -332,7 +332,7 @@ const Services = () => {
 
                     {/* Expanded Content */}
                     {expandedService === index && (
-                      <motion.div 
+                      <motion.div
                         className="space-y-6 border-t pt-6"
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
@@ -340,10 +340,10 @@ const Services = () => {
                         transition={{ duration: 0.5 }}
                       >
                         <h4 className="text-xl font-black text-gray-900">Available Packages:</h4>
-                        
+
                         {service.packages.map((pkg, pkgIdx) => (
-                          <motion.div 
-                            key={pkgIdx} 
+                          <motion.div
+                            key={pkgIdx}
                             className={`relative backdrop-blur-xl bg-gradient-to-r ${service.color} bg-opacity-20 border border-white/20 rounded-3xl p-6 hover:shadow-3d transition-all duration-300`}
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
@@ -355,7 +355,7 @@ const Services = () => {
                                 Most Popular
                               </Badge>
                             )}
-                            
+
                             <div className="flex justify-between items-start mb-4">
                               <div>
                                 <h5 className="text-xl font-black text-gray-900">{pkg.name}</h5>
@@ -367,11 +367,11 @@ const Services = () => {
                                 </div>
                               </div>
                             </div>
-                            
+
                             <div className="space-y-3">
                               {pkg.features.map((feature, featureIdx) => (
-                                <motion.div 
-                                  key={featureIdx} 
+                                <motion.div
+                                  key={featureIdx}
                                   className="flex items-start space-x-2"
                                   initial={{ opacity: 0, x: -20 }}
                                   animate={{ opacity: 1, x: 0 }}
@@ -382,8 +382,8 @@ const Services = () => {
                                 </motion.div>
                               ))}
                             </div>
-                            
-                            <motion.button 
+
+                            <motion.button
                               className="w-full mt-6 gradient-button"
                               whileHover={{ scale: 1.05 }}
                               whileTap={{ scale: 0.95 }}
@@ -403,7 +403,7 @@ const Services = () => {
                       </motion.div>
                     )}
 
-                    <motion.button 
+                    <motion.button
                       className="w-full mt-6 gradient-button"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
@@ -442,7 +442,7 @@ const Services = () => {
                 We ensure high-quality deliverables that meet industry standards and exceed expectations
               </p>
             </div>
-            
+
             <div className="text-center">
               <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <Star className="h-8 w-8 text-blue-600" />
@@ -452,7 +452,7 @@ const Services = () => {
                 No hidden costs or surprise fees. Clear pricing structure with detailed package breakdown
               </p>
             </div>
-            
+
             <div className="text-center">
               <div className="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <Users className="h-8 w-8 text-purple-600" />
@@ -473,28 +473,28 @@ const Services = () => {
             Ready to Get Started?
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-            Choose the service that fits your needs and let's bring your vision to life. 
+            Choose the service that fits your needs and let's bring your vision to life.
             Free consultation available for all services.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <Button 
-              size="lg" 
-            
-              className="bg-white text-purple-600 hover:bg-white hover:text-blue-600 text-lg px-8 py-3"
-            >
-              Book Free Consultation
-            </Button>
+              <Button
+                size="lg"
+
+                className="bg-white text-purple-600 hover:bg-white hover:text-blue-600 text-lg px-8 py-3"
+              >
+                Book Free Consultation
+              </Button>
             </Link>
             <Link to="/projects" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              
-              className="border-white bg-white text-blue-600 hover:bg-white hover:text-purple-600 text-lg px-8 py-3"
-            >
-              View Our Work
-            </Button>
+              <Button
+                size="lg"
+                variant="outline"
+
+                className="border-white bg-white text-blue-600 hover:bg-white hover:text-purple-600 text-lg px-8 py-3"
+              >
+                View Our Work
+              </Button>
             </Link>
           </div>
         </div>
@@ -527,7 +527,7 @@ const Services = () => {
           </div>
         </div>
       )}
-      
+
     </PageLayout>
   );
 };

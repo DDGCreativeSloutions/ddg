@@ -44,7 +44,7 @@ export const Header: React.FC<HeaderProps> = ({
   return (
     <motion.header
       className={cn(
-        'mb-12',
+        'mb-8',
         (alignment === 'center' || centered) && 'text-center',
         className
       )}
@@ -54,21 +54,33 @@ export const Header: React.FC<HeaderProps> = ({
     >
       {badge && (
         <motion.div
-          className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-100 to-cyan-100 rounded-full text-sm font-medium text-purple-700 mb-6 border border-purple-200/50 backdrop-blur-sm transform transition-all duration-1000"
+          className="inline-flex items-center px-2 py-2 bg-gradient-to-r from-purple-100 to-cyan-100 rounded-full text-sm font-medium text-purple-700 mb-6 border border-purple-200/50 backdrop-blur-sm transform transition-all duration-1000"
           variants={itemAnimation as any}
         >
           <span className="text-sm font-medium text-gray-800">{badge}</span>
         </motion.div>
       )}
+
+      {/* Fixed title */}
       <motion.h1
         className={cn(
-          'text-4xl md:text-5xl lg:text-6xl font-bold mb-4',
-          titleGradient && 'bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent'
+          'block align-baseline pb-[0.25em] overflow-visible leading-[1.2] text-4xl md:text-5xl lg:text-6xl font-bold mb-4',
+          titleGradient &&
+            'bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent'
         )}
+        style={
+          titleGradient
+            ? {
+                WebkitTextFillColor: 'transparent',
+                WebkitBackgroundClip: 'text',
+              }
+            : {}
+        }
         variants={itemAnimation as any}
       >
         {title}
       </motion.h1>
+
       {subtitle && (
         <motion.p
           className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto"
