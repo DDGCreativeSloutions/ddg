@@ -87,10 +87,16 @@ export const automationTools: AutomationTool[] = [
     ],
     reviews: [
       {
-        name: "Anita V.",
+        name: "Yamini.",
         role: "Marketing Manager",
         text: "We reached 2,000+ leads in a day with personalized messages. Huge time saver!"
+      },
+       {
+        name: "Omesh.",
+        role: "Statergic Anlayist",
+        text: "expert for Statergic Gamer"
       }
+      
     ],
     demoAvailable: true
   }

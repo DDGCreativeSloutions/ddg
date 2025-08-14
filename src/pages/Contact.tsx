@@ -285,17 +285,46 @@ const Contact = () => {
               {/* Submit Button */}
               <div className="text-center pt-8 md:pt-10">
                 <Button
-                  onClick={handleSubmit}
-                  disabled={!formData.service || !formData.name || !formData.email || !formData.whatsapp}
-                  className="relative group bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 text-lg md:text-xl px-12 py-6 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  <span className="absolute inset-0 w-full h-full rounded-full bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 animate-pulse group-hover:animate-none opacity-75 blur-xl transition-opacity group-hover:opacity-100"></span>
-                  <span className="relative flex items-center justify-center space-x-2">
-                    <Sparkles className="h-6 w-6 animate-bounce" />
-                    <span>Let's make something awesome! 💫</span>
-                    <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform" />
-                  </span>
-                </Button>
+  onClick={handleSubmit}
+  disabled={
+    !formData.service ||
+    !formData.name ||
+    !formData.email ||
+    !formData.whatsapp
+  }
+  className="
+    relative group 
+    bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500
+    text-base sm:text-lg md:text-xl
+    px-6 py-4 sm:px-10 sm:py-5 md:px-12 md:py-6
+    rounded-full shadow-lg hover:shadow-xl 
+    transform hover:scale-105 
+    transition-all duration-300 
+    disabled:opacity-50 disabled:cursor-not-allowed
+    w-full sm:w-auto
+  "
+>
+  {/* Glow animation */}
+  <span
+    className="
+      absolute inset-0 w-full h-full rounded-full 
+      bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 
+      animate-pulse group-hover:animate-none 
+      opacity-75 blur-xl 
+      transition-opacity group-hover:opacity-100
+    "
+  ></span>
+
+  {/* Button content */}
+  <span className="relative flex items-center justify-center space-x-2">
+    <Sparkles className="h-5 w-5 sm:h-6 sm:w-6 animate-bounce" />
+    <span className="text-center leading-tight">
+      Let's make something awesome! 💫
+    </span>
+    <ArrowRight className="h-5 w-5 sm:h-6 sm:w-6 group-hover:translate-x-2 transition-transform" />
+  </span>
+</Button>
+
                 {!formData.service || !formData.name || !formData.email || !formData.whatsapp ? (
                   <p className="mt-4 text-sm text-purple-600 animate-pulse">
                     ✨ Fill in all the magic details above to continue!
