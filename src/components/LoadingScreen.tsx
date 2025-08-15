@@ -62,7 +62,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading, progress }) =>
           transition={{ duration: 0.5 }}
         >
           <img 
-            src="/logo.png" 
+            src="/ilogo.png" 
             alt="DDG Logo"
             className="w-20 h-20 sm:w-32 sm:h-32 md:w-40 md:h-40 object-contain"
           />
