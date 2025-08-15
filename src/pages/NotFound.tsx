@@ -157,10 +157,10 @@ const NotFound = () => {
                   <div className="flex items-center">
                     <Phone className="h-5 w-5 text-purple-600 mr-3" />
                     <a 
-                      href="tel:+919642872160" 
+                      href="tel:+916309063641" 
                       className="text-gray-600 hover:text-purple-600 transition-colors"
                     >
-                      +91-9642872160
+                      +91-6309063641
                     </a>
                   </div>
                 </div>

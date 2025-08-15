@@ -217,7 +217,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <div className="scroll-progress" style={{ transform: `scaleX(${scrollY / 100})` }} />
 
       {/* NAVBAR */}
-      <nav className="sticky top-0 z-50 bg-white/60 dark:bg-gray-900/50 backdrop-blur-sm transition-all duration-300">
+      <nav className="sticky top-0 z-50 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
           {/* Brand: logo only by default; name reveals on hover */}
           <Link
@@ -228,7 +228,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           >
             <div className="brand-logo relative overflow-hidden rounded-xl p-1 bg-gradient-to-r from-purple-100 via-blue-100 to-green-100 transition-all duration-300 group-hover:shadow-lg group-hover:scale-105">
               <img
-                src="/logo.png"
+                src="/ilogo.png"
                 alt="DesignDeliverGrow Logo"
                 className="h-12 w-auto transition-transform duration-300 group-hover:rotate-1"
               />
@@ -276,7 +276,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
-              className="md:hidden absolute top-full left-0 right-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md z-40 overflow-hidden"
+              className="md:hidden absolute top-full left-0 right-0 backdrop-blur-md z-40 overflow-hidden"
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
@@ -316,7 +316,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             <div className="md:col-span-2 lg:col-span-2">
               <div className="flex items-center space-x-3 mb-4">
                 <div className="relative overflow-hidden rounded-xl p-1 bg-gradient-to-r from-purple-800/50 via-blue-800/50 to-green-800/50">
-                  <img src="/logo.png" alt="DesignDeliverGrow Logo" className="h-8 w-auto" />
+                  <img src="/ilogo.png" alt="DesignDeliverGrow Logo" className="h-8 w-auto" />
                 </div>
                 <span className="font-bold text-xl">DesignDeliverGrow</span>
               </div>
@@ -371,7 +371,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               <h3 className="font-semibold text-lg mb-4">Get in Touch</h3>
               <div className="space-y-2 text-gray-400">
                 <p><strong>Email:</strong> <a href="mailto:info@designdelivergrow.store" className="text-gray-400 hover:text-white transition-colors duration-200">info@designdelivergrow.store</a></p>
-                <p><strong>Phone:</strong> +9196428 72160</p>
+                <p><strong>Phone:</strong> +916309063641</p>
                 <p><strong>Location:</strong> Hyderabad, TG, INDIA</p>
               </div>
             </div>
@@ -410,7 +410,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
       {/* Floating actions */}
       <a
-        href="https://wa.me/919642872160?text=Hi%20DDG%20Team%2C%20I%20need%20help%20with%20my%20project!"
+        href="https://wa.me/916309063641?text=Hi%20DDG%20Team%2C%20I%20need%20help%20with%20my%20project!"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 rounded-full shadow-lg p-4 flex items-center justify-center transition-all duration-300"
@@ -423,7 +423,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       </a>
 
       <a
-        href="tel:+919642872160"
+        href="tel:+916309063641"
         className="fixed bottom-6 left-6 z-50 bg-blue-500 hover:bg-blue-600 rounded-full shadow-lg p-4 flex items-center justify-center transition-all duration-300"
         style={{ boxShadow: '0 4px 24px rgba(37, 99, 235, 0.3)' }}
         aria-label="Call DDG"

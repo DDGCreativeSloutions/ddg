@@ -126,7 +126,7 @@ const SEO = ({
           "addressRegion": "India",
           "addressLocality": "India"
         },
-        "foundingDate": "2023",
+        "foundingDate": "2025",
         "description": "Professional web design, student project assistance, social media marketing, and automation tools for digital growth.",
         "knowsAbout": [
           "Web Development",
@@ -171,7 +171,7 @@ const SEO = ({
           "query-input": "required name=search_term_string"
         },
         "inLanguage": "en-IN",
-        "copyrightYear": "2024",
+        "copyrightYear": "2025",
         "copyrightHolder": {
           "@id": `${siteUrl}/#organization`
         }
