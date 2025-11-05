@@ -61,7 +61,9 @@ const AutomationToolDetail = () => {
           </Button>
           {tool.demoAvailable && (
             <Button className="bg-gradient-to-r from-green-500 to-emerald-600 text-white">
-              Try Demo
+               <a href="https://zapra-ddg.vercel.app" target="_blank" rel="noopener noreferrer">
+                              Try Demo
+                            </a>
             </Button>
           )}
         </div>
@@ -248,7 +250,9 @@ const AutomationToolDetail = () => {
                   <p className="text-gray-700">{tool.documentation}</p>
                   <Button variant="outline" className="w-full mt-4">
                     <BookOpen className="w-4 h-4 mr-2" />
-                    View Documentation
+                     <a href="https://zapra-ddg.vercel.app/about" target="_blank" rel="noopener noreferrer">
+                              View Documentation
+                            </a>
                   </Button>
                 </CardContent>
               </Card>

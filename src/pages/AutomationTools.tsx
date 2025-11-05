@@ -124,8 +124,10 @@ const AutomationTools: React.FC = () => {
                           View Details
                         </Button>
                         {tool.demoAvailable && (
-                          <Button variant="outline" className="flex-1">
-                            Try Demo
+                          <Button asChild variant="outline" className="flex-1">
+                            <a href="https://zapra-ddg.vercel.app" target="_blank" rel="noopener noreferrer">
+                              Try Demo
+                            </a>
                           </Button>
                         )}
                       </div>
