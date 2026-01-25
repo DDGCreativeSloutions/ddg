@@ -358,6 +358,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             <div className="lg:col-span-1">
               <h4 className="font-semibold text-lg mb-4">Resources</h4>
               <ul className="space-y-2 text-gray-300">
+                <li><Link to="/internships" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-white transition-colors">Careers</Link></li>
                 <li><Link to="/privacy-policy"onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-white transition-colors">Privacy Policy</Link></li>
                 <li><Link to="/terms-of-service" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-white transition-colors">Terms of Service</Link></li>
                 <li><Link to="/blog" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-white transition-colors">Blog & Insights</Link></li>
