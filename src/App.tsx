@@ -22,6 +22,7 @@ import TermsOfService from './pages/TermsOfService';
 import Admin from './pages/Admin';
 import ClientForm from './pages/ClientForm';
 import Internships from './pages/Internships';
+import Gallery from './pages/Gallery';
 
 function App() {
   // Test WebP support on mount
@@ -58,6 +59,7 @@ function App() {
               <Route path="/tools" element={<Layout><AutomationTools /></Layout>} />
               <Route path="/tools/:id" element={<Layout><AutomationToolDetail /></Layout>} />
               <Route path="/internships" element={<Layout><Internships /></Layout>} />
+              <Route path="/gallery" element={<Layout><Gallery /></Layout>} />
               <Route path="/blog" element={<Layout><Blog /></Layout>} />
               <Route path="/contact" element={<Layout><Contact /></Layout>} />
               <Route path="/blog/:slug" element={<Layout><BlogPost /></Layout>} />

@@ -15,10 +15,8 @@ import {
   Palette,
   Rocket,
   Brain,
-  Target,
-  Play
+  Target
 } from 'lucide-react';
-import ThreeBackground from '../components/ThreeBackground';
 import ParallaxSection from '../components/ParallaxSection';
 import RobotHeadCTA from '../components/RobotHeadCTA';
 import RobotGLB from '../components/RobotGLB';
@@ -272,8 +270,7 @@ const Home = () => {
         Skip to main content
       </a>
 
-      {/* 3D Background */}
-      <ThreeBackground />
+      {/* 3D Background would go here */}
 
       {/* Interactive Robot (GLB model) that moves with user */}
       <RobotGLB modelPath="/models/main-robot.glb" />

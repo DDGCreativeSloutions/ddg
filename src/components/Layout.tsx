@@ -16,6 +16,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     { name: 'About', href: '/about' },
     { name: 'Services', href: '/services' },
     { name: 'Projects', href: '/projects' },
+    { name: 'Gallery', href: '/gallery' },
     { name: 'Internships', href: '/internships' },
     { name: 'Automation Tools', href: '/tools' },
     { name: 'Blog', href: '/blog' },
@@ -90,37 +91,35 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
         /* ===== Brand reveal (logo only by default; name emerges from behind) ===== */
-        .brand-wrapper { display: inline-flex; align-items: center; position: relative; }
-        .brand-logo { position: relative; z-index: 10; }
         .brand-name {
-          margin-left: .5rem;
           font-weight: 800;
-          font-size: 1.125rem;
+          font-size: 1rem;
           line-height: 1;
           background-image: linear-gradient(90deg, #7c3aed, #2563eb);
           -webkit-background-clip: text; background-clip: text;
           color: transparent;
           white-space: nowrap;
-          max-width: 0;            /* hidden by default */
-          opacity: 0;              /* hidden by default */
-          transform: translateX(-12px); /* tucked "under" the logo */
+          max-width: 0;
+          opacity: 0;
+          transform: translateX(-20px);
           transition: max-width .45s ease, opacity .45s ease, transform .45s ease;
-          z-index: 0; /* sits under the logo to look like it comes from behind */
           overflow: hidden;
         }
-        /* Hover on the whole brand wrapper */
-        .group\\/logo:hover .brand-name {
+        .flex.items-center:hover .brand-name {
           max-width: 280px;
           opacity: 1;
           transform: translateX(0);
         }
-        @media (prefers-reduced-motion: reduce) {
-          .brand-name { transition: none; }
-        }
 
         /* ===== Desktop Nav list styling + purple→blue gradient hover ===== */
-        .ddg-nav-list { text-align: center; box-shadow: 0 0 25px rgba(0,0,0,0.1), inset 0 0 1px rgba(255,255,255,0.6);
-          padding: 10px 20px; border-radius: 50px; display: inline-block; }
+        .ddg-nav-list { 
+          text-align: center; 
+          box-shadow: 0 0 25px rgba(0,0,0,0.1), inset 0 0 1px rgba(255,255,255,0.6);
+          padding: 10px 20px; 
+          border-radius: 50px; 
+          display: inline-block;
+          white-space: nowrap;
+        }
         .ddg-nav-list li { display: inline-block; }
         .ddg-nav-list .nav-link {
           position: relative;
@@ -168,7 +167,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           box-shadow: 0 5px 15px rgba(0,0,0,0.1), inset 0 0 1px rgba(255,255,255,0.8);
         }
 
-        /* ===== Fancy checkbox burger (unchanged) ===== */
+        /* ===== Fancy checkbox burger ===== */
         .reject-checkbox .checkbox-wrapper * { -webkit-tap-highlight-color: transparent; outline: none; }
         .reject-checkbox .checkbox-wrapper input[type="checkbox"] { display: none; }
         .reject-checkbox .checkbox-wrapper label {
@@ -224,21 +223,23 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           <Link
             to="/"
             aria-label="DesignDeliverGrow home"
-            className="brand-wrapper group group/logo"
+            className="flex items-center whitespace-nowrap"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <div className="brand-logo relative overflow-hidden rounded-xl p-1 bg-gradient-to-r from-purple-100 via-blue-100 to-green-100 transition-all duration-300 group-hover:shadow-lg group-hover:scale-105">
+            <div className="relative overflow-hidden rounded-xl p-1 bg-gradient-to-r from-purple-100 via-blue-100 to-green-100 transition-all duration-300 group-hover:shadow-lg flex-shrink-0">
               <img
                 src="/ilogo.png"
                 alt="DesignDeliverGrow Logo"
-                className="h-12 w-auto transition-transform duration-300 group-hover:rotate-1"
+                className="h-12 w-auto"
               />
             </div>
-            <span className="brand-name">DesignDeliverGrow</span>
+            <span className="brand-name ml-2 font-bold text-lg">
+              DesignDeliverGrow
+            </span>
           </Link>
 
-          {/* Desktop Nav */}
-          <div className="hidden md:block">
+          {/* Desktop Nav - single line */}
+          <div className="hidden md:block flex-shrink-0">
             <ul className="ddg-nav-list">
               {navigation.map((item) => (
                 <li key={item.name}>
