@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { LoadingProvider } from "./context/LoadingContext";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import Layout from "./components/Layout";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import Home from "./pages/Home";
@@ -71,6 +72,7 @@ function App() {
               {/* Routes without Layout */}
               <Route path="/form" element={<ClientForm />} />
             </Routes>
+            <SpeedInsights />
           </BrowserRouter>
         </LoadingProvider>
       </TooltipProvider>
